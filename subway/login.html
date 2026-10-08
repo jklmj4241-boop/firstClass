@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>로그인 | 컬리</title>
+  <title>로그인</title>
   <link rel="stylesheet" href="../css/default.css">
   <link rel="stylesheet" href="login.css">
 </head>
@@ -17,62 +17,30 @@
     </header>
 
     <main>
-      <section class="security_notice" aria-label="보안 안내">
-        <p>
-          안전한 이용 및 회원님의 정보 보호를 위해<br>
-          현재 보안서비스가 실행 중입니다.
-        </p>
-      </section>
-
       <section class="login_section">
         <h2>이메일 로그인</h2>
-
         <form>
           <fieldset>
-            <legend class="sr-only">이메일 로그인 정보 입력</legend>
-
+            <legend class="sr-only">이메일 로그인</legend>
             <div class="input_box">
-              <label for="email">이메일</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="이메일(이메일)을 입력해 주세요."
-                autocomplete="email"
-              >
+              <label for="email" class="sr-only">이메일</label>
+              <input type="email" id="email" name="email"
+                placeholder="이메일(이메일)을 입력해 주세요." autocomplete="email">
             </div>
 
             <div class="input_box password_box">
-              <label for="password">비밀번호</label>
+              <label for="password" class="sr-only">비밀번호</label>
               <div class="password_input">
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="비밀번호를 입력해 주세요."
-                  autocomplete="current-password"
-                >
+                <input type="password" id="password" name="password"
+                  placeholder="비밀번호를 입력해 주세요." autocomplete="current-password">
                 <button type="button" class="pw_btn" aria-label="비밀번호 보기">
                   <img src="img/eye_icon.svg" alt="">
                 </button>
               </div>
             </div>
 
-            <div class="login_option">
-              <label class="check">
-                <input type="checkbox" name="auto-login" checked>
-                <span class="check_box" aria-hidden="true"></span>
-                <span>자동 로그인</span>
-              </label>
-
-              <label class="check">
-                <input type="checkbox" name="save-id">
-                <span class="check_box" aria-hidden="true"></span>
-                <span>아이디 저장</span>
-              </label>
-            </div>
-
             <button type="submit" class="login_btn">로그인</button>
+            <a href="#" class="join_btn">회원가입</a>
           </fieldset>
         </form>
 
@@ -87,7 +55,6 @@
 
       <section class="sns_login">
         <h2>네이버, 카카오로 <strong>간편하게 시작</strong>하세요</h2>
-
         <ul class="sns_list">
           <li>
             <a href="#" class="sns_btn naver">
