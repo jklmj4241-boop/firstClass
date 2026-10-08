@@ -30,9 +30,7 @@ body {
 }
 
 #wrap {
-  width: 100%;
-  max-width: 780px;
-  min-width: 360px;
+  width: 540px;
   min-height: 100dvh;
   margin: 0 auto;
   background: var(--white);
