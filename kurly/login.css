@@ -30,8 +30,9 @@ body {
 }
 
 #wrap {
-  width: 780px;
-  min-width: 780px;
+  width: 100%;
+  max-width: 780px;
+  min-width: 360px;
   min-height: 100dvh;
   margin: 0 auto;
   background: var(--white);
@@ -235,8 +236,8 @@ main {
 .sns_btn img {
   position: absolute;
   left: 50%;
-  width: 36px;
-  height: 36px;
+  width: 45px;
+  height: 45px;
   object-fit: contain;
   transform: translateX(-145px);
 }
