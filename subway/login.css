@@ -256,22 +256,3 @@ main {
   background: var(--kakao);
   color: var(--black);
 }
-
-@media (max-width: 500px) {
-  .login_header {
-    height: 104px;
-    padding: 0 40px;
-  }
-
-  .login_header h1 {
-    margin-left: 56px;
-  }
-
-  .prev_btn {
-    left: 40px;
-  }
-
-  main {
-    padding: 42px 40px 80px;
-  }
-}
