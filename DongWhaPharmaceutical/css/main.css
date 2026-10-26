@@ -17,6 +17,32 @@ body {
     object-fit: cover;
 }
 
+/* 피그마 배너 페이지네이션 */
+.hero-sec .swiper-pagination {
+    bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.hero-sec .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 !important;
+    background-color: #fff;
+    opacity: 1;
+}
+.hero-sec .swiper-pagination-bullet-active {
+    background-color: #ed1c24;
+}
+
+/* 피그마에서는 원형 페이지네이션만 표시 */
+.hero-sec .swiper-button-prev,
+.hero-sec .swiper-button-next,
+.hero-sec .swiper-scrollbar {
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .pc {
         display: none;
