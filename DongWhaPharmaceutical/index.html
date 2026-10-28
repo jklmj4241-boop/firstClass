@@ -44,11 +44,13 @@
 
     <script src="../npm/swiper/swiper-bundle.min.js.js"></script>
     <script>
-        const swiper = new Swiper('.hero-sec > .swiper', {
+        const swiper = new Swiper('.visual', {
             direction: 'horizontal',
+            slidesPerView: 1,
             loop: true,
             pagination: {
                 el: '.visual .swiper-pagination',
+                clickable: true,
             },
             navigation: {
                 nextEl: '.visual .swiper-button-next',
