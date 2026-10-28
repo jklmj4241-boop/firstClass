@@ -186,6 +186,123 @@ a {
     line-height: 1.5;
 }
 
+
+/* Figma 메인 콘텐츠: 지금 가장 사랑받는 제품 */
+.favorite-products {
+    padding: 110px 20px;
+    background-color: var(--color-white);
+}
+.products-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 478px minmax(0, 1fr);
+    gap: 86px;
+    width: min(1720px, 100%);
+    min-height: 640px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+.products-feature {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 476px;
+    padding: 24px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: rgba(196, 196, 196, 0.1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+.products-feature img {
+    display: block;
+    width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+}
+.products-content {
+    position: relative;
+    min-width: 0;
+    padding-top: 0;
+    padding-bottom: 70px;
+}
+.products-heading h2 {
+    margin: 0 0 14px;
+    color: #111111;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+.products-heading p {
+    margin: 0;
+    color: #111111;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+.products-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 32px;
+    padding: 5px 0;
+    color: var(--color-primary);
+    font-size: 18px;
+    line-height: 1.4;
+}
+.products-more img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    gap: clamp(20px, 3vw, 80px);
+    margin-top: 38px;
+}
+.product-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    height: 180px;
+    overflow: hidden;
+}
+.product-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+}
+.product-card:hover img {
+    transform: scale(1.04);
+}
+.products-next {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: 44px;
+    height: 44px;
+}
+.products-next img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.products-next img:last-child {
+    inset: 4px;
+    width: 36px;
+    height: 36px;
+}
+
 /* 피그마 배너 페이지네이션 */
 .hero-sec .swiper-pagination {
     bottom: 14px;
@@ -213,6 +330,38 @@ a {
 }
 
 @media (max-width: 1024px) {
+    .favorite-products {
+        padding: 64px 16px;
+    }
+    .products-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        min-height: 0;
+    }
+    .products-feature {
+        min-height: 280px;
+        max-height: 360px;
+        padding: 20px;
+    }
+    .products-feature img {
+        max-height: 320px;
+    }
+    .products-content {
+        padding-bottom: 56px;
+    }
+    .products-heading h2 {
+        font-size: clamp(28px, 4.2vw, 38px);
+    }
+    .products-heading p {
+        font-size: clamp(16px, 2.4vw, 20px);
+    }
+    .products-list {
+        gap: 16px;
+        margin-top: 28px;
+    }
+    .product-card {
+        height: clamp(100px, 25vw, 160px);
+    }
     .pc {
         display: none;
     }
