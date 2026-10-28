@@ -1,3 +1,10 @@
+:root {
+    --color-primary: #ED1C24;
+    --color-white: #FFFFFF;
+    --color-text: #231F20;
+    --color-blue: #194689;
+}
+
 body {
     background-color: yellow;
     font-family: "Pretendard Variable", sans-serif;
@@ -29,11 +36,11 @@ body {
     width: 10px;
     height: 10px;
     margin: 0 !important;
-    background-color: #fff;
+    background-color: var(--color-white);
     opacity: 1;
 }
 .hero-sec .swiper-pagination-bullet-active {
-    background-color: #ed1c24;
+    background-color: var(--color-primary);
 }
 
 /* 피그마에서는 원형 페이지네이션만 표시 */
