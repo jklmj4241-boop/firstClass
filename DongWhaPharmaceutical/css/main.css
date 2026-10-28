@@ -14,7 +14,7 @@ body {
 }
 .hero-sec .swiper {
     width: 100%;
-    height: 520px;
+    height: 560px;
 }
 /*높이를 고정하고 싶은 경우는 px값을 적용*/
 /*반응형에 따라 높이값이 점점 줄어들길 바라면 높이값 주지 않기 max-height정도는 가능*/
