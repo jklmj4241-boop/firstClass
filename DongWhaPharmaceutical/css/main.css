@@ -46,7 +46,7 @@ a {
     color: var(--color-primary);
 }
 .header-main {
-    height: 120px;
+    height: 90px;
     border-bottom: 1px solid #eeeeee;
     background-color: var(--color-white);
 }
@@ -95,7 +95,7 @@ a {
     min-height: 49px;
     padding: 0 18px;
     border: 1px solid #d7d7d7;
-    border-radius: 3px;
+    border-radius: 10px;
     font-size: 15px;
     font-weight: 600;
     white-space: nowrap;
