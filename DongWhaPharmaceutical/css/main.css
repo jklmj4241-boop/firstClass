@@ -37,6 +37,9 @@ body {
     z-index: 2;
     color: var(--color-text);
 }
+.hero-sec .slide-copy--hwalmyungsoo {
+    left: 6%;
+}
 .hero-sec .slide-copy h1 {
     margin: 0 0 15px;
     font-size: 64px;
