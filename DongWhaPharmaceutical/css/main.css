@@ -24,6 +24,33 @@ body {
     object-fit: cover;
 }
 
+
+/* 첫 번째 배너 텍스트: Figma 디자인 참고 */
+.hero-sec .swiper-slide {
+    position: relative;
+}
+.hero-sec .slide-copy {
+    position: absolute;
+    top: 50%;
+    left: 22.7%;
+    transform: translateY(-50%);
+    z-index: 2;
+    color: var(--color-text);
+}
+.hero-sec .slide-copy h1 {
+    margin: 0 0 15px;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+}
+.hero-sec .slide-copy p {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
 /* 피그마 배너 페이지네이션 */
 .hero-sec .swiper-pagination {
     bottom: 14px;
@@ -66,5 +93,15 @@ body {
     }
     .hero-sec .swiper {
         height: 100dvh;
+    }
+    .hero-sec .slide-copy {
+        left: 7%;
+        right: 7%;
+    }
+    .hero-sec .slide-copy h1 {
+        font-size: clamp(30px, 5.2vw, 44px);
+    }
+    .hero-sec .slide-copy p {
+        font-size: clamp(16px, 2.4vw, 20px);
     }
 }
