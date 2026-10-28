@@ -35,12 +35,24 @@
                         <a class="header-action" href="#product-search">제품 찾기</a>
                         <a class="header-action" href="#pharmacy-search">약국 찾기</a>
                     </div>
-                    <button class="mobile-menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false">
+                    <button class="mobile-menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
                 </div>
+                <nav class="mobile-menu" id="mobile-menu" aria-label="모바일 주요 메뉴" hidden>
+                    <a href="#company">동화약품</a>
+                    <a href="#products">제품</a>
+                    <a href="#research">연구개발</a>
+                    <a href="#sustainability">지속가능경영</a>
+                    <a href="#news">소식</a>
+                    <a href="#recruit">채용</a>
+                    <a href="#investment">투자정보</a>
+                    <a href="#support">고객지원</a>
+                    <a href="#product-search">제품 찾기</a>
+                    <a href="#pharmacy-search">약국 찾기</a>
+                </nav>
             </div>
         </header>
         <main>
@@ -86,6 +98,25 @@
     </div>
 
     <script src="../npm/swiper/swiper-bundle.min.js.js"></script>
+    <script>
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('#mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+            menuToggle.setAttribute('aria-label', isExpanded ? '메뉴 열기' : '메뉴 닫기');
+            mobileMenu.hidden = isExpanded;
+        });
+
+        mobileMenu.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                mobileMenu.hidden = true;
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.setAttribute('aria-label', '메뉴 열기');
+            });
+        });
+    </script>
     <script>
         const swiper = new Swiper('.visual', {
             direction: 'horizontal',
