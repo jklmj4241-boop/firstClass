@@ -32,7 +32,7 @@ body {
 .hero-sec .slide-copy {
     position: absolute;
     top: 50%;
-    left: 22.7%;
+    left: 20.5%;
     transform: translateY(-50%);
     z-index: 2;
     color: var(--color-text);
