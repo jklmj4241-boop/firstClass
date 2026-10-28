@@ -122,6 +122,26 @@ a {
     margin: 5px auto;
     background-color: var(--color-text);
 }
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 16px 20px;
+    border-top: 1px solid #eeeeee;
+    background-color: var(--color-white);
+}
+.mobile-menu[hidden] {
+    display: none;
+}
+.mobile-menu a {
+    padding: 13px 0;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 16px;
+    font-weight: 600;
+}
+.mobile-menu a:last-child {
+    border-bottom: 0;
+}
 .mo {
     display: none;
 }
