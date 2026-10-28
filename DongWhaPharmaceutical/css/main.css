@@ -255,6 +255,7 @@ a {
     width: 30px;
     height: 30px;
     object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(18%) sepia(98%) saturate(5800%) hue-rotate(349deg) brightness(92%) contrast(105%);
 }
 .products-list {
     display: grid;
@@ -301,6 +302,7 @@ a {
     inset: 4px;
     width: 36px;
     height: 36px;
+    filter: brightness(0) saturate(100%) invert(18%) sepia(98%) saturate(5800%) hue-rotate(349deg) brightness(92%) contrast(105%);
 }
 
 /* 피그마 배너 페이지네이션 */
