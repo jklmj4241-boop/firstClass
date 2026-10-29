@@ -126,7 +126,7 @@
             <section class="favorite-products" id="products" aria-labelledby="favorite-products-title">
                 <div class="products-inner">
                     <div class="products-feature">
-                        <img src="img/Dong.png" alt="동화약품 대표 제품 이미지">
+                        <img src="img/Dong129.png" alt="동화약품 129년 여정">
                     </div>
                     <div class="products-content">
                         <div class="products-heading">
@@ -140,20 +140,31 @@
                             <img src="img/Greaterthan.svg" alt="">
                         </a>
                         <div class="products-row">
-                            <div class="products-list" aria-label="대표 제품">
-                                <a class="product-card product-card--one" href="https://www.dong-wha.co.kr/product/content.asp?t_idx=85&t_page=1&d=&b=20&s=23" target="_blank" rel="noopener noreferrer">
-                                    <img src="img/Product01.png" alt="동화약품 대표 제품 1">
-                                </a>
-                                <a class="product-card product-card--two" href="https://www.dong-wha.co.kr/product/content.asp?t_idx=797&t_page=1&b=30&s=99" target="_blank" rel="noopener noreferrer">
-                                    <img src="img/Product02.png" alt="동화약품 대표 제품 2">
-                                </a>
-                                <a class="product-card product-card--three" href="https://www.dong-wha.co.kr/product/content.asp?t_idx=324&t_page=1&d=&b=20&s=21" target="_blank" rel="noopener noreferrer">
-                                    <img src="img/Product03.png" alt="동화약품 대표 제품 3">
-                                </a>
+                            <div class="products-list swiper products-swiper" aria-label="대표 제품">
+                                <div class="swiper-wrapper">
+                                    <a class="product-card swiper-slide" href="https://www.dong-wha.co.kr/product/content.asp?t_idx=85&t_page=1&d=&b=20&s=23" target="_blank" rel="noopener noreferrer" aria-label="대표 제품 1">
+                                        <img src="img/Product01.png" alt="동화약품 대표 제품 1">
+                                    </a>
+                                    <a class="product-card swiper-slide" href="https://www.dong-wha.co.kr/product/content.asp?t_idx=797&t_page=1&b=30&s=99" target="_blank" rel="noopener noreferrer" aria-label="대표 제품 2">
+                                        <img src="img/Product02.png" alt="동화약품 대표 제품 2">
+                                    </a>
+                                    <a class="product-card swiper-slide" href="https://www.dong-wha.co.kr/product/content.asp?t_idx=324&t_page=1&d=&b=20&s=21" target="_blank" rel="noopener noreferrer" aria-label="대표 제품 3">
+                                        <img src="img/Product03.png" alt="동화약품 대표 제품 3">
+                                    </a>
+                                    <a class="product-card swiper-slide" href="https://www.dong-wha.co.kr/product/" target="_blank" rel="noopener noreferrer" aria-label="대표 제품 4">
+                                        <img src="img/Product04.png" alt="동화약품 대표 제품 4">
+                                    </a>
+                                    <a class="product-card swiper-slide" href="https://www.dong-wha.co.kr/product/" target="_blank" rel="noopener noreferrer" aria-label="대표 제품 5">
+                                        <img src="img/Product05.png" alt="동화약품 대표 제품 5">
+                                    </a>
+                                    <a class="product-card swiper-slide" href="https://www.dong-wha.co.kr/product/" target="_blank" rel="noopener noreferrer" aria-label="대표 제품 6">
+                                        <img src="img/Product06.png" alt="동화약품 대표 제품 6">
+                                    </a>
+                                </div>
                             </div>
-                            <a class="products-next" href="https://www.dong-wha.co.kr/product/" target="_blank" rel="noopener noreferrer" aria-label="제품 더 보기">
+                            <button class="products-next" type="button" aria-label="다음 제품">
                                 <img src="img/Greaterthan.svg" alt="">
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -180,6 +191,37 @@
                 menuToggle.setAttribute('aria-expanded', 'false');
                 menuToggle.setAttribute('aria-label', '메뉴 열기');
             });
+        });
+    </script>
+    <script>
+        const productsSwiper = new Swiper('.products-swiper', {
+            direction: 'horizontal',
+            slidesPerView: 3,
+            slidesPerGroup: 1,
+            spaceBetween: 28,
+            loop: true,
+            speed: 600,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.products-next',
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 16,
+                },
+                600: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1025: {
+                    slidesPerView: 3,
+                    spaceBetween: 28,
+                },
+            },
         });
     </script>
     <script>
