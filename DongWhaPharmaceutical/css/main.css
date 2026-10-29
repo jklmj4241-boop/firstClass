@@ -521,6 +521,7 @@ a {
     background-color: var(--brand-white);
 }
 .events-inner {
+    position: relative;
     width: min(1720px, 100%);
     margin: 0 auto;
 }
@@ -578,6 +579,37 @@ a {
     letter-spacing: 0.01em;
 }
 
+.events-more {
+    position: absolute;
+    right: -2px;
+    top: 58%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--brand-primary);
+    border-radius: 50%;
+    color: var(--brand-primary);
+    background-color: var(--brand-white);
+    text-decoration: none;
+    transform: translate(50%, -50%);
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+.events-more span {
+    display: block;
+    margin-top: -4px;
+    font-size: 34px;
+    font-weight: 300;
+    line-height: 1;
+}
+.events-more:hover,
+.events-more:focus-visible {
+    color: var(--brand-white);
+    background-color: var(--brand-primary);
+}
+
+
 /* 피그마 배너 페이지네이션 */
 .hero-sec .swiper-pagination {
     bottom: 14px;
@@ -617,6 +649,14 @@ a {
     }
     .event-info {
         margin-top: 14px;
+    }
+    .events-more {
+        right: 0;
+        top: auto;
+        bottom: -54px;
+        width: 38px;
+        height: 38px;
+        transform: none;
     }
 
     .brand-story {
