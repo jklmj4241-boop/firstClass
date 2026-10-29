@@ -255,6 +255,9 @@
         <footer>&copy;</footer>
     </div>
 
+    <!-- Scroll animation library: GSAP + ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="../npm/swiper/swiper-bundle.min.js.js"></script>
     <script>
         const mainNavLinks = document.querySelectorAll('.main-nav a');
@@ -382,6 +385,51 @@
                 el: '.visual .swiper-scrollbar',
             },
         });
+    </script>
+    <script>
+        // 더 건강한 가치를 만듭니다: 스크롤 진행률에 맞춰 이미지와 텍스트를 전환합니다.
+        gsap.registerPlugin(ScrollTrigger);
+
+        const healthySection = document.querySelector('.healthy-values');
+        const healthyDesktop = window.matchMedia('(min-width: 1025px)');
+
+        if (healthySection && healthyDesktop.matches) {
+            const firstRow = healthySection.querySelector('.healthy-values-row-first');
+            const secondRow = healthySection.querySelector('.healthy-values-row-second');
+
+            function createHealthyScrollAnimation(row, startColumns, endColumns) {
+                const image = row.querySelector('.healthy-values-image');
+                const copy = row.querySelector('.healthy-values-copy');
+
+                gsap.set(row, { gridTemplateColumns: startColumns, gap: 0 });
+                gsap.set(image, { width: '100%', maxWidth: 'none' });
+                gsap.set(copy, { autoAlpha: 0, y: 30 });
+
+                const timeline = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: row,
+                        start: 'top 82%',
+                        end: 'top 28%',
+                        scrub: 0.8,
+                        invalidateOnRefresh: true
+                    }
+                });
+
+                timeline.to(row, {
+                    gridTemplateColumns: endColumns,
+                    gap: 56,
+                    ease: 'none'
+                }, 0);
+                timeline.to(copy, {
+                    autoAlpha: 1,
+                    y: 0,
+                    ease: 'none'
+                }, 0.22);
+            }
+
+            createHealthyScrollAnimation(firstRow, '1fr 0fr', '58fr 42fr');
+            createHealthyScrollAnimation(secondRow, '0fr 1fr', '42fr 58fr');
+        }
     </script>
 </body>
 </html>
