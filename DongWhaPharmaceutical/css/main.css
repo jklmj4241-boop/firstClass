@@ -25,8 +25,8 @@ a {
     margin: 0 auto;
 }
 .header-utility {
-    height: 36px;
-    background-color: #f7f7f7;
+    height: 50px;
+    background-color: var(--color-blue);
 }
 .utility-inner {
     display: flex;
@@ -37,8 +37,9 @@ a {
 .utility-links {
     display: flex;
     align-items: center;
-    gap: 32px;
-    font-size: 14px;
+    gap: 20px;
+    color: var(--color-white);
+    font-size: 18px;
     font-weight: 500;
 }
 .utility-links a:hover,
@@ -46,7 +47,8 @@ a {
     color: var(--color-primary);
 }
 .header-main {
-    height: 90px;
+    position: relative;
+    height: 100px;
     border-bottom: 1px solid #eeeeee;
     background-color: var(--color-white);
 }
@@ -71,7 +73,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: clamp(20px, 2.5vw, 48px);
+    gap: clamp(24px, 5.2vw, 100px);
     margin-left: auto;
     margin-right: auto;
     white-space: nowrap;
@@ -80,6 +82,60 @@ a {
     font-size: 18px;
     font-weight: 600;
     transition: color 0.2s ease;
+}
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 30;
+    display: block;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    border-top: 1px solid #eeeeee;
+    background-color: var(--color-white);
+    transition: max-height 0.25s ease, opacity 0.2s ease, visibility 0.2s ease;
+}
+.header-main:has(.main-nav:hover) .mega-menu,
+.header-main:has(.main-nav:focus-within) .mega-menu,
+.header-main:has(.mega-menu:hover) .mega-menu,
+.header-main:has(.mega-menu:focus-within) .mega-menu {
+    max-height: 260px;
+    visibility: visible;
+    opacity: 1;
+}
+.mega-menu-inner {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px;
+    width: min(1720px, calc(100% - 40px));
+    min-height: 194px;
+    margin: 0 auto;
+    padding: 17px 0 24px;
+    box-sizing: border-box;
+}
+.mega-menu-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+}
+.mega-menu-column a {
+    transition: color 0.18s ease;
+}
+.mega-menu-column a:hover,
+.mega-menu-column a:focus-visible {
+    color: var(--color-primary);
+}
+.mega-menu-column .mega-menu-heading {
+    font-weight: 600;
 }
 .header-actions {
     display: flex;
@@ -375,6 +431,9 @@ a {
         top: 0;
     }
     .header-utility {
+        display: none;
+    }
+    .mega-menu {
         display: none;
     }
     .header-main {
