@@ -395,12 +395,13 @@ a {
     margin-top: 38px;
 }
 .products-list {
-    display: grid;
     flex: 1;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: center;
-    gap: clamp(20px, 3vw, 80px);
+    width: 0;
     min-width: 0;
+    overflow: hidden;
+}
+.products-list .swiper-wrapper {
+    align-items: center;
 }
 .product-card {
     display: flex;
