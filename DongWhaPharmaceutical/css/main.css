@@ -368,9 +368,8 @@ a {
 .products-feature img {
     display: block;
     width: 100%;
-    height: 100%;
     max-height: 420px;
-    object-fit: cover;
+    object-fit: contain;
 }
 .products-content {
     position: relative;
@@ -464,44 +463,38 @@ a {
 /* 브랜드 스토리 섹션 */
 .brand-story {
     width: 100%;
-    padding: 80px 24px;
+    padding: 0;
     overflow: hidden;
     background-color: var(--brand-white);
-    box-sizing: border-box;
 }
 .brand-story-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    align-items: center;
-    gap: 40px;
-    width: min(1720px, 100%);
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
 }
 .brand-story-visual {
     position: relative;
+    display: block;
     width: 100%;
-    min-width: 0;
     overflow: hidden;
     border-radius: 0;
 }
 .brand-story-visual > img {
     display: block;
     width: 100%;
-    height: clamp(360px, 38vw, 640px);
+    height: auto;
     object-fit: cover;
-    object-position: center;
 }
 .brand-story-copy {
-    position: relative;
+    position: absolute;
+    top: 27%;
+    left: max(24px, calc((100% - 1364px) / 2));
     z-index: 1;
-    min-width: 0;
-    max-width: 600px;
-    padding: 24px 0;
-    color: var(--text-primary);
+    max-width: min(600px, calc(100% - 48px));
+    color: var(--text-white);
 }
 .brand-story-copy h2 {
     margin: 0 0 16px;
-    color: var(--text-primary);
+    color: var(--text-white);
     font-size: clamp(28px, 2.9vw, 56px);
     font-weight: 700;
     line-height: 1.18;
@@ -512,7 +505,7 @@ a {
 }
 .brand-story-copy p {
     margin: 0;
-    color: var(--text-primary);
+    color: var(--text-white);
     font-size: clamp(14px, 1.25vw, 23px);
     font-weight: 400;
     line-height: 1.65;
@@ -522,7 +515,7 @@ a {
     align-items: center;
     gap: 10px;
     margin-top: 34px;
-    color: var(--text-primary);
+    color: var(--text-white);
     font-size: clamp(14px, 1vw, 18px);
     font-weight: 500;
 }
@@ -535,7 +528,7 @@ a {
     transition: none;
 }
 .brand-story-link:focus-visible {
-    outline: 2px solid var(--brand-primary);
+    outline: 2px solid var(--text-white);
     outline-offset: 5px;
 }
 
@@ -686,33 +679,18 @@ a {
     }
 
     .brand-story {
-        padding: 48px 16px;
-    }
-    .brand-story-inner {
-        grid-template-columns: 1fr;
-        gap: 18px;
+        padding: 0;
     }
     .brand-story-copy {
-        grid-column: 1;
-        grid-row: 1;
-        max-width: 100%;
-        padding: 0;
-        color: var(--text-primary);
-    }
-    .brand-story-visual {
-        grid-column: 1;
-        grid-row: 2;
-    }
-    .brand-story-visual > img {
-        height: clamp(240px, 62vw, 420px);
+        top: 18%;
+        left: 6%;
+        max-width: 88%;
     }
     .brand-story-copy h2 {
         margin-bottom: 10px;
-        color: var(--text-primary);
         font-size: clamp(22px, 4.2vw, 38px);
     }
     .brand-story-copy p {
-        color: var(--text-primary);
         font-size: clamp(12px, 1.8vw, 17px);
     }
     .brand-story-desktop-break {
@@ -720,7 +698,6 @@ a {
     }
     .brand-story-link {
         margin-top: 16px;
-        color: var(--text-primary);
         font-size: 13px;
     }
     .brand-story-link span {
