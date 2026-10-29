@@ -451,20 +451,68 @@ a {
     width: 100%;
     margin: 0;
 }
-.brand-story-heading {
-    display: none;
-}
 .brand-story-visual {
+    position: relative;
     display: block;
     width: 100%;
     overflow: hidden;
     border-radius: 0;
 }
-.brand-story-visual img {
+.brand-story-visual > img {
     display: block;
     width: 100%;
     height: auto;
     object-fit: cover;
+}
+.brand-story-copy {
+    position: absolute;
+    top: 27%;
+    left: max(24px, calc((100% - 1364px) / 2));
+    z-index: 1;
+    max-width: min(600px, calc(100% - 48px));
+    color: var(--text-white);
+}
+.brand-story-copy h2 {
+    margin: 0 0 16px;
+    color: var(--text-white);
+    font-size: clamp(28px, 2.9vw, 56px);
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: -0.035em;
+}
+.brand-story-copy h2 span {
+    color: #FFB79E;
+}
+.brand-story-copy p {
+    margin: 0;
+    color: var(--text-white);
+    font-size: clamp(14px, 1.25vw, 23px);
+    font-weight: 400;
+    line-height: 1.65;
+}
+.brand-story-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 34px;
+    color: var(--text-white);
+    font-size: clamp(14px, 1vw, 18px);
+    font-weight: 500;
+}
+.brand-story-link span {
+    display: inline-block;
+    color: var(--brand-primary);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 0.8;
+    transition: transform 0.2s ease;
+}
+.brand-story-link:hover span {
+    transform: translateX(4px);
+}
+.brand-story-link:focus-visible {
+    outline: 2px solid var(--text-white);
+    outline-offset: 5px;
 }
 
 /* 피그마 배너 페이지네이션 */
@@ -496,6 +544,28 @@ a {
 @media (max-width: 1024px) {
     .brand-story {
         padding: 0;
+    }
+    .brand-story-copy {
+        top: 18%;
+        left: 6%;
+        max-width: 88%;
+    }
+    .brand-story-copy h2 {
+        margin-bottom: 10px;
+        font-size: clamp(22px, 4.2vw, 38px);
+    }
+    .brand-story-copy p {
+        font-size: clamp(12px, 1.8vw, 17px);
+    }
+    .brand-story-desktop-break {
+        display: none;
+    }
+    .brand-story-link {
+        margin-top: 16px;
+        font-size: 13px;
+    }
+    .brand-story-link span {
+        font-size: 25px;
     }
 
     .favorite-products {
