@@ -217,7 +217,7 @@
                             </a>
                             <div class="event-info">
                                 <h3>여름휴가를 위한 특별한 이벤트</h3>
-                                <p>2026.06.26 ~ 2026.07.26</p>
+                                <p>2026.06.26 ~ 2026.07.02</p>
                             </div>
                         </article>
                     </div>
@@ -229,6 +229,15 @@
 
     <script src="../npm/swiper/swiper-bundle.min.js.js"></script>
     <script>
+        const mainNavLinks = document.querySelectorAll('.main-nav a');
+
+        mainNavLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                mainNavLinks.forEach((item) => item.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
         const menuToggle = document.querySelector('.mobile-menu-toggle');
         const mobileMenu = document.querySelector('#mobile-menu');
 
