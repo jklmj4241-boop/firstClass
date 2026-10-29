@@ -539,6 +539,28 @@ a {
     outline-offset: 5px;
 }
 
+/* 모든 CTA 버튼에서 GitHub에 있는 동일한 Greaterthan 아이콘 사용 */
+.shared-arrow {
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 30px;
+    height: 30px;
+    background-color: currentColor;
+    -webkit-mask: url("../img/Greaterthan.svg") center / contain no-repeat;
+    mask: url("../img/Greaterthan.svg") center / contain no-repeat;
+    font-size: 0;
+    line-height: 0;
+}
+.brand-story-link .shared-arrow {
+    color: var(--brand-primary);
+}
+.events-more .shared-arrow {
+    color: var(--brand-primary);
+}
+.healthy-values-more .shared-arrow {
+    color: var(--brand-primary);
+}
+
 /* 더 건강한 가치를 만듭니다 */
 .healthy-values {
     padding: 100px 24px 24px;
