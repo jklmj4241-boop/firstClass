@@ -230,6 +230,11 @@
     <script src="../npm/swiper/swiper-bundle.min.js.js"></script>
     <script>
         const mainNavLinks = document.querySelectorAll('.main-nav a');
+        const headerMain = document.querySelector('.header-main');
+        const megaMenu = document.querySelector('.mega-menu');
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('#mobile-menu');
+        const desktopQuery = window.matchMedia('(min-width: 1025px)');
 
         mainNavLinks.forEach((link) => {
             link.addEventListener('click', () => {
@@ -238,14 +243,45 @@
             });
         });
 
-        const menuToggle = document.querySelector('.mobile-menu-toggle');
-        const mobileMenu = document.querySelector('#mobile-menu');
+        function closeDesktopMegaMenu() {
+            headerMain.classList.remove('mega-menu-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.setAttribute('aria-label', '메뉴 열기');
+        }
 
         menuToggle.addEventListener('click', () => {
+            if (desktopQuery.matches) {
+                const isOpen = headerMain.classList.toggle('mega-menu-open');
+                menuToggle.setAttribute('aria-expanded', String(isOpen));
+                menuToggle.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
+                return;
+            }
+
             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
             menuToggle.setAttribute('aria-expanded', String(!isExpanded));
             menuToggle.setAttribute('aria-label', isExpanded ? '메뉴 열기' : '메뉴 닫기');
             mobileMenu.hidden = isExpanded;
+        });
+
+        // PC에서는 메인 메뉴와 메가 메뉴 사이를 이동할 때 메뉴가 닫히지 않도록 유지합니다.
+        [document.querySelector('.main-nav'), megaMenu].forEach((area) => {
+            area.addEventListener('mouseenter', () => {
+                if (desktopQuery.matches) {
+                    headerMain.classList.add('mega-menu-open');
+                }
+            });
+            area.addEventListener('mouseleave', (event) => {
+                if (!desktopQuery.matches) return;
+                const next = event.relatedTarget;
+                if (next && (document.querySelector('.main-nav').contains(next) || megaMenu.contains(next) || menuToggle.contains(next))) return;
+                closeDesktopMegaMenu();
+            });
+        });
+
+        menuToggle.addEventListener('mouseenter', () => {
+            if (desktopQuery.matches && headerMain.classList.contains('mega-menu-open')) {
+                headerMain.classList.add('mega-menu-open');
+            }
         });
 
         mobileMenu.querySelectorAll('a').forEach((link) => {
@@ -254,6 +290,16 @@
                 menuToggle.setAttribute('aria-expanded', 'false');
                 menuToggle.setAttribute('aria-label', '메뉴 열기');
             });
+        });
+
+        window.addEventListener('resize', () => {
+            if (desktopQuery.matches) {
+                mobileMenu.hidden = true;
+                menuToggle.setAttribute('aria-expanded', String(headerMain.classList.contains('mega-menu-open')));
+            } else {
+                closeDesktopMegaMenu();
+                menuToggle.setAttribute('aria-expanded', String(!mobileMenu.hidden));
+            }
         });
     </script>
     <script>
