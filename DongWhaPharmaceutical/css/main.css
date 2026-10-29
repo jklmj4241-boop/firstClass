@@ -713,6 +713,121 @@ a {
     outline-offset: 4px;
 }
 
+/* 사이트 푸터 */
+.site-footer {
+    width: 100%;
+    background: #f8f8f8;
+    color: #5f636d;
+}
+.footer-partners {
+    min-height: 184px;
+    display: flex;
+    align-items: center;
+    background: #000;
+    padding: 28px 24px;
+}
+.footer-partners-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(14px, 1.4vw, 28px);
+    width: min(1430px, 100%);
+    margin: 0 auto;
+}
+.footer-partners-inner img {
+    display: block;
+    width: auto;
+    max-width: 17%;
+    max-height: 66px;
+    object-fit: contain;
+}
+.footer-partners-divider {
+    flex: 0 0 1px;
+    align-self: stretch;
+    max-height: 64px;
+    background: rgba(255, 255, 255, 0.85);
+    margin: 0 8px;
+}
+.footer-main {
+    padding: 64px 24px 68px;
+    background: #f8f8f8;
+}
+.footer-main-inner {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.7fr) minmax(450px, 1.7fr) minmax(250px, 0.8fr);
+    align-items: start;
+    gap: clamp(28px, 3vw, 64px);
+    width: min(1780px, 100%);
+    margin: 0 auto;
+}
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    padding-top: 12px;
+}
+.footer-logo img {
+    display: block;
+    width: min(100%, 310px);
+    height: auto;
+    object-fit: contain;
+}
+.footer-company-info {
+    padding-top: 7px;
+    color: #626773;
+    font-size: clamp(13px, 0.95vw, 19px);
+    font-weight: 400;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+.footer-company-info p {
+    margin: 0;
+}
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    padding-top: 8px;
+    color: #4f4f4f;
+    font-size: clamp(13px, 0.9vw, 17px);
+    white-space: nowrap;
+}
+.footer-policy-links {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+.footer-policy-links a {
+    padding: 0 18px;
+    border-right: 1px solid #d9d9d9;
+}
+.footer-policy-links a:first-child {
+    padding-left: 0;
+}
+.footer-policy-links a:last-child {
+    padding-right: 0;
+    border-right: 0;
+}
+.footer-links a {
+    color: inherit;
+    text-decoration: none;
+}
+.footer-links a:hover,
+.footer-links a:focus-visible {
+    color: var(--brand-primary);
+}
+.footer-family-link {
+    padding-right: 0;
+    line-height: 1.5;
+}
+.footer-links a:focus-visible,
+.footer-logo:focus-visible {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 4px;
+}
+
 /* 이벤트 섹션 */
 .events-section {
     padding: 100px 24px 110px;
@@ -830,6 +945,55 @@ a {
 }
 
 @media (max-width: 1024px) {
+    .footer-partners {
+        min-height: 0;
+        padding: 28px 16px;
+    }
+    .footer-partners-inner {
+        flex-wrap: wrap;
+        gap: 18px 20px;
+    }
+    .footer-partners-inner img {
+        max-width: 28%;
+        max-height: 44px;
+    }
+    .footer-partners-divider {
+        display: none;
+    }
+    .footer-main {
+        padding: 40px 20px;
+    }
+    .footer-main-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .footer-logo {
+        padding-top: 0;
+    }
+    .footer-logo img {
+        width: min(230px, 75%);
+    }
+    .footer-company-info {
+        padding-top: 0;
+        font-size: 13px;
+        line-height: 1.8;
+    }
+    .footer-links {
+        align-items: flex-start;
+        white-space: normal;
+        padding-top: 0;
+    }
+    .footer-policy-links {
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+    .footer-policy-links a {
+        padding: 0 12px;
+    }
+    .footer-policy-links a:first-child {
+        padding-left: 0;
+    }
+
     .recruitment-section {
         min-height: 560px;
         padding: 64px 20px;
