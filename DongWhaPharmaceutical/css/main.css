@@ -50,7 +50,7 @@ a {
     align-items: center;
     gap: 20px;
     color: var(--color-white);
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
 }
 .utility-links a:hover,
@@ -252,8 +252,23 @@ a {
     display: block;
     width: 22px;
     height: 2px;
-    margin: 2.5px auto;
+    margin: 2px auto;
     background-color: var(--color-text);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+.header-main.mega-menu-open .mega-menu {
+    max-height: 260px;
+    visibility: visible;
+    opacity: 1;
 }
 .mobile-menu {
     display: flex;
