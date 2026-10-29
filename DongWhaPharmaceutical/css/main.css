@@ -486,14 +486,14 @@ a {
 }
 .brand-story-copy {
     position: absolute;
-    top: 27%;
+    top: 25%;
     left: max(24px, calc((100% - 1364px) / 2));
     z-index: 1;
-    max-width: min(600px, calc(100% - 48px));
+    width: min(446px, calc(100% - 48px));
     color: var(--text-white);
 }
 .brand-story-copy h2 {
-    margin: 0 0 16px;
+    margin: 0 0 8px;
     color: var(--text-white);
     font-size: clamp(28px, 2.9vw, 56px);
     font-weight: 700;
@@ -506,17 +506,23 @@ a {
 .brand-story-copy p {
     margin: 0;
     color: var(--text-white);
-    font-size: clamp(14px, 1.25vw, 23px);
+    font-size: clamp(14px, 1.15vw, 22px);
     font-weight: 400;
-    line-height: 1.65;
+    line-height: 1.64;
 }
 .brand-story-link {
+    box-sizing: border-box;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    margin-top: 34px;
+    justify-content: center;
+    gap: 8px;
+    width: 113px;
+    height: 40px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 999px;
     color: var(--text-white);
-    font-size: clamp(14px, 1vw, 18px);
+    font-size: 14px;
     font-weight: 500;
 }
 .brand-story-link span {
