@@ -79,7 +79,7 @@ a {
 }
 .brand-logo img {
     display: block;
-    width: 180px;
+    width: 230px;
     max-width: 100%;
     height: auto;
     object-fit: contain;
@@ -210,9 +210,14 @@ a {
     transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 .header-action.accent {
-    border-color: var(--color-primary);
-    background-color: var(--color-primary);
-    color: var(--color-white);
+    border-color: var(--brand-primary);
+    background-color: var(--brand-primary);
+    color: var(--text-white);
+}
+.header-action:not(.accent) {
+    border-color: var(--brand-primary);
+    background-color: var(--brand-white);
+    color: var(--brand-primary);
 }
 .header-action:not(.accent):hover {
     border-color: var(--brand-primary);
