@@ -433,8 +433,8 @@ a {
 }
 .products-next img {
     display: block;
-    width: 14px;
-    height: 14px;
+    width: 22px;
+    height: 22px;
     object-fit: contain;
     filter: brightness(0) saturate(100%) invert(18%) sepia(98%) saturate(5800%) hue-rotate(349deg) brightness(92%) contrast(105%);
 }
