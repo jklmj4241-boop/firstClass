@@ -172,13 +172,13 @@
 
             <section class="brand-story" id="brand-story" aria-labelledby="brand-story-title">
                 <div class="brand-story-inner">
+                    <div class="brand-story-copy">
+                        <h2 id="brand-story-title">동화약품의<br><span>129년의 여정</span></h2>
+                        <p>사람의 생명을 소중히 여기는 마음에서 시작해<br class="brand-story-desktop-break"> 건강한 내일을 향해 도전해 왔습니다.</p>
+                        <a class="brand-story-link" href="https://www.dong-wha.co.kr/" target="_blank" rel="noopener noreferrer">자세히 보기 <span aria-hidden="true">›</span></a>
+                    </div>
                     <div class="brand-story-visual">
                         <img src="img/Dong129.png" alt="동화약품 본사와 푸른 하늘">
-                        <div class="brand-story-copy">
-                            <h2 id="brand-story-title">동화약품의<br><span>129년의 여정</span></h2>
-                            <p>사람의 생명을 소중히 여기는 마음에서 시작해<br class="brand-story-desktop-break"> 건강한 내일을 향해 도전해 왔습니다.</p>
-                            <a class="brand-story-link" href="https://www.dong-wha.co.kr/" target="_blank" rel="noopener noreferrer">자세히 보기 <span aria-hidden="true">›</span></a>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -354,6 +354,173 @@
                 el: '.visual .swiper-scrollbar',
             },
         });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script>
+        // GSAP ScrollTrigger: 데스크톱에서는 좌우 레이아웃 전환, 모바일에서는 간단한 등장 효과만 적용
+        if (window.gsap && window.ScrollTrigger) {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const desktopMotion = window.matchMedia('(min-width: 1025px)');
+
+            function setupScrollAnimations() {
+                ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+                gsap.killTweensOf([
+                    '.products-inner',
+                    '.products-feature',
+                    '.products-content',
+                    '.brand-story-inner',
+                    '.brand-story-copy',
+                    '.brand-story-visual'
+                ]);
+
+                if (desktopMotion.matches) {
+                    // 제품 섹션: 큰 이미지가 왼쪽으로 줄어들고 제품 정보가 오른쪽에 나타납니다.
+                    gsap.fromTo('.products-inner',
+                        { gridTemplateColumns: 'minmax(0, 1fr)' },
+                        {
+                            gridTemplateColumns: '478px minmax(0, 1fr)',
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: '.favorite-products',
+                                start: 'top 75%',
+                                end: 'center 35%',
+                                scrub: 1,
+                                invalidateOnRefresh: true
+                            }
+                        }
+                    );
+                    gsap.fromTo('.products-feature',
+                        { width: '100%', gridColumn: '1 / -1' },
+                        {
+                            width: '100%',
+                            gridColumn: '1 / 2',
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: '.favorite-products',
+                                start: 'top 75%',
+                                end: 'center 35%',
+                                scrub: 1,
+                                invalidateOnRefresh: true
+                            }
+                        }
+                    );
+                    gsap.fromTo('.products-content',
+                        { opacity: 0, y: 30 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: '.favorite-products',
+                                start: 'top 70%',
+                                end: 'center 40%',
+                                scrub: 1,
+                                invalidateOnRefresh: true
+                            }
+                        }
+                    );
+
+                    // 브랜드 스토리: 이미지가 오른쪽 58% 영역으로 이동하고 텍스트는 왼쪽에서 나타납니다.
+                    gsap.fromTo('.brand-story-inner',
+                        { gridTemplateColumns: 'minmax(0, 1fr)' },
+                        {
+                            gridTemplateColumns: '42% 58%',
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: '.brand-story',
+                                start: 'top 80%',
+                                end: 'center 35%',
+                                scrub: 1,
+                                invalidateOnRefresh: true
+                            }
+                        }
+                    );
+                    gsap.fromTo('.brand-story-copy',
+                        { opacity: 0, y: 30 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: '.brand-story',
+                                start: 'top 75%',
+                                end: 'center 40%',
+                                scrub: 1,
+                                invalidateOnRefresh: true
+                            }
+                        }
+                    );
+                    gsap.fromTo('.brand-story-visual',
+                        { width: '100%', justifySelf: 'stretch' },
+                        {
+                            width: '100%',
+                            justifySelf: 'stretch',
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: '.brand-story',
+                                start: 'top 80%',
+                                end: 'center 35%',
+                                scrub: 1,
+                                invalidateOnRefresh: true
+                            }
+                        }
+                    );
+                } else {
+                    gsap.fromTo('.products-feature',
+                        { opacity: 0.65, y: 24 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: '.favorite-products',
+                                start: 'top 85%',
+                                end: 'top 45%',
+                                scrub: 0.6,
+                                invalidateOnRefresh: true
+                            }
+                        }
+                    );
+                    gsap.fromTo('.products-content',
+                        { opacity: 0, y: 18 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: '.products-content',
+                                start: 'top 90%',
+                                end: 'top 60%',
+                                scrub: 0.6,
+                                invalidateOnRefresh: true
+                            }
+                        }
+                    );
+                    gsap.fromTo('.brand-story-copy',
+                        { opacity: 0, y: 18 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: '.brand-story',
+                                start: 'top 85%',
+                                end: 'top 45%',
+                                scrub: 0.6,
+                                invalidateOnRefresh: true
+                            }
+                        }
+                    );
+                }
+                ScrollTrigger.refresh();
+            }
+
+            setupScrollAnimations();
+            window.addEventListener('load', () => ScrollTrigger.refresh());
+            window.addEventListener('resize', setupScrollAnimations);
+        }
     </script>
 </body>
 </html>
