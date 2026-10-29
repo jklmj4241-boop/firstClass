@@ -1,8 +1,19 @@
 :root {
-    --color-primary: #ED1C24;
-    --color-white: #FFFFFF;
-    --color-text: #231F20;
-    --color-blue: #194689;
+    /* Figma color variables */
+    --brand-white: #FFFFFF;
+    --brand-secondary: #194689;
+    --brand-primary: #ED1C24;
+    --text-white: #FFFFFF;
+    --text-primary: #231F20;
+    --icon-black: #231F20;
+    --icon-white: #FFFFFF;
+    --border-default: #DDE1E7;
+
+    /* 기존 스타일과의 호환을 위한 별칭 */
+    --color-primary: var(--brand-primary);
+    --color-white: var(--brand-white);
+    --color-text: var(--text-primary);
+    --color-blue: var(--brand-secondary);
 }
 
 body {
@@ -49,7 +60,7 @@ a {
 .header-main {
     position: relative;
     height: 100px;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid var(--border-default);
     background-color: var(--color-white);
 }
 .main-inner {
@@ -117,7 +128,7 @@ a {
     overflow: hidden;
     visibility: hidden;
     opacity: 0;
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid var(--border-default);
     background-color: var(--color-white);
     transition: max-height 0.25s ease, opacity 0.2s ease, visibility 0.2s ease;
 }
@@ -145,7 +156,7 @@ a {
     align-items: center;
     gap: 10px;
     min-width: 0;
-    color: rgba(0, 0, 0, 0.8);
+    color: var(--text-primary);
     font-size: 16px;
     line-height: 1.5;
     text-align: center;
@@ -175,7 +186,7 @@ a {
     min-width: 125px;
     min-height: 49px;
     padding: 0 18px;
-    border: 1px solid #d7d7d7;
+    border: 1px solid var(--border-default);
     border-radius: 60px;
     font-size: 15px;
     font-weight: 600;
@@ -201,7 +212,7 @@ a {
     width: 42px;
     height: 42px;
     padding: 9px;
-    border: 1px solid #d7d7d7;
+    border: 1px solid var(--border-default);
     border-radius: 3px;
     background: transparent;
     cursor: pointer;
@@ -218,7 +229,7 @@ a {
     flex-direction: column;
     gap: 0;
     padding: 8px 16px 20px;
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid var(--border-default);
     background-color: var(--color-white);
 }
 .mobile-menu[hidden] {
@@ -226,7 +237,7 @@ a {
 }
 .mobile-menu a {
     padding: 13px 0;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid var(--border-default);
     font-size: 16px;
     font-weight: 600;
 }
@@ -319,7 +330,7 @@ a {
 }
 .products-heading h2 {
     margin: 0 0 14px;
-    color: #111111;
+    color: var(--text-primary);
     font-size: 42px;
     font-weight: 700;
     line-height: 1.5;
@@ -327,7 +338,7 @@ a {
 }
 .products-heading p {
     margin: 0;
-    color: #111111;
+    color: var(--text-primary);
     font-size: 22px;
     font-weight: 500;
     line-height: 1.5;
