@@ -100,7 +100,7 @@ a {
     position: relative;
     padding: 12px 0;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
     transition: none;
 }
 .main-nav a::after {
@@ -118,10 +118,10 @@ a {
 .main-nav a:hover,
 .main-nav a:focus-visible {
     color: inherit;
-    font-weight: 400;
 }
 .main-nav a:hover::after,
-.main-nav a:focus-visible::after {
+.main-nav a:focus-visible::after,
+.main-nav a.active::after {
     transform: scaleX(1);
 }
 .mega-menu {
@@ -238,7 +238,7 @@ a {
     width: 42px;
     height: 42px;
     padding: 9px;
-    border: 1px solid var(--border-default);
+    border: 0;
     border-radius: 3px;
     background: transparent;
     cursor: pointer;
@@ -599,11 +599,7 @@ a {
     font-size: 34px;
     font-weight: 300;
     line-height: 0.8;
-    transition: transform 0.2s ease;
-}
-.events-more:hover .events-more-arrow,
-.events-more:focus-visible .events-more-arrow {
-    transform: translateX(4px);
+    transition: none;
 }
 
 /* 피그마 배너 페이지네이션 */
