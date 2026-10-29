@@ -88,7 +88,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: clamp(16px, 2.2vw, 40px);
+    gap: clamp(16px, 3vw, 70px);
     margin: 0;
     white-space: nowrap;
     transform: translate(-50%, -50%);
@@ -148,7 +148,7 @@ a {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 32px;
-    width: min(1800px, calc(100% - 48px));
+    width: min(640px, calc(100% - 48px));
     padding-right: max(0px, calc((100% - 1800px) / 2));
     padding-left: max(0px, calc((100% - 1800px) / 2));
     min-height: 194px;
