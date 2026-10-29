@@ -539,6 +539,85 @@ a {
     outline-offset: 5px;
 }
 
+/* 더 건강한 가치를 만듭니다 */
+.healthy-values {
+    padding: 100px 24px 24px;
+    background-color: var(--brand-white);
+}
+.healthy-values-inner {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+}
+.healthy-values-title {
+    margin: 0 0 32px;
+    color: var(--text-primary);
+    font-size: clamp(30px, 2.5vw, 40px);
+    font-weight: 700;
+    line-height: 1.3;
+}
+.healthy-values-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    align-items: center;
+    gap: clamp(36px, 5.5vw, 74px);
+}
+.healthy-values-row-first {
+    margin-bottom: 60px;
+}
+.healthy-values-row-second {
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+}
+.healthy-values-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.9 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+}
+.healthy-values-copy {
+    color: var(--text-primary);
+}
+.healthy-values-copy h3 {
+    margin: 0 0 8px;
+    color: var(--text-primary);
+    font-size: clamp(20px, 1.8vw, 26px);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.035em;
+}
+.healthy-values-copy p {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+}
+.healthy-values-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 22px;
+}
+.healthy-values-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--brand-primary);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+}
+.healthy-values-more span {
+    color: var(--brand-primary);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 0.8;
+}
+.healthy-values-more:focus-visible {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 5px;
+}
+
 /* 이벤트 섹션 */
 .events-section {
     padding: 100px 24px 110px;
@@ -656,6 +735,37 @@ a {
 }
 
 @media (max-width: 1024px) {
+    .healthy-values {
+        padding: 64px 16px 20px;
+    }
+    .healthy-values-title {
+        margin-bottom: 24px;
+        font-size: clamp(26px, 5.5vw, 32px);
+    }
+    .healthy-values-row,
+    .healthy-values-row-second {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+    .healthy-values-row-first {
+        margin-bottom: 40px;
+    }
+    .healthy-values-row-second .healthy-values-copy {
+        order: 2;
+    }
+    .healthy-values-row-second .healthy-values-image {
+        order: 1;
+    }
+    .healthy-values-copy h3 {
+        font-size: clamp(20px, 4vw, 24px);
+    }
+    .healthy-values-copy p {
+        font-size: 15px;
+    }
+    .healthy-values-footer {
+        margin-top: 18px;
+    }
+
     .events-section {
         padding: 64px 16px 72px;
     }
