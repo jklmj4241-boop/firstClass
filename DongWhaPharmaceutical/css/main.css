@@ -64,6 +64,7 @@ a {
     background-color: var(--color-white);
 }
 .main-inner {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -81,13 +82,16 @@ a {
     white-space: nowrap;
 }
 .main-nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: clamp(16px, 2.2vw, 40px);
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0;
     white-space: nowrap;
+    transform: translate(-50%, -50%);
 }
 .main-nav a {
     position: relative;
@@ -144,7 +148,7 @@ a {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 32px;
-    width: min(1720px, calc(100% - 40px));
+    width: min(1800px, calc(100% - 48px));
     min-height: 194px;
     margin: 0 auto;
     padding: 17px 0 24px;
