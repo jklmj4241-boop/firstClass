@@ -100,8 +100,8 @@ a {
     position: relative;
     padding: 12px 0;
     font-size: 18px;
-    font-weight: 600;
-    transition: color 0.2s ease, font-weight 0.2s ease;
+    font-weight: 400;
+    transition: none;
 }
 .main-nav a::after {
     position: absolute;
@@ -109,7 +109,7 @@ a {
     bottom: 2px;
     left: 0;
     height: 2px;
-    background-color: var(--color-primary);
+    background-color: var(--color-blue);
     content: "";
     transform: scaleX(0);
     transform-origin: left;
@@ -117,8 +117,8 @@ a {
 }
 .main-nav a:hover,
 .main-nav a:focus-visible {
-    color: var(--color-primary);
-    font-weight: 700;
+    color: inherit;
+    font-weight: 400;
 }
 .main-nav a:hover::after,
 .main-nav a:focus-visible::after {
@@ -176,11 +176,11 @@ a {
 }
 .mega-menu-column a:hover,
 .mega-menu-column a:focus-visible {
-    color: var(--color-primary);
+    color: inherit;
     font-weight: 700;
 }
 .mega-menu-column .mega-menu-heading {
-    font-weight: 600;
+    font-weight: 400;
 }
 .header-right {
     display: flex;
@@ -505,10 +505,7 @@ a {
     font-size: 32px;
     font-weight: 400;
     line-height: 0.8;
-    transition: transform 0.2s ease;
-}
-.brand-story-link:hover span {
-    transform: translateX(4px);
+    transition: none;
 }
 .brand-story-link:focus-visible {
     outline: 2px solid var(--text-white);
