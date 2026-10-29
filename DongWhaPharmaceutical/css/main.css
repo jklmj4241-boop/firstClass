@@ -230,6 +230,9 @@ a {
     color: var(--text-white);
 }
 .mobile-menu-toggle {
+    appearance: none;
+    outline: none;
+    box-shadow: none;
     display: flex;
     flex: 0 0 42px;
     flex-direction: column;
@@ -238,7 +241,9 @@ a {
     width: 42px;
     height: 42px;
     padding: 9px;
-    border: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
     border-radius: 3px;
     background: transparent;
     cursor: pointer;
