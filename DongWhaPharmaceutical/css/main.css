@@ -515,6 +515,69 @@ a {
     outline-offset: 5px;
 }
 
+/* 이벤트 섹션 */
+.events-section {
+    padding: 100px 24px 110px;
+    background-color: var(--brand-white);
+}
+.events-inner {
+    width: min(1720px, 100%);
+    margin: 0 auto;
+}
+.events-title {
+    margin: 0 0 30px;
+    color: var(--text-primary);
+    font-size: clamp(30px, 2.4vw, 40px);
+    font-weight: 700;
+    line-height: 1.3;
+}
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(28px, 8.1vw, 158px);
+    align-items: start;
+}
+.event-card {
+    min-width: 0;
+}
+.event-image {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 403 / 540;
+    border: 1px solid var(--border-default);
+    border-radius: 20px;
+    background-color: #f7f7f7;
+}
+.event-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.event-image:hover img {
+    transform: scale(1.025);
+}
+.event-info {
+    margin-top: 20px;
+}
+.event-info h3 {
+    margin: 0 0 2px;
+    color: var(--text-primary);
+    font-size: clamp(17px, 1.15vw, 22px);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+.event-info p {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: clamp(15px, 1vw, 18px);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
 /* 피그마 배너 페이지네이션 */
 .hero-sec .swiper-pagination {
     bottom: 14px;
@@ -542,6 +605,20 @@ a {
 }
 
 @media (max-width: 1024px) {
+    .events-section {
+        padding: 64px 16px 72px;
+    }
+    .events-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px 20px;
+    }
+    .event-image {
+        border-radius: 14px;
+    }
+    .event-info {
+        margin-top: 14px;
+    }
+
     .brand-story {
         padding: 0;
     }
