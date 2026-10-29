@@ -75,11 +75,14 @@ a {
     display: inline-flex;
     align-items: center;
     flex: 0 0 auto;
-    color: var(--color-primary);
-    font-size: 30px;
-    font-weight: 800;
-    letter-spacing: -0.06em;
     white-space: nowrap;
+}
+.brand-logo img {
+    display: block;
+    width: 180px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 .main-nav {
     position: absolute;
@@ -211,10 +214,15 @@ a {
     background-color: var(--color-primary);
     color: var(--color-white);
 }
-.header-action:hover {
-    border-color: var(--color-primary);
-    background-color: var(--color-primary);
-    color: var(--color-white);
+.header-action:not(.accent):hover {
+    border-color: var(--brand-primary);
+    background-color: var(--brand-white);
+    color: var(--brand-primary);
+}
+.header-action.accent:hover {
+    border-color: var(--brand-primary);
+    background-color: var(--brand-primary);
+    color: var(--text-white);
 }
 .mobile-menu-toggle {
     display: flex;
