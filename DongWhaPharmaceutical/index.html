@@ -438,8 +438,9 @@
                 const image = row.querySelector('.healthy-values-image');
                 const copy = row.querySelector('.healthy-values-copy');
 
-                gsap.set(row, { gridTemplateColumns: startColumns, gap: 0 });
-                gsap.set(image, { width: '100%', maxWidth: 'none' });
+                // 시작 시 이미지가 전체 너비를 차지하고, 텍스트는 보이지 않도록 설정합니다.
+                gsap.set(row, { gridTemplateColumns: startColumns, columnGap: 0 });
+                gsap.set(image, { width: '100%', maxWidth: 'none', objectFit: 'cover' });
                 gsap.set(copy, { autoAlpha: 0, y: 30 });
 
                 const timeline = gsap.timeline({
@@ -452,11 +453,14 @@
                     }
                 });
 
+                // Grid 열 너비를 함께 조정해 이미지 축소와 텍스트 영역 확보를 연결합니다.
                 timeline.to(row, {
                     gridTemplateColumns: endColumns,
-                    gap: 56,
+                    columnGap: 56,
                     ease: 'none'
                 }, 0);
+
+                // 텍스트는 스크롤 진행에 맞춰 아래에서 위로 나타납니다.
                 timeline.to(copy, {
                     autoAlpha: 1,
                     y: 0,
@@ -464,9 +468,10 @@
                 }, 0.22);
             }
 
-            // 이미지가 처음에는 콘텐츠 너비를 차지하고, 스크롤에 따라 약 58%로 줄어듭니다.
-            createHealthyScrollAnimation(firstRow, '1fr 0fr', '58fr 42fr');
-            createHealthyScrollAnimation(secondRow, '0fr 1fr', '42fr 58fr');
+            // 첫 번째: 왼쪽 이미지 58%, 오른쪽 텍스트 42%
+            // 두 번째: 왼쪽 텍스트 42%, 오른쪽 이미지 58%
+            createHealthyScrollAnimation(firstRow, 'minmax(0, 1fr) minmax(0, 0fr)', 'minmax(0, 58fr) minmax(0, 42fr)');
+            createHealthyScrollAnimation(secondRow, 'minmax(0, 0fr) minmax(0, 1fr)', 'minmax(0, 42fr) minmax(0, 58fr)');
         }
     </script>
 </body>
