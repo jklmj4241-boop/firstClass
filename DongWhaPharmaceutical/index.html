@@ -470,8 +470,9 @@
 
             // 첫 번째: 왼쪽 이미지 58%, 오른쪽 텍스트 42%
             // 두 번째: 왼쪽 텍스트 42%, 오른쪽 이미지 58%
-            createHealthyScrollAnimation(firstRow, 'minmax(0, 1fr) minmax(0, 0fr)', 'minmax(0, 58fr) minmax(0, 42fr)');
-            createHealthyScrollAnimation(secondRow, 'minmax(0, 0fr) minmax(0, 1fr)', 'minmax(0, 42fr) minmax(0, 58fr)');
+            // 두 번째 행은 CSS Grid의 fr 단위 대신 퍼센트 트랙으로 애니메이션합니다.
+            createHealthyScrollAnimation(firstRow, '100% 0%', '58% 42%');
+            createHealthyScrollAnimation(secondRow, '0% 100%', '42% 58%');
         }
     </script>
 </body>
