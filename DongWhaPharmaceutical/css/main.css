@@ -53,7 +53,9 @@ a {
     font-size: 14px;
     font-weight: 500;
 }
-.utility-links a:hover,
+.utility-links a:hover {
+    color: inherit;
+}
 .main-nav a:hover {
     color: var(--color-primary);
 }
@@ -716,6 +718,7 @@ a {
 /* 사이트 푸터 */
 .site-footer {
     width: 100%;
+    margin-top: 80px;
     background: #f8f8f8;
     color: #5f636d;
 }
