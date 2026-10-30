@@ -441,6 +441,11 @@
             const firstRow = healthySection.querySelector('.healthy-values-row-first');
             const secondRow = healthySection.querySelector('.healthy-values-row-second');
 
+            // 첫 번째 콘텐츠(이미지 왼쪽)를 먼저 보여주고, 두 번째 콘텐츠(이미지 오른쪽)를 이어서 배치합니다.
+            if (firstRow && secondRow) {
+                healthySection.querySelector('.healthy-values-inner').insertBefore(firstRow, secondRow);
+            }
+
             function createHealthyScrollAnimation(row, startColumns, endColumns) {
                 const image = row.querySelector('.healthy-values-image');
                 const copy = row.querySelector('.healthy-values-copy');
@@ -471,6 +476,7 @@
                 }, 0.22);
             }
 
+            // 이미지가 처음에는 콘텐츠 너비를 차지하고, 스크롤에 따라 약 58%로 줄어듭니다.
             createHealthyScrollAnimation(firstRow, '1fr 0fr', '58fr 42fr');
             createHealthyScrollAnimation(secondRow, '0fr 1fr', '42fr 58fr');
         }
