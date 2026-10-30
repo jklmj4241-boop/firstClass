@@ -569,7 +569,7 @@ a {
     background-color: var(--brand-white);
 }
 .healthy-values-inner {
-    width: min(1100px, 100%);
+    width: min(1720px, 100%);
     margin: 0 auto;
 }
 .healthy-values-title {
