@@ -718,8 +718,9 @@ a {
 /* 사이트 푸터 */
 .site-footer {
     width: 100%;
-    margin-top: 80px;
-    background: #f8f8f8;
+    margin-top: 0;
+    padding-top: 80px;
+    background: #ffffff;
     color: #5f636d;
 }
 .footer-partners {
@@ -806,6 +807,7 @@ a {
 .footer-policy-links a {
     padding: 0 18px;
     border-right: 1px solid #d9d9d9;
+    font-weight: 500;
 }
 .footer-policy-links a:first-child {
     padding-left: 0;
@@ -825,6 +827,7 @@ a {
 .footer-family-link {
     padding-right: 0;
     line-height: 1.5;
+    font-weight: 500;
 }
 .footer-links a:focus-visible,
 .footer-logo:focus-visible {
