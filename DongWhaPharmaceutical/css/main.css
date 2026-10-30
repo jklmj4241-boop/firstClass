@@ -694,7 +694,7 @@ a {
     justify-content: center;
     min-width: 174px;
     min-height: 46px;
-    margin-top: clamp(120px, 12vw, 230px);
+    margin-top: clamp(90px, 9vw, 170px);
     padding: 10px 24px;
     border: 1px solid rgba(35, 31, 32, 0.9);
     border-radius: 999px;
@@ -1014,7 +1014,7 @@ a {
         font-size: clamp(28px, 5.2vw, 44px);
     }
     .recruitment-cta {
-        margin-top: clamp(100px, 18vw, 160px);
+        margin-top: clamp(80px, 12vw, 120px);
         min-width: 160px;
         min-height: 44px;
         font-size: 14px;
