@@ -720,26 +720,26 @@ a {
     color: #5f636d;
 }
 .footer-partners {
-    min-height: 184px;
+    min-height: 88px;
     display: flex;
     align-items: center;
     background: #ffffff !important;
     background-color: #ffffff !important;
-    padding: 28px 24px;
+    padding: 12px 24px;
 }
 .footer-partners-inner {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: clamp(14px, 1.4vw, 28px);
+    gap: clamp(12px, 1.2vw, 22px);
     width: min(1430px, 100%);
     margin: 0 auto;
 }
 .footer-partners-inner img {
     display: block;
     width: auto;
-    max-width: 17%;
-    max-height: 66px;
+    max-width: 15%;
+    max-height: 42px;
     object-fit: contain;
 }
 .footer-partners-divider {
@@ -777,7 +777,7 @@ a {
 .footer-company-info {
     padding-top: 7px;
     color: #626773;
-    font-size: clamp(13px, 0.95vw, 19px);
+    font-size: 10pt;
     font-weight: 400;
     line-height: 1.85;
     overflow-wrap: anywhere;
@@ -792,7 +792,7 @@ a {
     gap: 12px;
     padding-top: 8px;
     color: #4f4f4f;
-    font-size: clamp(13px, 0.9vw, 17px);
+    font-size: 10pt;
     white-space: nowrap;
 }
 .footer-policy-links {
@@ -948,15 +948,15 @@ a {
 @media (max-width: 1024px) {
     .footer-partners {
         min-height: 0;
-        padding: 28px 16px;
+        padding: 16px 16px;
     }
     .footer-partners-inner {
         flex-wrap: wrap;
         gap: 18px 20px;
     }
     .footer-partners-inner img {
-        max-width: 28%;
-        max-height: 44px;
+        max-width: 25%;
+        max-height: 36px;
     }
     .footer-partners-divider {
         display: none;
