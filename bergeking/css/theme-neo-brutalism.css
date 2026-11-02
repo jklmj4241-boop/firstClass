@@ -1,0 +1,68 @@
+/* Neo Brutalism theme */
+body { background: #e8dfd2; }
+#wrap {
+    color: #24110b;
+    background: #fff7e8;
+    border-left: 3px solid #24110b;
+    border-right: 3px solid #24110b;
+}
+#wrap header {
+    border-bottom: 3px solid #24110b;
+    background: #f5c443;
+}
+#wrap h1 { font-weight: 900; letter-spacing: -.04em; }
+#wrap .title {
+    position: relative;
+    padding: 18px;
+    border: 3px solid #24110b;
+    background: #f5c443;
+    box-shadow: 7px 7px 0 #24110b;
+}
+#wrap .title > span {
+    color: #24110b;
+    font-weight: 900;
+    letter-spacing: -.055em;
+}
+#wrap input[type="email"],
+#wrap input[type="password"] {
+    border: 3px solid #24110b;
+    border-radius: 0;
+    background: #fff;
+    color: #24110b;
+    box-shadow: 4px 4px 0 #24110b;
+}
+#wrap .login_option { font-weight: 700; }
+#wrap .login_btn {
+    min-height: 52px;
+    border: 3px solid #24110b;
+    border-radius: 0;
+    background: #d62302;
+    color: #fff;
+    box-shadow: 6px 6px 0 #24110b;
+    font-weight: 900;
+    opacity: 1;
+}
+#wrap .login_link a {
+    color: #d62302;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+#wrap .sns_login {
+    margin-top: 28px;
+    padding: 18px;
+    border: 3px solid #24110b;
+    background: #f5c443;
+    box-shadow: 6px 6px 0 #24110b;
+}
+#wrap .sns_login > p { color: #24110b; font-weight: 900; }
+#wrap .sns_list a {
+    border: 2px solid #24110b;
+    border-radius: 0;
+    background-color: #fff;
+    box-shadow: 3px 3px 0 #24110b;
+}
+#wrap a:focus-visible, #wrap button:focus-visible {
+    outline: 3px dashed #d62302;
+    outline-offset: 4px;
+}
