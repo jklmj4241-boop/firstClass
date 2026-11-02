@@ -733,6 +733,9 @@ a {
     background-color: #ffffff !important;
     padding: 12px 24px;
 }
+.footer-partners-inner a {
+    display: contents;
+}
 .footer-partners-inner {
     display: flex;
     align-items: center;
