@@ -295,5 +295,25 @@
             </div>   
         </main>
     </div> 
+
+<script>
+    // 미리보기 페이지에서 전달한 테마 이름에 따라 CSS 파일을 연결합니다.
+    const themeFiles = {
+        "glassmorphism": "css/theme-glassmorphism.css",
+        "neo-brutalism": "css/theme-neo-brutalism.css",
+        "soft-minimal": "css/theme-soft-minimal.css"
+    };
+
+    const selectedTheme = new URLSearchParams(window.location.search).get("theme");
+    const themeFile = themeFiles[selectedTheme];
+
+    if (themeFile) {
+        const themeLink = document.createElement("link");
+        themeLink.rel = "stylesheet";
+        themeLink.href = themeFile;
+        document.head.appendChild(themeLink);
+    }
+</script>
+
 </body>
 </html>
