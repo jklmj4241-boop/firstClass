@@ -1,0 +1,347 @@
+/* Neo Brutalism theme — Dongwha Pharmaceutical */
+#wrap.neo-brutalism {
+    --neo-black: #171717;
+    --neo-yellow: #FFE34D;
+    --neo-red: #F04438;
+    --neo-blue: #4169F5;
+    --neo-lime: #C8F36A;
+    --neo-paper: #FFFDF5;
+    --neo-line: 3px solid var(--neo-black);
+    color: var(--neo-black);
+    background: var(--neo-paper);
+    overflow: hidden;
+}
+#wrap.neo-brutalism body { background: var(--neo-paper); }
+#wrap.neo-brutalism * { box-sizing: border-box; }
+#wrap.neo-brutalism a,
+#wrap.neo-brutalism button { -webkit-tap-highlight-color: transparent; }
+#wrap.neo-brutalism a:focus-visible,
+#wrap.neo-brutalism button:focus-visible {
+    outline: 3px dashed var(--neo-blue);
+    outline-offset: 5px;
+}
+#wrap.neo-brutalism .site-header {
+    border-bottom: var(--neo-line);
+    background: var(--neo-paper);
+    color: var(--neo-black);
+}
+#wrap.neo-brutalism .header-utility {
+    height: 38px;
+    background: var(--neo-yellow);
+    border-bottom: var(--neo-line);
+}
+#wrap.neo-brutalism .utility-links {
+    color: var(--neo-black);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .04em;
+}
+#wrap.neo-brutalism .header-main {
+    height: 92px;
+    border: 0;
+    background: var(--neo-paper);
+}
+#wrap.neo-brutalism .brand-logo img { width: 205px; }
+#wrap.neo-brutalism .main-nav { gap: clamp(16px, 2.4vw, 48px); }
+#wrap.neo-brutalism .main-nav a {
+    font-weight: 800;
+    letter-spacing: -.04em;
+}
+#wrap.neo-brutalism .main-nav a::after {
+    height: 5px;
+    background: var(--neo-red);
+}
+#wrap.neo-brutalism .main-nav a:hover { color: var(--neo-red); }
+#wrap.neo-brutalism .header-action {
+    min-height: 44px;
+    min-width: 112px;
+    border: var(--neo-line);
+    border-radius: 0;
+    box-shadow: 4px 4px 0 var(--neo-black);
+    font-weight: 800;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+#wrap.neo-brutalism .header-action:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--neo-black);
+}
+#wrap.neo-brutalism .header-action.accent {
+    border-color: var(--neo-black);
+    background: var(--neo-red);
+    color: white;
+}
+#wrap.neo-brutalism .header-action:not(.accent) {
+    background: var(--neo-lime);
+    color: var(--neo-black);
+}
+#wrap.neo-brutalism .mobile-menu-toggle {
+    border: var(--neo-line);
+    border-radius: 0;
+    background: var(--neo-yellow);
+}
+#wrap.neo-brutalism .mobile-menu-toggle span { background: var(--neo-black); }
+#wrap.neo-brutalism .mega-menu {
+    border: var(--neo-line);
+    border-top: 0;
+    background: var(--neo-yellow);
+}
+#wrap.neo-brutalism .mega-menu-column { font-weight: 700; }
+#wrap.neo-brutalism .mega-menu-heading {
+    display: inline-block;
+    padding: 5px 9px;
+    border: 2px solid var(--neo-black);
+    background: var(--neo-red);
+    font-weight: 900;
+}
+#wrap.neo-brutalism .mega-menu-column a:hover { color: var(--neo-blue); }
+#wrap.neo-brutalism .mobile-menu {
+    border-top: var(--neo-line);
+    background: var(--neo-yellow);
+}
+#wrap.neo-brutalism .mobile-menu a { border-bottom: 2px solid var(--neo-black); font-weight: 800; }
+
+/* Hero: 강한 타이포와 굵은 컬러 라벨 */
+#wrap.neo-brutalism .hero-sec .swiper { height: min(690px, 72vw); min-height: 500px; }
+#wrap.neo-brutalism .hero-sec .swiper-slide::after {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    content: "";
+    background: linear-gradient(90deg, rgba(0,0,0,.42), transparent 72%);
+    pointer-events: none;
+}
+#wrap.neo-brutalism .hero-sec .slide-copy {
+    z-index: 2;
+    color: #fff;
+}
+#wrap.neo-brutalism .hero-sec .slide-copy h1 {
+    display: table;
+    margin-bottom: 20px;
+    padding: 10px 16px 13px;
+    border: var(--neo-line);
+    background: var(--neo-yellow);
+    box-shadow: 8px 8px 0 var(--neo-black);
+    color: var(--neo-black);
+    font-size: clamp(38px, 5vw, 76px);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -.065em;
+}
+#wrap.neo-brutalism .hero-sec .slide-copy p {
+    display: table;
+    padding: 10px 14px;
+    border: 2px solid var(--neo-black);
+    background: var(--neo-paper);
+    color: var(--neo-black);
+    font-size: clamp(16px, 1.5vw, 22px);
+    font-weight: 700;
+}
+#wrap.neo-brutalism .hero-sec .swiper-pagination { bottom: 22px; z-index: 3; }
+#wrap.neo-brutalism .hero-sec .swiper-pagination-bullet {
+    width: 13px; height: 13px; border: 2px solid var(--neo-black);
+    background: var(--neo-paper); opacity: 1;
+}
+#wrap.neo-brutalism .hero-sec .swiper-pagination-bullet-active { background: var(--neo-red); }
+
+/* 공통 섹션 타이틀 */
+#wrap.neo-brutalism .products-heading h2,
+#wrap.neo-brutalism .healthy-values-title,
+#wrap.neo-brutalism .events-title {
+    display: table;
+    padding: 7px 12px;
+    border: var(--neo-line);
+    background: var(--neo-yellow);
+    box-shadow: 5px 5px 0 var(--neo-black);
+    color: var(--neo-black);
+    font-weight: 900;
+    letter-spacing: -.055em;
+}
+#wrap.neo-brutalism .favorite-products {
+    padding: 120px 24px;
+    background-color: var(--neo-paper);
+}
+#wrap.neo-brutalism .products-inner { gap: clamp(36px, 5vw, 86px); }
+#wrap.neo-brutalism .products-feature {
+    border: var(--neo-line);
+    border-radius: 0;
+    background: var(--neo-blue);
+    box-shadow: 10px 10px 0 var(--neo-black);
+}
+#wrap.neo-brutalism .products-feature img { filter: drop-shadow(7px 7px 0 rgba(0,0,0,.35)); }
+#wrap.neo-brutalism .products-heading h2 { font-size: clamp(30px, 3vw, 44px); }
+#wrap.neo-brutalism .products-heading p { font-weight: 650; }
+#wrap.neo-brutalism .products-more {
+    padding: 9px 14px;
+    border: var(--neo-line);
+    background: var(--neo-lime);
+    box-shadow: 4px 4px 0 var(--neo-black);
+    color: var(--neo-black);
+    font-weight: 850;
+}
+#wrap.neo-brutalism .products-more img { filter: brightness(0); }
+#wrap.neo-brutalism .product-card {
+    height: 245px;
+    border: 2px solid var(--neo-black);
+    background: #fff;
+    box-shadow: 5px 5px 0 var(--neo-black);
+}
+#wrap.neo-brutalism .product-card:nth-child(3n + 2) { background: var(--neo-yellow); }
+#wrap.neo-brutalism .products-next {
+    border: var(--neo-line);
+    border-radius: 0;
+    background: var(--neo-red);
+    box-shadow: 4px 4px 0 var(--neo-black);
+}
+#wrap.neo-brutalism .products-next img { filter: brightness(0) invert(1); }
+
+/* 브랜드 스토리 */
+#wrap.neo-brutalism .brand-story { padding: 32px 24px; background: var(--neo-blue); }
+#wrap.neo-brutalism .brand-story-visual {
+    border: 4px solid var(--neo-black);
+    box-shadow: 12px 12px 0 var(--neo-black);
+}
+#wrap.neo-brutalism .brand-story-copy {
+    top: 50%; left: 8%; width: min(560px, 80%);
+    padding: clamp(18px, 3vw, 34px);
+    border: 4px solid var(--neo-black);
+    background: var(--neo-yellow);
+    color: var(--neo-black);
+    transform: translateY(-50%);
+}
+#wrap.neo-brutalism .brand-story-copy h2,
+#wrap.neo-brutalism .brand-story-copy h2 span,
+#wrap.neo-brutalism .brand-story-copy p { color: var(--neo-black); }
+#wrap.neo-brutalism .brand-story-copy h2 { font-weight: 900; letter-spacing: -.06em; }
+#wrap.neo-brutalism .brand-story-copy h2 span {
+    display: inline-block; margin-top: 5px; color: var(--neo-red);
+}
+#wrap.neo-brutalism .brand-story-link {
+    margin-top: 20px; padding: 8px 12px;
+    border: 3px solid var(--neo-black); background: var(--neo-lime);
+    box-shadow: 4px 4px 0 var(--neo-black);
+    color: var(--neo-black); font-weight: 850;
+}
+#wrap.neo-brutalism .brand-story-link .shared-arrow { color: var(--neo-black); }
+
+/* 이벤트 카드: 카드마다 원색을 다르게 배치 */
+#wrap.neo-brutalism .events-section { padding: 120px 24px; background: var(--neo-lime); }
+#wrap.neo-brutalism .events-title { background: var(--neo-paper); }
+#wrap.neo-brutalism .events-grid { gap: clamp(20px, 3vw, 48px); }
+#wrap.neo-brutalism .event-image {
+    border: 3px solid var(--neo-black);
+    border-radius: 0;
+    background: var(--neo-yellow);
+    box-shadow: 8px 8px 0 var(--neo-black);
+}
+#wrap.neo-brutalism .event-card:nth-child(2) .event-image { background: var(--neo-red); }
+#wrap.neo-brutalism .event-card:nth-child(3) .event-image { background: var(--neo-blue); }
+#wrap.neo-brutalism .event-image img { mix-blend-mode: multiply; }
+#wrap.neo-brutalism .event-info {
+    margin-top: 24px; padding: 13px 15px;
+    border: 3px solid var(--neo-black); background: var(--neo-paper);
+    box-shadow: 5px 5px 0 var(--neo-black);
+}
+#wrap.neo-brutalism .event-info h3 { font-weight: 900; letter-spacing: -.035em; }
+#wrap.neo-brutalism .event-info p { margin-top: 5px; font-weight: 700; }
+
+/* 이미지와 카피를 큼직한 색면으로 분리 */
+#wrap.neo-brutalism .healthy-values { padding: 120px 24px; background: var(--neo-paper); }
+#wrap.neo-brutalism .healthy-values-title { margin-bottom: 52px; }
+#wrap.neo-brutalism .healthy-values-row {
+    padding: 24px;
+    border: 3px solid var(--neo-black);
+    background: var(--neo-yellow);
+    box-shadow: 9px 9px 0 var(--neo-black);
+}
+#wrap.neo-brutalism .healthy-values-row-first { margin-bottom: 52px; }
+#wrap.neo-brutalism .healthy-values-row-second { background: var(--neo-red); }
+#wrap.neo-brutalism .healthy-values-image {
+    border: 3px solid var(--neo-black);
+    border-radius: 0;
+}
+#wrap.neo-brutalism .healthy-values-copy { padding: 18px; color: var(--neo-black); }
+#wrap.neo-brutalism .healthy-values-copy h3,
+#wrap.neo-brutalism .healthy-values-copy p { color: var(--neo-black); }
+#wrap.neo-brutalism .healthy-values-copy h3 { font-weight: 900; letter-spacing: -.05em; }
+
+/* 채용 배너 */
+#wrap.neo-brutalism .recruitment-section {
+    border-top: 4px solid var(--neo-black);
+    border-bottom: 4px solid var(--neo-black);
+}
+#wrap.neo-brutalism .recruitment-overlay {
+    width: auto; padding: clamp(24px, 4vw, 48px);
+    border: 4px solid var(--neo-black);
+    background: var(--neo-yellow);
+    box-shadow: 12px 12px 0 var(--neo-black);
+    color: var(--neo-black);
+    transform: none;
+}
+#wrap.neo-brutalism .recruitment-title {
+    color: var(--neo-black);
+    text-shadow: none;
+    font-weight: 900;
+    letter-spacing: -.06em;
+}
+#wrap.neo-brutalism .recruitment-cta {
+    min-height: 54px; margin-top: 30px; padding: 12px 24px;
+    border: 3px solid var(--neo-black); border-radius: 0;
+    background: var(--neo-red); box-shadow: 5px 5px 0 var(--neo-black);
+    color: white; font-weight: 900;
+}
+#wrap.neo-brutalism .recruitment-cta:hover {
+    border-color: var(--neo-black); background: var(--neo-blue);
+}
+
+/* 푸터 */
+#wrap.neo-brutalism .site-footer { padding-top: 0; background: var(--neo-paper); color: var(--neo-black); }
+#wrap.neo-brutalism .footer-partners {
+    border-top: 3px solid var(--neo-black);
+    border-bottom: 3px solid var(--neo-black);
+    background: var(--neo-yellow) !important;
+}
+#wrap.neo-brutalism .footer-main { background: var(--neo-black); color: white; }
+#wrap.neo-brutalism .footer-company-info,
+#wrap.neo-brutalism .footer-links,
+#wrap.neo-brutalism .footer-links a { color: white; }
+#wrap.neo-brutalism .footer-policy-links a { border-color: rgba(255,255,255,.5); }
+#wrap.neo-brutalism .footer-links a:hover { color: var(--neo-yellow); }
+
+@media (max-width: 1024px) {
+    #wrap.neo-brutalism .header-main { height: 72px; }
+    #wrap.neo-brutalism .brand-logo img { width: 170px; }
+    #wrap.neo-brutalism .hero-sec .swiper { height: 100dvh; min-height: 520px; }
+    #wrap.neo-brutalism .hero-sec .slide-copy h1 {
+        display: table; max-width: 100%; font-size: clamp(30px, 5.2vw, 48px);
+        box-shadow: 5px 5px 0 var(--neo-black);
+    }
+    #wrap.neo-brutalism .favorite-products,
+    #wrap.neo-brutalism .events-section,
+    #wrap.neo-brutalism .healthy-values { padding: 72px 20px; }
+    #wrap.neo-brutalism .products-feature { box-shadow: 7px 7px 0 var(--neo-black); }
+    #wrap.neo-brutalism .brand-story { padding: 20px; }
+    #wrap.neo-brutalism .brand-story-copy {
+        top: auto; bottom: 8%; left: 5%; width: min(88%, 480px);
+        padding: 16px; transform: none;
+    }
+    #wrap.neo-brutalism .brand-story-copy h2 { font-size: clamp(24px, 4vw, 38px); }
+    #wrap.neo-brutalism .brand-story-copy p { font-size: 13px; }
+    #wrap.neo-brutalism .brand-story-link { margin-top: 12px; font-size: 13px; }
+    #wrap.neo-brutalism .events-grid { gap: 28px 20px; }
+    #wrap.neo-brutalism .healthy-values-row,
+    #wrap.neo-brutalism .healthy-values-row-second { padding: 18px; }
+    #wrap.neo-brutalism .recruitment-overlay { transform: none; }
+}
+@media (max-width: 600px) {
+    #wrap.neo-brutalism .utility-links { font-size: 12px; }
+    #wrap.neo-brutalism .hero-sec .slide-copy h1 { padding: 9px 11px; }
+    #wrap.neo-brutalism .hero-sec .slide-copy p { font-size: 14px; }
+    #wrap.neo-brutalism .events-grid { grid-template-columns: 1fr; }
+    #wrap.neo-brutalism .event-card { max-width: 420px; }
+    #wrap.neo-brutalism .healthy-values-row,
+    #wrap.neo-brutalism .healthy-values-row-second { gap: 12px; }
+    #wrap.neo-brutalism .healthy-values-copy { padding: 8px 2px; }
+    #wrap.neo-brutalism .recruitment-overlay { width: calc(100% - 20px); }
+    #wrap.neo-brutalism .recruitment-title { font-size: clamp(25px, 7vw, 36px); }
+    #wrap.neo-brutalism .footer-main-inner { gap: 20px; }
+}
