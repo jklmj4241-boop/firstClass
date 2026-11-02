@@ -33,7 +33,7 @@
       tabs.forEach((item) => {
         const isSelected = item === tab;
         item.classList.toggle('is-active', isSelected);
-        item.setAttribute('aria-selected', String(isSelected));
+        item.setAttribute('aria-pressed', String(isSelected));
       });
       updateProducts();
     });
