@@ -1,0 +1,69 @@
+/* Glassmorphism theme */
+body {
+    background:
+        radial-gradient(circle at 15% 15%, #f9c7dc 0, transparent 35%),
+        radial-gradient(circle at 85% 80%, #9cc8f5 0, transparent 38%),
+        linear-gradient(135deg, #d9e8ff, #f7e8f4);
+}
+#wrap {
+    margin: 24px auto;
+    min-height: calc(100dvh - 48px);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.65);
+    border-radius: 28px;
+    background: rgba(255,255,255,.38);
+    box-shadow: 0 24px 70px rgba(61, 82, 130, .18);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+}
+#wrap header {
+    background: rgba(255,255,255,.2);
+    border-bottom: 1px solid rgba(255,255,255,.55);
+}
+#wrap h1, #wrap .title, #wrap .email, #wrap .login_option {
+    color: #263b62;
+}
+#wrap .title {
+    padding: 22px;
+    border: 1px solid rgba(255,255,255,.7);
+    border-radius: 22px;
+    background: rgba(255,255,255,.42);
+    box-shadow: 0 12px 32px rgba(75, 99, 145, .12);
+}
+#wrap input[type="email"],
+#wrap input[type="password"] {
+    border: 1px solid rgba(255,255,255,.85);
+    border-radius: 14px;
+    background: rgba(255,255,255,.62);
+    color: #263b62;
+    box-shadow: 0 5px 18px rgba(75, 99, 145, .08);
+}
+#wrap .login_btn {
+    border: 1px solid rgba(255,255,255,.6);
+    border-radius: 16px;
+    background: linear-gradient(110deg, #627fc4, #8b79bd);
+    color: #fff;
+    opacity: 1;
+    box-shadow: 0 10px 24px rgba(91, 112, 175, .28);
+}
+#wrap .login_link a { color: #536d9c; }
+#wrap .sns_login {
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,.65);
+    border-radius: 22px;
+    background: rgba(255,255,255,.34);
+}
+#wrap .sns_login > p { color: #536d9c; }
+#wrap .sns_list a {
+    border-radius: 14px;
+    background-color: rgba(255,255,255,.72);
+}
+@media (max-width: 540px) {
+    #wrap {
+        margin: 0 auto;
+        min-height: 100dvh;
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+    }
+}
