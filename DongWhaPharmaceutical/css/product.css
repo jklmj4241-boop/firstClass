@@ -218,7 +218,7 @@
   display: block;
   width: 46px;
   height: 36px;
-  border: 1.5px solid #AEB4BE;
+  border: 1.5px solid #DDE1E7;
   border-radius: 5px;
 }
 .image-placeholder-icon::before {
@@ -227,8 +227,8 @@
   bottom: 6px;
   left: 6px;
   height: 15px;
-  border-left: 1.5px solid #AEB4BE;
-  border-top: 1.5px solid #AEB4BE;
+  border-left: 1.5px solid #DDE1E7;
+  border-top: 1.5px solid #DDE1E7;
   content: "";
   transform: skewY(-28deg);
 }
@@ -239,7 +239,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #AEB4BE;
+  background: #DDE1E7;
   content: "";
 }
 .catalog-card-info {
