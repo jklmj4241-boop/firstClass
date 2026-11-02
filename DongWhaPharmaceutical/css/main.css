@@ -734,7 +734,11 @@ a {
     padding: 12px 24px;
 }
 .footer-partners-inner a {
-    display: contents;
+    display: flex;
+    flex: 0 1 auto;
+    align-items: center;
+    justify-content: center;
+    max-width: 15%;
 }
 .footer-partners-inner {
     display: flex;
@@ -747,7 +751,7 @@ a {
 .footer-partners-inner img {
     display: block;
     width: auto;
-    max-width: 15%;
+    max-width: 100%;
     max-height: 42px;
     object-fit: contain;
 }
@@ -965,8 +969,11 @@ a {
         flex-wrap: wrap;
         gap: 18px 20px;
     }
-    .footer-partners-inner img {
+    .footer-partners-inner a {
         max-width: 25%;
+    }
+    .footer-partners-inner img {
+        max-width: 100%;
         max-height: 36px;
     }
     .footer-partners-divider {
