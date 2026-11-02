@@ -17,7 +17,7 @@
 }
 
 body {
-    background-color: yellow;
+    background-color: var(--brand-white);
     font-family: "Pretendard Variable", sans-serif;
 }
 a {
@@ -602,6 +602,7 @@ a {
 }
 .healthy-values-copy {
     min-width: 0;
+    padding: 0 28px;
     opacity: 0;
     transform: translateY(30px);
     color: var(--text-primary);
