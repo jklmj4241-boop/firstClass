@@ -1,0 +1,43 @@
+/* Soft Minimal theme */
+body { background: #f2f3f5; }
+#wrap {
+    background: #fff;
+    color: #30343b;
+    box-shadow: 0 12px 40px rgba(28, 39, 55, .06);
+}
+#wrap header { border-bottom: 1px solid #eceef1; }
+#wrap h1 { color: #30343b; font-weight: 600; }
+#wrap .title {
+    padding: 0;
+    color: #30343b;
+}
+#wrap .title > span { color: #30343b; letter-spacing: -.035em; }
+#wrap input[type="email"],
+#wrap input[type="password"] {
+    border: 1px solid #dfe3e8;
+    border-radius: 12px;
+    background: #f8f9fb;
+    color: #30343b;
+}
+#wrap input:focus {
+    outline: 2px solid #a9b9d0;
+    outline-offset: 2px;
+}
+#wrap .login_btn {
+    border: 0;
+    border-radius: 12px;
+    background: #30343b;
+    color: #fff;
+    opacity: 1;
+}
+#wrap .login_link a { color: #687383; }
+#wrap .sns_login {
+    padding-top: 24px;
+    border-top: 1px solid #eceef1;
+}
+#wrap .sns_login > p { color: #89919d; }
+#wrap .sns_list a {
+    border: 1px solid #eceef1;
+    border-radius: 14px;
+    background-color: #fff;
+}
