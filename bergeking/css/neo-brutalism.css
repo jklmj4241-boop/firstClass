@@ -154,3 +154,35 @@ body:has(#wrap.neo-brutalism) {
         padding-right: 18px;
     }
 }
+
+
+/* Sequential Kinetic Typography: 로그인 타이틀 순차 등장 */
+#wrap.neo-brutalism .title > span {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: bkTitleReveal 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+#wrap.neo-brutalism .title > span:first-child {
+    animation-delay: 0.15s;
+}
+
+#wrap.neo-brutalism .title > span:last-child {
+    animation-delay: 0.45s;
+}
+
+@keyframes bkTitleReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 모션 감소 설정을 사용하는 경우 애니메이션 대신 정적인 타이틀 표시 */
+@media (prefers-reduced-motion: reduce) {
+    #wrap.neo-brutalism .title > span {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+}
