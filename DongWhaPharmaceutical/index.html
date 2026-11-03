@@ -435,7 +435,6 @@
             const secondRow = healthySection.querySelector('.healthy-values-row-second');
 
             // HTML 순서대로 가족 이미지가 먼저, 도시 이미지가 다음에 표시됩니다.
-
             function createHealthyScrollAnimation(row, startColumns, endColumns) {
                 const image = row.querySelector('.healthy-values-image');
                 const copy = row.querySelector('.healthy-values-copy');
@@ -455,13 +454,11 @@
                     }
                 });
 
-                // Grid 열 너비를 함께 조정해 이미지 축소와 텍스트 영역 확보를 연결합니다.
                 timeline.to(row, {
                     gridTemplateColumns: endColumns,
                     ease: 'none'
                 }, 0);
 
-                // 텍스트는 스크롤 진행에 맞춰 아래에서 위로 나타납니다.
                 timeline.to(copy, {
                     autoAlpha: 1,
                     y: 0,
@@ -469,11 +466,24 @@
                 }, 0.22);
             }
 
-            // 첫 번째: 왼쪽 이미지 58%, 오른쪽 텍스트 42%
-            // 두 번째: 왼쪽 텍스트 42%, 오른쪽 이미지 58%
-            // 두 번째 행은 CSS Grid의 fr 단위 대신 퍼센트 트랙으로 애니메이션합니다.
             createHealthyScrollAnimation(firstRow, '100% 0%', '58% 42%');
             createHealthyScrollAnimation(secondRow, '0% 100%', '42% 58%');
+
+            // 이미지와 웹폰트 로딩으로 레이아웃 높이가 바뀐 뒤 트리거 위치를 다시 계산합니다.
+            const refreshHealthyScroll = () => ScrollTrigger.refresh();
+
+            if (document.readyState === 'complete') {
+                requestAnimationFrame(refreshHealthyScroll);
+            } else {
+                window.addEventListener('load', () => {
+                    requestAnimationFrame(refreshHealthyScroll);
+                }, { once: true });
+            }
+
+            // 화면 크기 변경으로 행의 위치와 크기가 달라질 때도 다시 계산합니다.
+            window.addEventListener('resize', () => {
+                requestAnimationFrame(refreshHealthyScroll);
+            }, { passive: true });
         }
     </script>
 </body>
