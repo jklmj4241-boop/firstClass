@@ -110,6 +110,9 @@
   gap: 8px;
 }
 .category-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 42px;
   padding: 0 18px;
   border: 1px solid var(--border-default);
@@ -118,6 +121,9 @@
   color: var(--text-primary);
   font-size: 15px;
   font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
   transition: color .2s ease, border-color .2s ease, background-color .2s ease;
 }
 .category-tab:hover {
