@@ -183,10 +183,8 @@
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 48px 32px;
-  max-width: 1540px;
-  margin: 0 auto;
-  padding-top: 40px;
+  gap: 44px 28px;
+  padding-top: 34px;
 }
 .catalog-card {
   min-width: 0;
@@ -202,7 +200,7 @@
   justify-content: center;
   gap: 14px;
   width: 100%;
-  aspect-ratio: 403 / 320;
+  aspect-ratio: 403 / 340;
   overflow: hidden;
   border: 1px solid var(--border-default);
   border-radius: 20px;
@@ -245,7 +243,7 @@
   content: "";
 }
 .catalog-card-info {
-  padding: 16px 2px 0;
+  padding: 18px 2px 0;
 }
 .product-category-label {
   display: inline-block;
