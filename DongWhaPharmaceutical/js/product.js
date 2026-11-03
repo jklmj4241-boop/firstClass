@@ -14,7 +14,9 @@
     let visible = 0;
 
     cards.forEach((card) => {
-      const categoryMatches = selectedCategory === 'all' || card.dataset.category === selectedCategory;
+      const categoryMatches = selectedCategory === 'all'
+        ? card.dataset.featured === 'true'
+        : card.dataset.category === selectedCategory;
       const searchableText = (card.dataset.name + ' ' + card.textContent).toLocaleLowerCase();
       const keywordMatches = !keyword || searchableText.includes(keyword);
       const shouldShow = categoryMatches && keywordMatches;
