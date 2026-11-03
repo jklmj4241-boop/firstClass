@@ -492,3 +492,11 @@
     transition: none;
   }
 }
+
+
+/* 기타 탭도 다른 제품 유형 탭과 동일하게 표시 */
+.category-tab[data-filter="other"] {
+  display: inline-flex;
+  visibility: visible;
+  opacity: 1;
+}
