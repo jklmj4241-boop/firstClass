@@ -194,8 +194,9 @@
   display: none;
 }
 .catalog-card-visual {
-  display: block;
-  width: 100%;
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
   height: auto;
   overflow: hidden;
   border: 1px solid var(--border-default);
@@ -207,11 +208,9 @@
 }
 .catalog-card-visual img {
   display: block;
-  width: 100%;
+  width: auto;
   max-width: 100%;
   height: auto;
-  object-fit: contain;
-  object-position: center;
 }
 
 .catalog-card:hover .catalog-card-visual {
