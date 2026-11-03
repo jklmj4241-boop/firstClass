@@ -194,13 +194,9 @@
   display: none;
 }
 .catalog-card-visual {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
+  display: block;
   width: 100%;
-  aspect-ratio: 403 / 340;
+  height: auto;
   overflow: hidden;
   border: 1px solid var(--border-default);
   border-radius: 20px;
@@ -212,8 +208,8 @@
 .catalog-card-visual img {
   display: block;
   width: 100%;
-  max-width: none;
-  height: 100%;
+  max-width: 100%;
+  height: auto;
   object-fit: contain;
   object-position: center;
 }
@@ -443,10 +439,8 @@
     padding-top: 24px;
   }
   .catalog-card-visual {
-    aspect-ratio: 1 / 1.05;
-    gap: 10px;
+    height: auto;
     border-radius: 12px;
-    font-size: 12px;
   }
   .image-placeholder-icon {
     transform: scale(.85);
