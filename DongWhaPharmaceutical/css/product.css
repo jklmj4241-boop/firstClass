@@ -212,6 +212,7 @@
 .catalog-card-visual img {
   display: block;
   width: 100%;
+  max-width: none;
   height: 100%;
   object-fit: contain;
   object-position: center;
