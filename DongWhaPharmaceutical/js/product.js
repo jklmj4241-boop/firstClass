@@ -9,6 +9,18 @@
   const mobileMenu = document.querySelector('#mobile-menu');
   let selectedCategory = 'all';
 
+  function selectCategory(category) {
+    const target = [...tabs].find((tab) => tab.dataset.filter === category);
+    if (!target) return;
+    selectedCategory = category;
+    tabs.forEach((item) => {
+      const isSelected = item === target;
+      item.classList.toggle('is-active', isSelected);
+      item.setAttribute('aria-pressed', String(isSelected));
+    });
+    updateProducts();
+  }
+
   function updateProducts() {
     const keyword = searchInput.value.trim().toLocaleLowerCase();
     let visible = 0;
@@ -31,15 +43,32 @@
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      selectedCategory = tab.dataset.filter;
-      tabs.forEach((item) => {
-        const isSelected = item === tab;
-        item.classList.toggle('is-active', isSelected);
-        item.setAttribute('aria-pressed', String(isSelected));
-      });
-      updateProducts();
+      selectCategory(tab.dataset.filter);
+      const hashByCategory = {
+        all: 'new-products',
+        general: 'general-medicine',
+        prescription: 'prescription-medicine',
+        health: 'health-lifestyle',
+        other: 'other-products'
+      };
+      history.replaceState(null, '', '#' + hashByCategory[tab.dataset.filter]);
     });
   });
+
+  function applyCategoryFromHash() {
+    const categoryByHash = {
+      '#new-products': 'all',
+      '#general-medicine': 'general',
+      '#prescription-medicine': 'prescription',
+      '#health-lifestyle': 'health',
+      '#other-products': 'other'
+    };
+    const category = categoryByHash[location.hash];
+    if (category) selectCategory(category);
+  }
+
+  window.addEventListener('hashchange', applyCategoryFromHash);
+  applyCategoryFromHash();
 
   searchForm.addEventListener('submit', (event) => {
     event.preventDefault();
