@@ -794,3 +794,58 @@
 .search-modal-actions button:hover,.search-modal-actions button:focus-visible { background: var(--brand-primary); }
 .search-data-note { color: #758398; text-align: left; }
 @media(max-width:760px) { .product-search-modal { margin-top: 16px; } .product-search-modal-inner { width:100%; padding:24px 16px 20px; } .product-search-modal h2 { font-size:26px; } .product-search-modal-form { height:54px; margin:18px 0 20px; } .search-type-tabs { grid-template-columns:repeat(2,minmax(0,1fr)); } .search-type-tabs button:last-child { grid-column:1/-1; } .search-filter-row { grid-template-columns:1fr; gap:12px; padding:20px 14px; } }
+
+
+/* 검색 UI 최종 정리: 검색 입력창은 하나만 사용하고 블루/그림자 제거 */
+.product-search-modal {
+  box-shadow: none !important;
+  color: #333;
+}
+.product-search-modal-inner,
+.product-search-modal h2,
+.product-search-filter-row > strong,
+.search-filter-row > strong,
+.product-search-close,
+.search-filter-footer button,
+.search-data-note {
+  color: #333 !important;
+}
+.product-search-modal h2 { color: #333 !important; }
+.product-search-modal .product-search-close { color: #555 !important; }
+.product-search-modal .search-type-tabs button { color: #444 !important; }
+.product-search-modal .search-type-tabs button.is-active {
+  background: #ED1C24 !important;
+  color: #fff !important;
+}
+.product-search-modal .search-initials button {
+  color: #555 !important;
+  background: #F1F2F4 !important;
+}
+.product-search-modal .search-initials button.is-active,
+.product-search-modal .search-initials button:hover {
+  color: #fff !important;
+  background: #ED1C24 !important;
+}
+.product-search-modal .search-modal-actions button {
+  color: #fff !important;
+  background: #ED1C24 !important;
+  box-shadow: none !important;
+}
+.product-search-modal .search-modal-actions button:hover,
+.product-search-modal .search-modal-actions button:focus-visible {
+  background: #C9151C !important;
+}
+.product-search-modal .search-filter-panel,
+.product-search-modal .search-type-tabs,
+.product-search-modal .search-filter-row {
+  box-shadow: none !important;
+}
+.product-search-wrap .product-search,
+.product-search-wrap .product-search input,
+.product-search-wrap .product-search button {
+  box-shadow: none !important;
+}
+.product-search-wrap .product-search button { color: #444 !important; }
+.product-search-wrap .product-search input:focus {
+  outline-color: #ED1C24;
+}
