@@ -955,3 +955,18 @@
   background: #ED1C24 !important;
   color: #FFFFFF !important;
 }
+
+
+/* 헤더 서브메뉴의 해시 링크는 버튼이 아닌 비시각 앵커 지점으로 연결 */
+.category-tabs .category-anchor-target {
+  display: block;
+  flex: 0 0 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none !important;
+  box-shadow: none !important;
+  pointer-events: none;
+}
