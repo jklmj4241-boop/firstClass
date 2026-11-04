@@ -70,27 +70,8 @@
   window.addEventListener('hashchange', applyCategoryFromHash);
   applyCategoryFromHash();
 
-  const searchButton = searchForm.querySelector('button');
-
-  // 검색 아이콘 클릭: 입력창을 펼치고 바로 입력할 수 있게 합니다.
-  searchButton.addEventListener('click', () => {
-    if (!searchForm.classList.contains('is-open')) {
-      searchForm.classList.add('is-open');
-      searchButton.setAttribute('aria-label', '제품 검색');
-      searchInput.focus();
-      return;
-    }
-    updateProducts();
-  });
-
-  // 입력창에서 Enter를 누르면 현재 검색어로 제품을 필터링합니다.
   searchForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    if (!searchForm.classList.contains('is-open')) {
-      searchForm.classList.add('is-open');
-      searchInput.focus();
-      return;
-    }
     updateProducts();
   });
 
@@ -101,9 +82,9 @@
     if (event.key === 'Escape') {
       searchForm.classList.remove('is-open');
       searchInput.value = '';
-      searchButton.setAttribute('aria-label', '검색창 열기');
+      searchForm.querySelector('button').setAttribute('aria-label', '검색창 열기');
       updateProducts();
-      searchButton.focus();
+      searchForm.querySelector('button').focus();
     }
   });
 
