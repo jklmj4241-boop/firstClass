@@ -936,3 +936,22 @@
     flex-basis: auto;
   }
 }
+
+
+/* 선택된 제품 유형 버튼의 바깥쪽 이중 포커스 테두리 제거 */
+.product-tools .category-tab:focus,
+.product-tools .category-tab:focus-visible,
+.product-tools .category-tab.is-active,
+.product-tools .category-tab.is-active:focus,
+.product-tools .category-tab.is-active:focus-visible {
+  outline: 0 !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 활성 상태는 빨간색 채움 버튼만 표시 */
+.product-tools .category-tab.is-active {
+  border: 1px solid #ED1C24 !important;
+  background: #ED1C24 !important;
+  color: #FFFFFF !important;
+}
