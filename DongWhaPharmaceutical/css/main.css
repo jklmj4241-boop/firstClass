@@ -565,11 +565,11 @@ a {
 
 /* 더 건강한 가치를 만듭니다 */
 .healthy-values {
-    padding: 100px 24px 24px;
+    padding: 100px 24px 100px;
     background-color: var(--brand-white);
 }
 .healthy-values-inner {
-    width: min(1720px, 100%);
+    width: min(1520px, 100%);
     margin: 0 auto;
 }
 .healthy-values-title {
@@ -624,7 +624,7 @@ a {
 .healthy-values-copy p {
     margin: 0;
     color: var(--text-primary);
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.45;
     letter-spacing: -0.02em;
@@ -851,7 +851,7 @@ a {
 }
 .events-inner {
     position: relative;
-    width: min(1720px, 100%);
+    width: min(1520px, 100%);
     margin: 0 auto;
 }
 .events-heading {
@@ -871,7 +871,7 @@ a {
 .events-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(28px, 8.1vw, 158px);
+    gap: clamp(28px, 5.1vw, 158px);
     align-items: start;
 }
 .event-card {
