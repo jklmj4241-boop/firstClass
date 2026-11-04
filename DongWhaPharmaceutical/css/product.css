@@ -990,3 +990,16 @@
   height: 0;
   scroll-margin-top: 24px;
 }
+
+
+/* 제품 찾기 제목 영역을 제품 목록 영역과 같은 좌우 기준선으로 정렬 */
+@media (max-width: 1024px) {
+  .product-intro .product-container {
+    width: min(100%, calc(100% - 32px));
+  }
+}
+@media (max-width: 600px) {
+  .product-intro .product-container {
+    width: 100%;
+  }
+}
