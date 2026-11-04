@@ -1336,3 +1336,52 @@
     height: 38px;
   }
 }
+
+
+/* 카테고리 선택 칩: 참고 이미지처럼 여러 줄로 배치 */
+.category-filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 16px;
+}
+.category-filter-list .subcategory-filter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 999px;
+  background: #F3F3F3;
+  color: #666;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease;
+}
+.category-filter-list .subcategory-filter:hover {
+  background: #E9EAEC;
+  color: #333;
+}
+.category-filter-list .subcategory-filter.is-active {
+  background: #ED1C24;
+  color: #fff;
+}
+.category-filter-list .subcategory-filter:focus-visible {
+  outline: 2px solid #ED1C24;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .category-filter-list {
+    gap: 8px;
+  }
+  .category-filter-list .subcategory-filter {
+    min-height: 38px;
+    padding: 0 14px;
+    font-size: 12px;
+  }
+}
