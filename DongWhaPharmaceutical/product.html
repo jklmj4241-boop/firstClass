@@ -86,35 +86,70 @@
             <span id="other-products"></span>
           </div>
           <div class="catalog-heading">
-            <div>
-              
-              <h2 id="catalog-title">어떤 제품을 찾으시나요?</h2>
-              <p class="catalog-description">제품 유형을 선택하거나 제품명을 검색해 보세요.</p>
+            <div class="catalog-title-wrap">
+              <h2 id="catalog-title">제품 검색</h2>
+              <p class="catalog-description">제품명, 성분, 제품 유형으로 원하는 제품을 찾아보세요.</p>
             </div>
-            <p class="result-count" aria-live="polite"><strong id="visible-count">8</strong>개 제품</p>
           </div>
 
-          <div class="product-tools">
-            <div class="category-tabs" aria-label="제품 유형 선택">
-              <button class="category-tab is-active" type="button" aria-pressed="true" data-filter="all">신제품</button>
-              <button class="category-tab" type="button" aria-pressed="false" data-filter="general">일반의약품</button>
-              <button class="category-tab" type="button" role="tab" aria-selected="false" data-filter="prescription">전문의약품</button>
-              <button class="category-tab" type="button" role="tab" aria-selected="false" data-filter="health">건강 · 생활</button>
-              <button class="category-tab" type="button" role="tab" aria-selected="false" aria-pressed="false" data-filter="other">기타</button>
+          <form class="catalog-search" role="search" id="product-search-form">
+            <label class="sr-only" for="product-search-input">제품명, 성분, 효능 검색</label>
+            <input id="product-search-input" type="search" placeholder="제품명, 성분, 효능으로 검색해 주세요." autocomplete="off">
+            <button type="submit" id="product-search-trigger" aria-label="제품 검색">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                <path d="m16 16 5 5"></path>
+              </svg>
+            </button>
+          </form>
 
+          <div class="category-tabs" aria-label="제품 유형 선택">
+            <button class="category-tab is-active" type="button" aria-pressed="true" data-filter="all">전체</button>
+            <button class="category-tab" type="button" aria-pressed="false" data-filter="new">신제품</button>
+            <button class="category-tab" type="button" aria-pressed="false" data-filter="general">일반의약품</button>
+            <button class="category-tab" type="button" aria-pressed="false" data-filter="prescription">전문의약품</button>
+            <button class="category-tab" type="button" aria-pressed="false" data-filter="health">건강 · 생활</button>
+            <button class="category-tab" type="button" aria-pressed="false" data-filter="other">기타</button>
+          </div>
+
+          <section class="product-filter-panel" aria-label="제품 상세 필터">
+            <div class="filter-row category-filter-row">
+              <strong>카테고리</strong>
+              <p>카테고리 분류 기준은 추후 확정 후 추가할 예정입니다.</p>
             </div>
+            <div class="filter-row initial-filter-row">
+              <strong>초성</strong>
+              <div class="initial-filter-list" role="group" aria-label="제품명 초성 선택">
+                <button type="button" data-initial="ㄱ">ㄱ</button>
+                <button type="button" data-initial="ㄴ">ㄴ</button>
+                <button type="button" data-initial="ㄷ">ㄷ</button>
+                <button type="button" data-initial="ㄹ">ㄹ</button>
+                <button type="button" data-initial="ㅁ">ㅁ</button>
+                <button type="button" data-initial="ㅂ">ㅂ</button>
+                <button type="button" data-initial="ㅅ">ㅅ</button>
+                <button type="button" data-initial="ㅇ">ㅇ</button>
+                <button type="button" data-initial="ㅈ">ㅈ</button>
+                <button type="button" data-initial="ㅊ">ㅊ</button>
+                <button type="button" data-initial="ㅋ">ㅋ</button>
+                <button type="button" data-initial="ㅌ">ㅌ</button>
+                <button type="button" data-initial="ㅍ">ㅍ</button>
+                <button type="button" data-initial="ㅎ">ㅎ</button>
+              </div>
+            </div>
+          </section>
 
-            <div class="product-search-wrap" id="product-search-wrap">
-              <form class="product-search" role="search" id="product-search-form">
-                <label class="sr-only" for="product-search-input">제품명 검색</label>
-                <input id="product-search-input" type="search" placeholder="찾으시는 제품명을 입력하세요" autocomplete="off">
-                <button type="submit" id="product-search-trigger" aria-label="제품 검색">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
-                    <path d="m16 16 5 5"></path>
-                  </svg>
-                </button>
-              </form>
+          <div class="catalog-actions">
+            <button class="filter-reset" id="filter-reset" type="button">
+              <span aria-hidden="true">↻</span> 초기화
+            </button>
+          </div>
+
+          <div class="catalog-results-heading">
+            <p class="result-count" aria-live="polite">총 <strong id="visible-count">0</strong>개의 제품이 있습니다.</p>
+            <div class="catalog-sort" role="group" aria-label="제품 정렬">
+              <button type="button" class="is-active" data-sort="default" aria-pressed="true">기본순</button>
+              <span aria-hidden="true"></span>
+              <button type="button" data-sort="name" aria-pressed="false">가나다순</button>
             </div>
           </div>
 
