@@ -10,12 +10,8 @@
   const searchClose = document.querySelector('#product-search-close');
   const searchReset = document.querySelector('#search-reset');
   const searchTypeTabs = document.querySelectorAll('[data-search-type]');
-  const searchCategoryChips = document.querySelectorAll('[data-search-category]');
   const searchInitials = document.querySelectorAll('[data-initial]');
-  const searchFilterToggle = document.querySelector('#search-filter-toggle');
-  const searchChipList = document.querySelector('#search-category-chips');
   let modalType = 'all';
-  let selectedSearchCategory = '';
   let selectedInitial = '';
   const count = document.querySelector('#visible-count');
   const emptyMessage = document.querySelector('#empty-message');
@@ -95,12 +91,14 @@
 
   function openSearchModal() {
     searchModal.hidden = false;
-    document.body.classList.add('search-modal-open');
+    searchInput.setAttribute('aria-expanded', 'true');
+    searchTrigger.setAttribute('aria-expanded', 'true');
     searchModalInput.focus();
   }
   function closeSearchModal() {
     searchModal.hidden = true;
-    document.body.classList.remove('search-modal-open');
+    searchInput.setAttribute('aria-expanded', 'false');
+    searchTrigger.setAttribute('aria-expanded', 'false');
     searchTrigger.focus();
   }
   searchInput.addEventListener('click', openSearchModal);
@@ -111,9 +109,6 @@
   });
   searchClose.addEventListener('click', closeSearchModal);
 
-  searchModal.addEventListener('click', (event) => {
-    if (event.target === searchModal) closeSearchModal();
-  });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && !searchModal.hidden) closeSearchModal();
   });
@@ -123,18 +118,11 @@
     let visible = 0;
     cards.forEach((card) => {
       const category = card.dataset.category || '';
-      const typeMatches = modalType === 'all'
-        || (modalType === 'prescription' && category === 'prescription')
-        || (modalType === 'general' && category === 'general')
-        || (modalType === 'health' && category === 'health')
-        || (modalType === 'other' && category === 'other')
-        || ((modalType === 'medical' || modalType === 'food') && category === modalType);
+      const typeMatches = modalType === 'new' ? card.dataset.featured === 'true' : category === modalType;
       const text = (card.dataset.name + ' ' + card.textContent).toLocaleLowerCase();
       const keywordMatches = !keyword || text.includes(keyword);
       const initialMatches = !selectedInitial || getInitials(card.dataset.name || card.textContent).startsWith(selectedInitial);
-      const categoryText = (card.dataset.searchCategory || '').toLocaleLowerCase();
-      const categoryMatches = !selectedSearchCategory || categoryText.includes(selectedSearchCategory.toLocaleLowerCase());
-      const show = typeMatches && keywordMatches && initialMatches && categoryMatches;
+      const show = typeMatches && keywordMatches && initialMatches;
       card.hidden = !show;
       if (show) visible += 1;
     });
@@ -144,10 +132,15 @@
 
   searchModalForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    updateSearchResults();
-    closeSearchModal();
     searchInput.value = searchModalInput.value;
-    document.querySelector('#product-list').scrollIntoView({ behavior: 'smooth' });
+    selectedCategory = modalType === 'new' ? 'all' : modalType;
+    tabs.forEach((tab) => {
+      const active = tab.dataset.filter === selectedCategory;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-pressed', String(active));
+    });
+    updateProducts();
+    closeSearchModal();
   });
   searchModalInput.addEventListener('input', updateSearchResults);
 
@@ -163,16 +156,6 @@
     });
   });
 
-  searchCategoryChips.forEach((chip) => {
-    chip.addEventListener('click', () => {
-      const wasActive = chip.classList.contains('is-active');
-      searchCategoryChips.forEach((item) => item.classList.remove('is-active'));
-      selectedSearchCategory = wasActive ? '' : chip.dataset.searchCategory;
-      if (!wasActive) chip.classList.add('is-active');
-      updateSearchResults();
-    });
-  });
-
   searchInitials.forEach((button) => {
     button.addEventListener('click', () => {
       const wasActive = button.classList.contains('is-active');
@@ -183,24 +166,18 @@
     });
   });
 
-  searchFilterToggle.addEventListener('click', () => {
-    const expanded = searchChipList.classList.toggle('is-expanded');
-    searchFilterToggle.textContent = expanded ? '접기⌃' : '전체보기⌄';
-  });
-
   searchReset.addEventListener('click', () => {
-    modalType = 'all';
-    selectedSearchCategory = '';
+    modalType = 'new';
+    selectedCategory = 'all';
     selectedInitial = '';
     searchModalInput.value = '';
     searchInput.value = '';
     searchTypeTabs.forEach((item) => {
-      const active = item.dataset.searchType === 'all';
+      const active = item.dataset.searchType === 'new';
       item.classList.toggle('is-active', active);
       item.setAttribute('aria-pressed', String(active));
     });
-    searchCategoryChips.forEach((item) => item.classList.remove('is-active'));
-    searchInitials.forEach((item) => item.classList.remove('is-active'));
+        searchInitials.forEach((item) => item.classList.remove('is-active'));
     updateProducts();
   });
 
