@@ -129,7 +129,7 @@
     tab.addEventListener('click', () => {
       selectCategory(tab.dataset.filter);
       const hashByCategory = {
-        all: 'new-products',
+        all: 'product-list',
         new: 'new-products',
         general: 'general-medicine',
         prescription: 'prescription-medicine',
