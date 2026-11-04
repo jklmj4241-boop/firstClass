@@ -5,8 +5,7 @@
   const searchInput = document.querySelector('#product-search-input');
   const searchTrigger = document.querySelector('#product-search-trigger');
   const searchModal = document.querySelector('#product-search-modal');
-  const searchModalForm = document.querySelector('#product-search-modal-form');
-  const searchModalInput = document.querySelector('#product-search-modal-input');
+  const searchModalInput = searchInput;
   const searchClose = document.querySelector('#product-search-close');
   const searchReset = document.querySelector('#search-reset');
   const searchTypeTabs = document.querySelectorAll('[data-search-type]');
@@ -93,7 +92,7 @@
     searchModal.hidden = false;
     searchInput.setAttribute('aria-expanded', 'true');
     searchTrigger.setAttribute('aria-expanded', 'true');
-    searchModalInput.focus();
+    searchInput.focus();
   }
   function closeSearchModal() {
     searchModal.hidden = true;
@@ -130,19 +129,11 @@
     emptyMessage.hidden = visible !== 0;
   }
 
-  searchModalForm.addEventListener('submit', (event) => {
+  searchForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    searchInput.value = searchModalInput.value;
-    selectedCategory = modalType === 'new' ? 'all' : modalType;
-    tabs.forEach((tab) => {
-      const active = tab.dataset.filter === selectedCategory;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-pressed', String(active));
-    });
-    updateProducts();
-    closeSearchModal();
+    updateSearchResults();
   });
-  searchModalInput.addEventListener('input', updateSearchResults);
+  searchInput.addEventListener('input', updateSearchResults);
 
   searchTypeTabs.forEach((tab) => {
     tab.addEventListener('click', () => {
@@ -170,7 +161,7 @@
     modalType = 'new';
     selectedCategory = 'all';
     selectedInitial = '';
-    searchModalInput.value = '';
+    searchInput.value = '';
     searchInput.value = '';
     searchTypeTabs.forEach((item) => {
       const active = item.dataset.searchType === 'new';
