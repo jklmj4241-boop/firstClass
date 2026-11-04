@@ -1385,3 +1385,34 @@
     font-size: 12px;
   }
 }
+
+
+/* 제품 목록: 처음에는 10개만 표시하고 더보기 버튼으로 추가 표시 */
+.product-load-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+.product-load-more {
+  min-width: 160px;
+  min-height: 50px;
+  padding: 0 28px;
+  border: 1px solid #ED1C24;
+  border-radius: 999px;
+  background: #fff;
+  color: #ED1C24;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+.product-load-more:hover {
+  background: #ED1C24;
+  color: #fff;
+}
+.product-load-more[hidden] { display: none; }
+@media (max-width: 600px) {
+  .product-load-more-wrap { margin-top: 32px; }
+  .product-load-more { min-height: 46px; font-size: 14px; }
+}
