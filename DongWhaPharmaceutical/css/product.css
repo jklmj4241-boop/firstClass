@@ -506,3 +506,55 @@
   visibility: visible;
   opacity: 1;
 }
+
+
+/* 검색창 클릭 시 검색 방법 메뉴 표시 */
+.product-search-wrap {
+  position: relative;
+  flex: 0 1 360px;
+  min-width: 240px;
+}
+.product-search-wrap .product-search {
+  width: 100%;
+}
+.product-search input[readonly] {
+  cursor: pointer;
+}
+.product-search-options {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 100%;
+  min-width: 240px;
+  padding: 8px;
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+  background: var(--brand-white);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .12);
+}
+.product-search-options[hidden] {
+  display: none;
+}
+.product-search-options button {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  color: var(--text-primary);
+  text-align: left;
+  font-size: 15px;
+  transition: background-color .2s ease, color .2s ease;
+}
+.product-search-options button:hover,
+.product-search-options button:focus-visible {
+  background: #FFF3D1;
+  color: var(--brand-primary);
+  outline: none;
+}
+@media (max-width: 1024px) {
+  .product-search-wrap {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+}
