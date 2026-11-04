@@ -100,6 +100,33 @@
   padding: 0 0 22px;
   border-bottom: 1px solid var(--border-default);
 }
+.subcategory-filter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 17px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: #F2F3F5;
+  color: #555B65;
+  font: inherit;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.subcategory-filter:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+.subcategory-filter.is-active {
+  border-color: var(--brand-primary);
+  background: var(--brand-primary);
+  color: #fff;
+}
+.subcategory-filter:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 3px;
+}
 .category-tabs {
   display: flex;
   flex-wrap: wrap;
