@@ -1,17 +1,6 @@
 (() => {
   const tabs = document.querySelectorAll('.category-tab');
   const cards = [...document.querySelectorAll('.catalog-card')];
-  const searchForm = document.querySelector('#product-search-form');
-  const searchInput = document.querySelector('#product-search-input');
-  const searchTrigger = document.querySelector('#product-search-trigger');
-  const searchModal = document.querySelector('#product-search-modal');
-  const searchModalInput = searchInput;
-  const searchClose = document.querySelector('#product-search-close');
-  const searchReset = document.querySelector('#search-reset');
-  const searchTypeTabs = document.querySelectorAll('[data-search-type]');
-  const searchInitials = document.querySelectorAll('[data-initial]');
-  let modalType = 'new';
-  let selectedInitial = '';
   const count = document.querySelector('#visible-count');
   const emptyMessage = document.querySelector('#empty-message');
   const menuToggle = document.querySelector('.mobile-menu-toggle');
@@ -31,16 +20,13 @@
   }
 
   function updateProducts() {
-    const keyword = searchInput.value.trim().toLocaleLowerCase();
     let visible = 0;
 
     cards.forEach((card) => {
       const categoryMatches = selectedCategory === 'all'
         ? card.dataset.featured === 'true'
         : card.dataset.category === selectedCategory;
-      const searchableText = (card.dataset.name + ' ' + card.textContent).toLocaleLowerCase();
-      const keywordMatches = !keyword || searchableText.includes(keyword);
-      const shouldShow = categoryMatches && keywordMatches;
+      const shouldShow = categoryMatches;
 
       card.hidden = !shouldShow;
       if (shouldShow) visible += 1;
@@ -78,99 +64,6 @@
 
   window.addEventListener('hashchange', applyCategoryFromHash);
   applyCategoryFromHash();
-
-  const hangulInitials = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
-  function getInitials(value) {
-    return [...value].map((char) => {
-      const code = char.charCodeAt(0) - 44032;
-      if (code < 0 || code > 11171) return char;
-      return hangulInitials[Math.floor(code / 588)];
-    }).join('');
-  }
-
-  function openSearchModal() {
-    searchModal.hidden = false;
-    searchInput.setAttribute('aria-expanded', 'true');
-    searchTrigger.setAttribute('aria-expanded', 'true');
-    searchInput.focus();
-  }
-  function closeSearchModal() {
-    searchModal.hidden = true;
-    searchInput.setAttribute('aria-expanded', 'false');
-    searchTrigger.setAttribute('aria-expanded', 'false');
-    searchTrigger.focus();
-  }
-  searchInput.addEventListener('click', openSearchModal);
-  searchTrigger.addEventListener('click', openSearchModal);
-  searchForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    openSearchModal();
-  });
-  searchClose.addEventListener('click', closeSearchModal);
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !searchModal.hidden) closeSearchModal();
-  });
-
-  function updateSearchResults() {
-    const keyword = searchModalInput.value.trim().toLocaleLowerCase();
-    let visible = 0;
-    cards.forEach((card) => {
-      const category = card.dataset.category || '';
-      const typeMatches = modalType === 'new' ? card.dataset.featured === 'true' : category === modalType;
-      const text = (card.dataset.name + ' ' + card.textContent).toLocaleLowerCase();
-      const keywordMatches = !keyword || text.includes(keyword);
-      const initialMatches = !selectedInitial || getInitials(card.dataset.name || card.textContent).startsWith(selectedInitial);
-      const show = typeMatches && keywordMatches && initialMatches;
-      card.hidden = !show;
-      if (show) visible += 1;
-    });
-    count.textContent = String(visible);
-    emptyMessage.hidden = visible !== 0;
-  }
-
-  searchForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    updateSearchResults();
-  });
-  searchInput.addEventListener('input', updateSearchResults);
-
-  searchTypeTabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      modalType = tab.dataset.searchType;
-      searchTypeTabs.forEach((item) => {
-        const active = item === tab;
-        item.classList.toggle('is-active', active);
-        item.setAttribute('aria-pressed', String(active));
-      });
-      updateSearchResults();
-    });
-  });
-
-  searchInitials.forEach((button) => {
-    button.addEventListener('click', () => {
-      const wasActive = button.classList.contains('is-active');
-      searchInitials.forEach((item) => item.classList.remove('is-active'));
-      selectedInitial = wasActive ? '' : button.dataset.initial;
-      if (!wasActive) button.classList.add('is-active');
-      updateSearchResults();
-    });
-  });
-
-  searchReset.addEventListener('click', () => {
-    modalType = 'new';
-    selectedCategory = 'all';
-    selectedInitial = '';
-    searchInput.value = '';
-    searchInput.value = '';
-    searchTypeTabs.forEach((item) => {
-      const active = item.dataset.searchType === 'new';
-      item.classList.toggle('is-active', active);
-      item.setAttribute('aria-pressed', String(active));
-    });
-        searchInitials.forEach((item) => item.classList.remove('is-active'));
-    updateProducts();
-  });
 
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener('click', () => {
