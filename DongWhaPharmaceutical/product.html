@@ -117,7 +117,18 @@
 
           </div>
 
-
+            <div class="product-search-wrap" id="product-search-wrap">
+              <form class="product-search" role="search" id="product-search-form">
+                <label class="sr-only" for="product-search-input">제품명 검색</label>
+                <input id="product-search-input" type="search" placeholder="찾으시는 제품명을 입력하세요" autocomplete="off">
+                <button type="submit" id="product-search-trigger" aria-label="제품 검색">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                    <path d="m16 16 5 5"></path>
+                  </svg>
+                </button>
+              </form>
+            </div>
 
           <div class="product-grid" id="product-grid" aria-live="polite">
             <article class="catalog-card" data-category="health" data-name="소다활" data-featured="true">
