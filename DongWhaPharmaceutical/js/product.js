@@ -11,7 +11,7 @@
   const searchReset = document.querySelector('#search-reset');
   const searchTypeTabs = document.querySelectorAll('[data-search-type]');
   const searchInitials = document.querySelectorAll('[data-initial]');
-  let modalType = 'all';
+  let modalType = 'new';
   let selectedInitial = '';
   const count = document.querySelector('#visible-count');
   const emptyMessage = document.querySelector('#empty-message');
