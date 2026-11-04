@@ -115,8 +115,8 @@
             <div class="product-search-wrap" id="product-search-wrap">
               <form class="product-search" role="search" id="product-search-form">
                 <label class="sr-only" for="product-search-input">제품 검색 화면 열기</label>
-                <input id="product-search-input" type="text" placeholder="찾으시는 제품명을 입력하세요" readonly aria-haspopup="dialog" aria-controls="product-search-modal">
-                <button type="button" id="product-search-trigger" aria-label="제품 검색 화면 열기" aria-haspopup="dialog" aria-controls="product-search-modal">
+                <input id="product-search-input" type="text" placeholder="찾으시는 제품명을 입력하세요" readonly aria-controls="product-search-modal">
+                <button type="button" id="product-search-trigger" aria-label="검색창 열기" aria-controls="product-search-modal">
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <circle cx="10.8" cy="10.8" r="6.8"></circle>
                     <path d="m16 16 5 5"></path>
@@ -125,7 +125,7 @@
               </form>
             </div>
 
-            <section class="product-search-modal" id="product-search-modal" role="dialog" aria-modal="true" aria-labelledby="product-search-title" hidden>
+            <section class="product-search-modal" id="product-search-modal" aria-labelledby="product-search-title" hidden>
               <div class="product-search-modal-inner">
                 <button class="product-search-close" id="product-search-close" type="button" aria-label="검색 화면 닫기">×</button>
                 <h2 id="product-search-title">제품 검색</h2>
@@ -142,42 +142,13 @@
                 </form>
 
                 <nav class="search-type-tabs" aria-label="제품 유형">
-                  <button type="button" class="is-active" data-search-type="all" aria-pressed="true">전체</button>
-                  <button type="button" data-search-type="prescription" aria-pressed="false">전문의약품</button>
+                  <button type="button" class="is-active" data-search-type="new" aria-pressed="true">신제품</button>
                   <button type="button" data-search-type="general" aria-pressed="false">일반의약품</button>
-                  <button type="button" data-search-type="medical" aria-pressed="false">의료기기</button>
-                  <button type="button" data-search-type="health" aria-pressed="false">건강기능식품</button>
-                  <button type="button" data-search-type="food" aria-pressed="false">식품</button>
+                  <button type="button" data-search-type="prescription" aria-pressed="false">전문의약품</button>
+                  <button type="button" data-search-type="health" aria-pressed="false">건강생활</button>
                   <button type="button" data-search-type="other" aria-pressed="false">기타</button>
                 </nav>
-
                 <div class="search-filter-panel">
-                  <div class="search-filter-row">
-                    <strong>카테고리</strong>
-                    <div class="search-filter-chips" id="search-category-chips">
-                      <button type="button" data-search-category="순환기계">순환기계</button>
-                      <button type="button" data-search-category="내분비계">내분비계</button>
-                      <button type="button" data-search-category="항생제">항생제</button>
-                      <button type="button" data-search-category="피부비뇨기계">피부비뇨기계</button>
-                      <button type="button" data-search-category="경장영양">경장영양</button>
-                      <button type="button" data-search-category="호흡기계">호흡기계</button>
-                      <button type="button" data-search-category="소화기계">소화기계</button>
-                      <button type="button" data-search-category="정신신경계">정신신경계</button>
-                      <button type="button" data-search-category="해열진통소염제">해열진통소염제</button>
-                      <button type="button" data-search-category="항히스타민제">항히스타민제</button>
-                      <button type="button" data-search-category="비타민영양제">비타민영양제</button>
-                      <button type="button" data-search-category="근골격">근골격</button>
-                      <button type="button" data-search-category="수액제">수액제</button>
-                      <button type="button" data-search-category="기타">기타</button>
-                      <button type="button" data-search-category="2등급 의료기기 [급여]">2등급 의료기기 [급여]</button>
-                      <button type="button" data-search-category="2등급 의료기기 [비급여]">2등급 의료기기 [비급여]</button>
-                      <button type="button" data-search-category="건강기능식품">건강기능식품</button>
-                      <button type="button" data-search-category="기타환자용영양조제식품">기타환자용영양조제식품</button>
-                      <button type="button" data-search-category="기타가공식품">기타가공식품</button>
-                      <button type="button" data-search-category="드링크제">드링크제</button>
-                      <button type="button" data-search-category="화장품">화장품</button>
-                    </div>
-                  </div>
                   <div class="search-filter-row search-initial-row">
                     <strong>초성</strong>
                     <div class="search-initials" id="search-initials">
@@ -205,7 +176,7 @@
                 <div class="search-modal-actions">
                   <button type="button" id="search-reset">↻ 초기화</button>
                 </div>
-                <p class="search-data-note">카테고리별 상세 검색은 제품별 카테고리 정보가 등록된 항목부터 적용됩니다.</p>
+                <p class="search-data-note">카테고리는 기준을 정한 뒤 추가할 예정입니다.</p>
               </div>
             </section>
           </div>
