@@ -11,6 +11,9 @@
   const subcategoryButtons = [...document.querySelectorAll('[data-subcategory]')];
   const sortButtons = [...document.querySelectorAll('[data-sort]')];
   const resetButton = document.querySelector('#filter-reset');
+  const loadMoreButton = document.querySelector('#product-load-more');
+  const PAGE_SIZE = 10;
+  let visibleLimit = PAGE_SIZE;
   let selectedCategory = 'all';
   let selectedInitial = '';
   let selectedSubcategory = '';
@@ -37,43 +40,53 @@
     updateProducts();
   }
 
-  function updateProducts() {
-    let visible = 0;
+  function updateProducts(resetLimit = false) {
+    if (resetLimit) visibleLimit = PAGE_SIZE;
 
-    cards.forEach((card) => {
+    const matchedCards = cards.filter((card) => {
       const categoryMatches = selectedCategory === 'all'
         || (selectedCategory === 'new' && card.dataset.featured === 'true')
         || card.dataset.category === selectedCategory;
       const initialMatches = !selectedInitial || getInitial(card.dataset.name) === selectedInitial;
       const searchableText = (card.dataset.name + ' ' + card.textContent).toLocaleLowerCase();
       const keywordMatches = !searchKeyword || searchableText.includes(searchKeyword);
-      const shouldShow = categoryMatches && keywordMatches && initialMatches;
-
-      card.hidden = !shouldShow;
-      if (shouldShow) visible += 1;
+      return categoryMatches && keywordMatches && initialMatches;
     });
 
-    count.textContent = String(visible);
-    emptyMessage.hidden = visible !== 0;
-
-    const grid = document.querySelector('#product-grid');
-    const visibleCards = cards.filter((card) => !card.hidden);
-    visibleCards.sort((a, b) => {
+    matchedCards.sort((a, b) => {
       if (selectedSort === 'name') return a.dataset.name.localeCompare(b.dataset.name, 'ko');
       return cards.indexOf(a) - cards.indexOf(b);
     });
-    visibleCards.forEach((card) => grid.appendChild(card));
+
+    const grid = document.querySelector('#product-grid');
+    cards.forEach((card) => { card.hidden = true; });
+    matchedCards.forEach((card, index) => {
+      card.hidden = index >= visibleLimit;
+      grid.appendChild(card);
+    });
+
+    // 전체 검색 결과 수를 유지하고, 화면에는 한 번에 최대 10개만 표시합니다.
+    count.textContent = String(matchedCards.length);
+    emptyMessage.hidden = matchedCards.length !== 0;
+
+    if (loadMoreButton) {
+      const hasMore = matchedCards.length > visibleLimit;
+      loadMoreButton.hidden = !hasMore;
+      loadMoreButton.textContent = hasMore
+        ? '제품 더보기 (' + Math.min(visibleLimit, matchedCards.length) + ' / ' + matchedCards.length + ')'
+        : '제품 더보기';
+    }
   }
 
   searchInput.addEventListener('input', () => {
     searchKeyword = searchInput.value.trim().toLocaleLowerCase();
-    updateProducts();
+    updateProducts(true);
   });
 
   searchForm.addEventListener('submit', (event) => {
     event.preventDefault();
     searchKeyword = searchInput.value.trim().toLocaleLowerCase();
-    updateProducts();
+    updateProducts(true);
   });
 
   subcategoryButtons.forEach((button) => {
@@ -101,7 +114,7 @@
         item.classList.toggle('is-active', active);
         item.setAttribute('aria-pressed', String(active));
       });
-      updateProducts();
+      updateProducts(true);
     });
   });
 
@@ -113,9 +126,16 @@
         item.classList.toggle('is-active', active);
         item.setAttribute('aria-pressed', String(active));
       });
-      updateProducts();
+      updateProducts(true);
     });
   });
+
+  if (loadMoreButton) {
+    loadMoreButton.addEventListener('click', () => {
+      visibleLimit += PAGE_SIZE;
+      updateProducts();
+    });
+  }
 
   if (resetButton) {
     resetButton.addEventListener('click', () => {
@@ -140,7 +160,7 @@
         item.setAttribute('aria-pressed', String(active));
       });
       history.replaceState(null, '', location.pathname + location.search);
-      updateProducts();
+      updateProducts(true);
     });
   }
 
@@ -233,5 +253,5 @@
     });
   }
 
-  updateProducts();
+  updateProducts(true);
 })();
