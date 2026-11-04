@@ -3,9 +3,20 @@
   const cards = [...document.querySelectorAll('.catalog-card')];
   const searchForm = document.querySelector('#product-search-form');
   const searchInput = document.querySelector('#product-search-input');
-  const searchWrap = document.querySelector('#product-search-wrap');
   const searchTrigger = document.querySelector('#product-search-trigger');
-  const searchOptions = document.querySelector('#product-search-options');
+  const searchModal = document.querySelector('#product-search-modal');
+  const searchModalForm = document.querySelector('#product-search-modal-form');
+  const searchModalInput = document.querySelector('#product-search-modal-input');
+  const searchClose = document.querySelector('#product-search-close');
+  const searchReset = document.querySelector('#search-reset');
+  const searchTypeTabs = document.querySelectorAll('[data-search-type]');
+  const searchCategoryChips = document.querySelectorAll('[data-search-category]');
+  const searchInitials = document.querySelectorAll('[data-initial]');
+  const searchFilterToggle = document.querySelector('#search-filter-toggle');
+  const searchChipList = document.querySelector('#search-category-chips');
+  let modalType = 'all';
+  let selectedSearchCategory = '';
+  let selectedInitial = '';
   const count = document.querySelector('#visible-count');
   const emptyMessage = document.querySelector('#empty-message');
   const menuToggle = document.querySelector('.mobile-menu-toggle');
@@ -73,62 +84,127 @@
   window.addEventListener('hashchange', applyCategoryFromHash);
   applyCategoryFromHash();
 
-  function openSearchOptions() {
-    searchOptions.hidden = false;
-    searchInput.setAttribute('aria-expanded', 'true');
-    searchTrigger.setAttribute('aria-expanded', 'true');
+  const hangulInitials = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+  function getInitials(value) {
+    return [...value].map((char) => {
+      const code = char.charCodeAt(0) - 44032;
+      if (code < 0 || code > 11171) return char;
+      return hangulInitials[Math.floor(code / 588)];
+    }).join('');
   }
 
-  function closeSearchOptions() {
-    searchOptions.hidden = true;
-    searchInput.setAttribute('aria-expanded', 'false');
-    searchTrigger.setAttribute('aria-expanded', 'false');
+  function openSearchModal() {
+    searchModal.hidden = false;
+    document.body.classList.add('search-modal-open');
+    searchModalInput.focus();
+  }
+  function closeSearchModal() {
+    searchModal.hidden = true;
+    document.body.classList.remove('search-modal-open');
+    searchTrigger.focus();
+  }
+  searchInput.addEventListener('click', openSearchModal);
+  searchTrigger.addEventListener('click', openSearchModal);
+  searchForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    openSearchModal();
+  });
+  searchClose.addEventListener('click', closeSearchModal);
+
+  searchModal.addEventListener('click', (event) => {
+    if (event.target === searchModal) closeSearchModal();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !searchModal.hidden) closeSearchModal();
+  });
+
+  function updateSearchResults() {
+    const keyword = searchModalInput.value.trim().toLocaleLowerCase();
+    let visible = 0;
+    cards.forEach((card) => {
+      const category = card.dataset.category || '';
+      const typeMatches = modalType === 'all'
+        || (modalType === 'prescription' && category === 'prescription')
+        || (modalType === 'general' && category === 'general')
+        || (modalType === 'health' && category === 'health')
+        || (modalType === 'other' && category === 'other')
+        || ((modalType === 'medical' || modalType === 'food') && category === modalType);
+      const text = (card.dataset.name + ' ' + card.textContent).toLocaleLowerCase();
+      const keywordMatches = !keyword || text.includes(keyword);
+      const initialMatches = !selectedInitial || getInitials(card.dataset.name || card.textContent).startsWith(selectedInitial);
+      const categoryText = (card.dataset.searchCategory || '').toLocaleLowerCase();
+      const categoryMatches = !selectedSearchCategory || categoryText.includes(selectedSearchCategory.toLocaleLowerCase());
+      const show = typeMatches && keywordMatches && initialMatches && categoryMatches;
+      card.hidden = !show;
+      if (show) visible += 1;
+    });
+    count.textContent = String(visible);
+    emptyMessage.hidden = visible !== 0;
   }
 
-  // 검색창 또는 돋보기 버튼을 누르면 와이어프레임의 검색 방법이 나타납니다.
-  searchInput.addEventListener('click', () => {
-    if (searchInput.readOnly) openSearchOptions();
+  searchModalForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    updateSearchResults();
+    closeSearchModal();
+    searchInput.value = searchModalInput.value;
+    document.querySelector('#product-list').scrollIntoView({ behavior: 'smooth' });
   });
-  searchTrigger.addEventListener('click', () => {
-    if (searchInput.readOnly) {
-      openSearchOptions();
-    } else {
-      searchForm.requestSubmit();
-    }
-  });
+  searchModalInput.addEventListener('input', updateSearchResults);
 
-  searchOptions.querySelectorAll('[data-search-mode]').forEach((option) => {
-    option.addEventListener('click', () => {
-      const mode = option.dataset.searchMode;
-      const placeholders = {
-        name: '찾으시는 제품명을 입력하세요',
-        symptom: '효능 또는 증상을 입력하세요',
-        group: '찾으시는 제품군을 입력하세요'
-      };
-      searchInput.placeholder = placeholders[mode];
-      searchInput.readOnly = false;
-      closeSearchOptions();
-      searchInput.focus();
+  searchTypeTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      modalType = tab.dataset.searchType;
+      searchTypeTabs.forEach((item) => {
+        const active = item === tab;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
+      updateSearchResults();
     });
   });
 
-  document.addEventListener('click', (event) => {
-    if (!searchWrap.contains(event.target)) closeSearchOptions();
+  searchCategoryChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const wasActive = chip.classList.contains('is-active');
+      searchCategoryChips.forEach((item) => item.classList.remove('is-active'));
+      selectedSearchCategory = wasActive ? '' : chip.dataset.searchCategory;
+      if (!wasActive) chip.classList.add('is-active');
+      updateSearchResults();
+    });
   });
 
-  searchForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+  searchInitials.forEach((button) => {
+    button.addEventListener('click', () => {
+      const wasActive = button.classList.contains('is-active');
+      searchInitials.forEach((item) => item.classList.remove('is-active'));
+      selectedInitial = wasActive ? '' : button.dataset.initial;
+      if (!wasActive) button.classList.add('is-active');
+      updateSearchResults();
+    });
+  });
+
+  searchFilterToggle.addEventListener('click', () => {
+    const expanded = searchChipList.classList.toggle('is-expanded');
+    searchFilterToggle.textContent = expanded ? '접기⌃' : '전체보기⌄';
+  });
+
+  searchReset.addEventListener('click', () => {
+    modalType = 'all';
+    selectedSearchCategory = '';
+    selectedInitial = '';
+    searchModalInput.value = '';
+    searchInput.value = '';
+    searchTypeTabs.forEach((item) => {
+      const active = item.dataset.searchType === 'all';
+      item.classList.toggle('is-active', active);
+      item.setAttribute('aria-pressed', String(active));
+    });
+    searchCategoryChips.forEach((item) => item.classList.remove('is-active'));
+    searchInitials.forEach((item) => item.classList.remove('is-active'));
     updateProducts();
   });
 
-  searchInput.addEventListener('input', updateProducts);
-
-  searchInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      closeSearchOptions();
-      searchInput.blur();
-    }
-  });
+  updateSearchResults();
 
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener('click', () => {
