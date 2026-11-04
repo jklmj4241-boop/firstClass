@@ -115,7 +115,7 @@
             <div class="product-search-wrap" id="product-search-wrap">
               <form class="product-search" role="search" id="product-search-form">
                 <label class="sr-only" for="product-search-input">제품 검색 화면 열기</label>
-                <input id="product-search-input" type="text" placeholder="찾으시는 제품명을 입력하세요" readonly aria-controls="product-search-modal">
+                <input id="product-search-input" type="search" placeholder="찾으시는 제품명을 입력하세요" autocomplete="off" aria-expanded="false" aria-controls="product-search-modal">
                 <button type="button" id="product-search-trigger" aria-label="검색창 열기" aria-controls="product-search-modal">
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <circle cx="10.8" cy="10.8" r="6.8"></circle>
@@ -133,16 +133,7 @@
                 <button class="product-search-close" id="product-search-close" type="button" aria-label="검색 화면 닫기">×</button>
                 <h2 id="product-search-title">제품 검색</h2>
 
-                <form class="product-search-modal-form" id="product-search-modal-form" role="search">
-                  <label class="sr-only" for="product-search-modal-input">제품명, 성분, 효능 검색</label>
-                  <input id="product-search-modal-input" type="search" placeholder="제품명, 성분, 효능/효과로 검색해 주세요. (예: 나트릭스, Natrix)" autocomplete="off">
-                  <button type="submit" aria-label="검색">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <circle cx="10.8" cy="10.8" r="6.8"></circle>
-                      <path d="m16 16 5 5"></path>
-                    </svg>
-                  </button>
-                </form>
+         </form>
 
                 <nav class="search-type-tabs" aria-label="제품 유형">
                   <button type="button" class="is-active" data-search-type="new" aria-pressed="true">신제품</button>
