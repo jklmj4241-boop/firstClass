@@ -115,19 +115,28 @@
           <section class="product-filter-panel" aria-label="제품 상세 필터">
             <div class="filter-row category-filter-row">
               <strong>카테고리</strong>
-              <div class="category-filter-list" aria-label="제품 카테고리">
-                <span>소화기/관용약</span>
-                <span>감기약/호흡기용약</span>
-                <span>해열·진통·소염제</span>
-                <span>피부외용제</span>
-                <span>외용질환/구내염치료제</span>
-                <span>간장질환용제</span>
-                <span>영양제</span>
-                <span>자양강장제</span>
-                <span>외용 소염진통제</span>
-                <span>항히스타민제</span>
-                <span>인후염치료제</span>
-                <span>기타</span>
+              <div class="category-filter-list" role="group" aria-label="제품 카테고리 선택">
+                <button type="button" class="subcategory-filter" data-subcategory="circulatory" aria-pressed="false">순환기계</button>
+                <button type="button" class="subcategory-filter" data-subcategory="endocrine" aria-pressed="false">내분비계</button>
+                <button type="button" class="subcategory-filter" data-subcategory="antibiotics" aria-pressed="false">항생제</button>
+                <button type="button" class="subcategory-filter" data-subcategory="dermatology" aria-pressed="false">피부비뇨기계</button>
+                <button type="button" class="subcategory-filter" data-subcategory="enteral-nutrition" aria-pressed="false">경장영양</button>
+                <button type="button" class="subcategory-filter" data-subcategory="respiratory" aria-pressed="false">호흡기계</button>
+                <button type="button" class="subcategory-filter" data-subcategory="digestive" aria-pressed="false">소화기계</button>
+                <button type="button" class="subcategory-filter" data-subcategory="neuropsychiatry" aria-pressed="false">정신신경계</button>
+                <button type="button" class="subcategory-filter" data-subcategory="analgesic" aria-pressed="false">해열진통소염제</button>
+                <button type="button" class="subcategory-filter" data-subcategory="antihistamine" aria-pressed="false">항히스타민제</button>
+                <button type="button" class="subcategory-filter" data-subcategory="vitamins" aria-pressed="false">비타민영양제</button>
+                <button type="button" class="subcategory-filter" data-subcategory="musculoskeletal" aria-pressed="false">근골격</button>
+                <button type="button" class="subcategory-filter" data-subcategory="infusion" aria-pressed="false">수액제</button>
+                <button type="button" class="subcategory-filter" data-subcategory="other-medicine" aria-pressed="false">기타</button>
+                <button type="button" class="subcategory-filter" data-subcategory="medical-device-covered" aria-pressed="false">2등급 의료기기 [급여]</button>
+                <button type="button" class="subcategory-filter" data-subcategory="medical-device-uncovered" aria-pressed="false">2등급 의료기기 [비급여]</button>
+                <button type="button" class="subcategory-filter" data-subcategory="health-food" aria-pressed="false">건강기능식품</button>
+                <button type="button" class="subcategory-filter" data-subcategory="patient-nutrition" aria-pressed="false">기타환자용영양조제식품</button>
+                <button type="button" class="subcategory-filter" data-subcategory="processed-food" aria-pressed="false">기타가공식품</button>
+                <button type="button" class="subcategory-filter" data-subcategory="drink" aria-pressed="false">드링크제</button>
+                <button type="button" class="subcategory-filter" data-subcategory="cosmetics" aria-pressed="false">화장품</button>
               </div>
             </div>
             <div class="filter-row initial-filter-row">
