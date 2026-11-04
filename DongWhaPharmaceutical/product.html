@@ -112,16 +112,23 @@
 
             </div>
 
-            <form class="product-search" role="search" id="product-search-form">
-              <label class="sr-only" for="product-search-input">제품명 검색</label>
-              <input id="product-search-input" type="search" placeholder="찾으시는 제품명을 입력하세요" autocomplete="off">
-              <button type="submit" aria-label="제품 검색">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <circle cx="10.8" cy="10.8" r="6.8"></circle>
-                  <path d="m16 16 5 5"></path>
-                </svg>
-              </button>
-            </form>
+            <div class="product-search-wrap" id="product-search-wrap">
+              <form class="product-search" role="search" id="product-search-form">
+                <label class="sr-only" for="product-search-input">제품 검색 방법 선택</label>
+                <input id="product-search-input" type="search" placeholder="찾으시는 제품명을 입력하세요" autocomplete="off" readonly aria-haspopup="true" aria-expanded="false" aria-controls="product-search-options">
+                <button type="button" id="product-search-trigger" aria-label="검색 방법 선택" aria-expanded="false" aria-controls="product-search-options">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                    <path d="m16 16 5 5"></path>
+                  </svg>
+                </button>
+              </form>
+              <div class="product-search-options" id="product-search-options" hidden>
+                <button type="button" data-search-mode="name">제품명 검색</button>
+                <button type="button" data-search-mode="symptom">효능 · 증상별</button>
+                <button type="button" data-search-mode="group">제품군별</button>
+              </div>
+            </div>
           </div>
 
           <div class="product-grid" id="product-grid" aria-live="polite">
