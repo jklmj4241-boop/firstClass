@@ -8,10 +8,12 @@
   const menuToggle = document.querySelector('.mobile-menu-toggle');
   const mobileMenu = document.querySelector('#mobile-menu');
   const initialButtons = [...document.querySelectorAll('[data-initial]')];
+  const subcategoryButtons = [...document.querySelectorAll('[data-subcategory]')];
   const sortButtons = [...document.querySelectorAll('[data-sort]')];
   const resetButton = document.querySelector('#filter-reset');
   let selectedCategory = 'all';
   let selectedInitial = '';
+  let selectedSubcategory = '';
   let selectedSort = 'default';
   let searchKeyword = '';
 
@@ -74,10 +76,26 @@
     updateProducts();
   });
 
+  subcategoryButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const next = button.dataset.subcategory;
+      selectedSubcategory = selectedSubcategory === next ? '' : next;
+      subcategoryButtons.forEach((item) => {
+        const active = item.dataset.subcategory === selectedSubcategory;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
+    });
+  });
+
   initialButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const next = button.dataset.initial;
       selectedInitial = selectedInitial === next ? '' : next;
+      subcategoryButtons.forEach((item) => {
+        item.classList.remove('is-active');
+        item.setAttribute('aria-pressed', 'false');
+      });
       initialButtons.forEach((item) => {
         const active = item.dataset.initial === selectedInitial;
         item.classList.toggle('is-active', active);
@@ -103,6 +121,7 @@
     resetButton.addEventListener('click', () => {
       selectedCategory = 'all';
       selectedInitial = '';
+      selectedSubcategory = '';
       selectedSort = 'default';
       searchKeyword = '';
       searchInput.value = '';
