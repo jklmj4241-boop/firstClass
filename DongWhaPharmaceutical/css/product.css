@@ -14,7 +14,8 @@
   border-bottom: 1px solid var(--border-default);
 }
 .product-intro .product-container {
-  width: min(1720px, 100%);
+  /* 제품 섹션 제목의 왼쪽 기준선과 동일하게 정렬 */
+  width: min(1720px, calc(100% - 48px));
 }
 .breadcrumb {
   display: flex;
