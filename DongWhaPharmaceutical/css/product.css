@@ -1005,3 +1005,19 @@
     padding: 20px 16px 22px;
   }
 }
+
+
+/* 제품 고객지원 안내 영역과 푸터 사이 간격 */
+.product-page .product-help {
+  margin-bottom: 48px;
+}
+@media (max-width: 1024px) {
+  .product-page .product-help {
+    margin-bottom: 36px;
+  }
+}
+@media (max-width: 600px) {
+  .product-page .product-help {
+    margin-bottom: 28px;
+  }
+}
