@@ -402,6 +402,7 @@ a {
     padding: 5px 0;
     color: var(--color-primary);
     font-size: 18px;
+    font-weight: 500;
     line-height: 1.4;
 }
 .products-more img {
