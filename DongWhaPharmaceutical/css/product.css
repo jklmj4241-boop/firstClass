@@ -1025,3 +1025,22 @@
     margin-right: 0 !important;
   }
 }
+
+
+/* 제품 페이지 하단 푸터의 불필요한 위아래 여백 축소 */
+.product-page .site-footer {
+  padding-top: 0;
+}
+.product-page .footer-main {
+  padding: 24px 24px 28px;
+}
+@media (max-width: 1024px) {
+  .product-page .footer-main {
+    padding: 22px 20px 24px;
+  }
+}
+@media (max-width: 600px) {
+  .product-page .footer-main {
+    padding: 20px 16px 22px;
+  }
+}
