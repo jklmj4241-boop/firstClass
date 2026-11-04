@@ -721,7 +721,7 @@ a {
 .site-footer {
     width: 100%;
     margin-top: 0;
-    padding-top: 80px;
+    padding-top: 0;
     background: #ffffff;
     color: #5f636d;
 }
@@ -763,7 +763,7 @@ a {
     margin: 0 8px;
 }
 .footer-main {
-    padding: 64px 24px 68px;
+    padding: 24px 24px 28px;
     background: #f8f8f8;
 }
 .footer-main-inner {
@@ -980,7 +980,7 @@ a {
         display: none;
     }
     .footer-main {
-        padding: 40px 20px;
+        padding: 22px 20px 24px;
     }
     .footer-main-inner {
         grid-template-columns: 1fr;
