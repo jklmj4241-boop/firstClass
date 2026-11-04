@@ -1003,3 +1003,25 @@
     width: 100%;
   }
 }
+
+
+/* 제품 소개 제목을 제품 목록 제목과 동일한 왼쪽 기준선에 정렬 */
+.product-intro .product-container {
+  width: min(1720px, calc(100% - 48px)) !important;
+  margin-left: 24px !important;
+  margin-right: 0 !important;
+}
+@media (max-width: 1024px) {
+  .product-intro .product-container {
+    width: calc(100% - 32px) !important;
+    margin-left: 16px !important;
+    margin-right: 0 !important;
+  }
+}
+@media (max-width: 600px) {
+  .product-intro .product-container {
+    width: calc(100% - 32px) !important;
+    margin-left: 16px !important;
+    margin-right: 0 !important;
+  }
+}
