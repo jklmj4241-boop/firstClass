@@ -81,12 +81,44 @@
   window.addEventListener('hashchange', applyCategoryFromHash);
   applyCategoryFromHash();
 
-  if (menuToggle && mobileMenu) {
+  const headerMain = document.querySelector('.header-main');
+  const megaMenu = document.querySelector('.mega-menu');
+  const mainNav = document.querySelector('.main-nav');
+  const desktopQuery = window.matchMedia('(min-width: 1025px)');
+
+  function closeDesktopMegaMenu() {
+    if (!headerMain || !menuToggle) return;
+    headerMain.classList.remove('mega-menu-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', '메뉴 열기');
+  }
+
+  if (menuToggle && mobileMenu && headerMain && megaMenu && mainNav) {
     menuToggle.addEventListener('click', () => {
+      if (desktopQuery.matches) {
+        const isOpen = headerMain.classList.toggle('mega-menu-open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
+        return;
+      }
+
       const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
       menuToggle.setAttribute('aria-expanded', String(!isExpanded));
       menuToggle.setAttribute('aria-label', isExpanded ? '메뉴 열기' : '메뉴 닫기');
       mobileMenu.hidden = isExpanded;
+    });
+
+    // PC에서는 메인 페이지와 동일하게 메가 메뉴를 표시합니다.
+    [mainNav, megaMenu].forEach((area) => {
+      area.addEventListener('mouseenter', () => {
+        if (desktopQuery.matches) headerMain.classList.add('mega-menu-open');
+      });
+      area.addEventListener('mouseleave', (event) => {
+        if (!desktopQuery.matches) return;
+        const next = event.relatedTarget;
+        if (next && (mainNav.contains(next) || megaMenu.contains(next) || menuToggle.contains(next))) return;
+        closeDesktopMegaMenu();
+      });
     });
 
     mobileMenu.querySelectorAll('a').forEach((link) => {
@@ -95,6 +127,16 @@
         menuToggle.setAttribute('aria-expanded', 'false');
         menuToggle.setAttribute('aria-label', '메뉴 열기');
       });
+    });
+
+    window.addEventListener('resize', () => {
+      if (desktopQuery.matches) {
+        mobileMenu.hidden = true;
+        menuToggle.setAttribute('aria-expanded', String(headerMain.classList.contains('mega-menu-open')));
+      } else {
+        closeDesktopMegaMenu();
+        menuToggle.setAttribute('aria-expanded', String(!mobileMenu.hidden));
+      }
     });
   }
 
