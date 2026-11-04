@@ -1172,13 +1172,13 @@
   min-height: 54px;
   padding: 0 22px;
   border-radius: 999px;
-  background: #1D1D1D;
+  background: #ED1C24;
   color: #fff;
   font-size: 15px;
   font-weight: 600;
   transition: background .2s ease;
 }
-.filter-reset:hover { background: var(--brand-primary); }
+.filter-reset:hover { background: #D9161E; }
 .filter-reset span { font-size: 20px; line-height: 1; }
 .catalog-results-heading {
   display: flex;
