@@ -763,3 +763,34 @@
 @media (prefers-reduced-motion: reduce) {
   .search-filter-chips button, .search-initials button { transition: none; }
 }
+
+/* 제품 섹션 내부에서 펼쳐지는 검색 패널 */
+.product-search-wrap { flex: 1 1 340px; }
+.product-search-modal[hidden] { display: none; }
+.product-search-modal { position: static; inset: auto; z-index: auto; width: 100%; max-height: none; margin-top: 22px; overflow: visible; border: 1px solid var(--border-default); border-radius: 16px; background: var(--brand-white); color: var(--text-primary); box-shadow: 0 10px 28px rgba(25,70,137,.08); animation: searchPanelReveal .24s ease both; }
+@keyframes searchPanelReveal { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+.product-search-modal-inner { width: 100%; min-height: 0; margin: 0; padding: 30px clamp(18px,3vw,42px) 26px; }
+.product-search-close { top: 16px; right: 18px; color: var(--brand-secondary); font-size: 28px; }
+.product-search-modal h2 { color: var(--brand-secondary); font-size: clamp(25px,2.5vw,34px); text-align: left; padding-right: 48px; }
+.product-search-modal-form { width: min(680px,100%); height: 58px; margin: 22px 0 28px; border: 1.5px solid var(--brand-secondary); border-radius: 999px; background: var(--brand-white); }
+.product-search-modal-form:focus-within { border-color: var(--brand-primary); box-shadow: 0 0 0 3px rgba(237,28,36,.10); }
+.product-search-modal-form input { padding: 0 16px 0 24px; color: var(--text-primary); font-size: 15px; }
+.product-search-modal-form button { color: var(--brand-secondary); }
+.search-type-tabs { grid-template-columns: repeat(5,minmax(0,1fr)); min-height: 54px; gap: 3px; padding: 3px; border-radius: 9px; background: #F1F4F8; }
+.search-type-tabs button { border-radius: 7px; color: var(--brand-secondary); font-size: 14px; transition: background .18s ease,color .18s ease; }
+.search-type-tabs button:hover,.search-type-tabs button:focus-visible { color: var(--brand-primary); outline: 2px solid rgba(237,28,36,.2); outline-offset: -2px; }
+.search-type-tabs button.is-active { border-radius: 7px; background: var(--brand-primary); color: var(--text-white); }
+.search-filter-panel { margin-top: 18px; border-color: var(--border-default); border-radius: 10px; }
+.search-filter-row { grid-template-columns: 90px minmax(0,1fr); gap: 18px; padding: 24px 26px; }
+.search-filter-row > strong { color: var(--brand-secondary); }
+.search-initial-row { border-top: 0; }
+.search-initials { gap: 9px; }
+.search-initials button { width: 42px; min-height: 42px; padding: 0; background: #F1F4F8; color: var(--brand-secondary); }
+.search-initials button:hover,.search-initials button.is-active { background: var(--brand-primary); color: var(--text-white); }
+.search-filter-footer { border-top: 1px solid #E9EDF2; }
+.search-filter-footer button { color: var(--brand-secondary); }
+.search-filter-footer button:hover { color: var(--brand-primary); }
+.search-modal-actions button { background: var(--brand-secondary); color: var(--text-white); transition: background .18s ease; }
+.search-modal-actions button:hover,.search-modal-actions button:focus-visible { background: var(--brand-primary); }
+.search-data-note { color: #758398; text-align: left; }
+@media(max-width:760px) { .product-search-modal { margin-top: 16px; } .product-search-modal-inner { width:100%; padding:24px 16px 20px; } .product-search-modal h2 { font-size:26px; } .product-search-modal-form { height:54px; margin:18px 0 20px; } .search-type-tabs { grid-template-columns:repeat(2,minmax(0,1fr)); } .search-type-tabs button:last-child { grid-column:1/-1; } .search-filter-row { grid-template-columns:1fr; gap:12px; padding:20px 14px; } }
