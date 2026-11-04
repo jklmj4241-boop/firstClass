@@ -204,8 +204,6 @@
     updateProducts();
   });
 
-  updateSearchResults();
-
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener('click', () => {
       const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
