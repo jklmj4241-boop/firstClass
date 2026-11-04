@@ -8,11 +8,9 @@
   const menuToggle = document.querySelector('.mobile-menu-toggle');
   const mobileMenu = document.querySelector('#mobile-menu');
   const initialButtons = [...document.querySelectorAll('[data-initial]')];
-  const subcategoryButtons = [...document.querySelectorAll('[data-subcategory]')];
   const sortButtons = [...document.querySelectorAll('[data-sort]')];
   const resetButton = document.querySelector('#filter-reset');
   let selectedCategory = 'all';
-  let selectedSubcategory = '';
   let selectedInitial = '';
   let selectedSort = 'default';
   let searchKeyword = '';
@@ -44,11 +42,10 @@
       const categoryMatches = selectedCategory === 'all'
         || (selectedCategory === 'new' && card.dataset.featured === 'true')
         || card.dataset.category === selectedCategory;
-      const subcategoryMatches = !selectedSubcategory || card.dataset.subcategory === selectedSubcategory;
       const initialMatches = !selectedInitial || getInitial(card.dataset.name) === selectedInitial;
       const searchableText = (card.dataset.name + ' ' + card.textContent).toLocaleLowerCase();
       const keywordMatches = !searchKeyword || searchableText.includes(searchKeyword);
-      const shouldShow = categoryMatches && subcategoryMatches && keywordMatches && initialMatches;
+      const shouldShow = categoryMatches && keywordMatches && initialMatches;
 
       card.hidden = !shouldShow;
       if (shouldShow) visible += 1;
@@ -75,19 +72,6 @@
     event.preventDefault();
     searchKeyword = searchInput.value.trim().toLocaleLowerCase();
     updateProducts();
-  });
-
-  subcategoryButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const next = button.dataset.subcategory;
-      selectedSubcategory = selectedSubcategory === next ? '' : next;
-      subcategoryButtons.forEach((item) => {
-        const active = item.dataset.subcategory === selectedSubcategory;
-        item.classList.toggle('is-active', active);
-        item.setAttribute('aria-pressed', String(active));
-      });
-      updateProducts();
-    });
   });
 
   initialButtons.forEach((button) => {
@@ -118,7 +102,6 @@
   if (resetButton) {
     resetButton.addEventListener('click', () => {
       selectedCategory = 'all';
-      selectedSubcategory = '';
       selectedInitial = '';
       selectedSort = 'default';
       searchKeyword = '';
@@ -127,10 +110,6 @@
         const active = item.dataset.filter === 'all';
         item.classList.toggle('is-active', active);
         item.setAttribute('aria-pressed', String(active));
-      });
-      subcategoryButtons.forEach((item) => {
-        item.classList.remove('is-active');
-        item.setAttribute('aria-pressed', 'false');
       });
       initialButtons.forEach((item) => {
         item.classList.remove('is-active');
