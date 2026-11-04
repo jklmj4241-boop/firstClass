@@ -698,9 +698,9 @@ a {
     min-height: 46px;
     margin-top: clamp(90px, 9vw, 170px);
     padding: 10px 24px;
-    border: 1px solid rgba(35, 31, 32, 0.9);
+    border: 1px solid var(--brand-primary);
     border-radius: 999px;
-    background-color: rgba(35, 31, 32, 0.18);
+    background-color: var(--brand-primary);
     color: var(--text-white);
     font-size: 15px;
     font-weight: 400;
