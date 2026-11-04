@@ -1,11 +1,14 @@
 (() => {
   const tabs = document.querySelectorAll('.category-tab');
   const cards = [...document.querySelectorAll('.catalog-card')];
+  const searchForm = document.querySelector('#product-search-form');
+  const searchInput = document.querySelector('#product-search-input');
   const count = document.querySelector('#visible-count');
   const emptyMessage = document.querySelector('#empty-message');
   const menuToggle = document.querySelector('.mobile-menu-toggle');
   const mobileMenu = document.querySelector('#mobile-menu');
   let selectedCategory = 'all';
+  let searchKeyword = '';
 
   function selectCategory(category) {
     const target = [...tabs].find((tab) => tab.dataset.filter === category);
@@ -26,7 +29,9 @@
       const categoryMatches = selectedCategory === 'all'
         ? card.dataset.featured === 'true'
         : card.dataset.category === selectedCategory;
-      const shouldShow = categoryMatches;
+      const searchableText = (card.dataset.name + ' ' + card.textContent).toLocaleLowerCase();
+      const keywordMatches = !searchKeyword || searchableText.includes(searchKeyword);
+      const shouldShow = categoryMatches && keywordMatches;
 
       card.hidden = !shouldShow;
       if (shouldShow) visible += 1;
@@ -35,6 +40,17 @@
     count.textContent = String(visible);
     emptyMessage.hidden = visible !== 0;
   }
+
+  searchInput.addEventListener('input', () => {
+    searchKeyword = searchInput.value.trim().toLocaleLowerCase();
+    updateProducts();
+  });
+
+  searchForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    searchKeyword = searchInput.value.trim().toLocaleLowerCase();
+    updateProducts();
+  });
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
