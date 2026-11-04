@@ -72,9 +72,30 @@
 
   searchForm.addEventListener('submit', (event) => {
     event.preventDefault();
+
+    // 처음 클릭하면 검색창을 펼치고 입력할 수 있도록 포커스를 이동합니다.
+    if (!searchForm.classList.contains('is-open')) {
+      searchForm.classList.add('is-open');
+      searchForm.querySelector('button').setAttribute('aria-label', '제품 검색');
+      searchInput.focus();
+      return;
+    }
+
     updateProducts();
   });
+
   searchInput.addEventListener('input', updateProducts);
+
+  // 검색창이 열린 상태에서 Escape를 누르면 입력창을 닫습니다.
+  searchInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      searchForm.classList.remove('is-open');
+      searchInput.value = '';
+      searchForm.querySelector('button').setAttribute('aria-label', '검색창 열기');
+      updateProducts();
+      searchForm.querySelector('button').focus();
+    }
+  });
 
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener('click', () => {
