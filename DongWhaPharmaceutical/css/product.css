@@ -1521,3 +1521,17 @@
   .product-pagination .pagination-number.is-active { font-size: 19px; }
   .product-pagination .pagination-arrow { font-size: 20px; }
 }
+
+
+/* 검색창 기본 돋보기는 회색, 검색창을 활성화하면 빨간색 */
+.product-page .catalog-search button {
+  color: #888888;
+  transition: color .2s ease;
+}
+.product-page .catalog-search:focus-within button:not([data-clear="true"]) {
+  color: var(--brand-primary);
+}
+/* 검색어가 있을 때 표시되는 원형 X는 항상 회색 */
+.product-page .catalog-search button[data-clear="true"] {
+  color: #888888;
+}
