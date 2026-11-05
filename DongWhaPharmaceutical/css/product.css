@@ -1242,6 +1242,12 @@
   object-fit: cover;
   padding: 0;
 }
+
+/* 전문의약품은 제품 이미지가 잘리지 않도록 전체 표시 */
+.product-page .catalog-card[data-category="prescription"] .catalog-card-visual img {
+  object-fit: contain;
+  padding: 9%;
+}
 .product-page .catalog-card-info {
   padding: 18px 2px 0;
 }
