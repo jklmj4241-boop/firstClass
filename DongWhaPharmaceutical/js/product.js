@@ -3,6 +3,27 @@
   const cards = [...document.querySelectorAll('.catalog-card')];
   const searchForm = document.querySelector('#product-search-form');
   const searchInput = document.querySelector('#product-search-input');
+  const searchTrigger = document.querySelector('#product-search-trigger');
+
+  function syncSearchTrigger() {
+    const hasQuery = searchInput.value.length > 0;
+    searchTrigger.dataset.clear = String(hasQuery);
+    searchTrigger.setAttribute('aria-label', hasQuery ? '검색어 지우기' : '제품 검색');
+    searchTrigger.innerHTML = hasQuery
+      ? '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#D9D9D9" stroke="none"></circle><path d="M8.5 8.5l7 7m0-7l-7 7" fill="none" stroke="#888888" stroke-width="1.8" stroke-linecap="round"></path></svg>'
+      : '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>';
+  }
+
+  syncSearchTrigger();
+  searchTrigger.addEventListener('click', (event) => {
+    if (!searchInput.value.length) return;
+    event.preventDefault();
+    searchInput.value = '';
+    searchKeyword = '';
+    syncSearchTrigger();
+    updateProducts(true);
+    searchInput.focus();
+  });
   const count = document.querySelector('#visible-count');
   const emptyMessage = document.querySelector('#empty-message');
   const menuToggle = document.querySelector('.mobile-menu-toggle');
@@ -104,6 +125,7 @@
 
   searchInput.addEventListener('input', () => {
     searchKeyword = searchInput.value.trim().toLocaleLowerCase();
+    syncSearchTrigger();
     updateProducts(true);
   });
 
@@ -188,6 +210,7 @@
       selectedSort = 'default';
       searchKeyword = '';
       searchInput.value = '';
+      syncSearchTrigger();
       tabs.forEach((item) => {
         const active = item.dataset.filter === 'all';
         item.classList.toggle('is-active', active);
