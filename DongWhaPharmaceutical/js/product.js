@@ -16,13 +16,20 @@
 
   syncSearchTrigger();
   searchTrigger.addEventListener('click', (event) => {
-    if (!searchInput.value.length) return;
+    if (!searchInput.value.length) {
+      // 검색어가 없을 때 돋보기를 누르면 검색창을 활성화합니다.
+      event.preventDefault();
+      searchInput.focus();
+      return;
+    }
+
+    // 검색어가 있을 때는 X 버튼으로 검색어를 지웁니다.
     event.preventDefault();
     searchInput.value = '';
     searchKeyword = '';
     syncSearchTrigger();
     updateProducts(true);
-    searchInput.focus();
+    searchInput.blur();
   });
   const count = document.querySelector('#visible-count');
   const emptyMessage = document.querySelector('#empty-message');
