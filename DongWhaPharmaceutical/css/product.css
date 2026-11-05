@@ -1416,3 +1416,64 @@
   .product-load-more-wrap { margin-top: 32px; }
   .product-load-more { min-height: 46px; font-size: 14px; }
 }
+
+
+/* 제품 목록 페이지네이션: 브랜드 등록 컬러만 사용 */
+.product-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 52px auto 0;
+  color: var(--text-primary);
+}
+.product-pagination[hidden] { display: none; }
+.product-pagination button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color .18s ease, color .18s ease;
+}
+.product-pagination .pagination-numbers {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.product-pagination .pagination-number.is-active {
+  background: var(--brand-secondary);
+  color: var(--text-white);
+  font-weight: 700;
+}
+.product-pagination .pagination-arrow {
+  color: #9298A1;
+  font-size: 24px;
+  line-height: 1;
+}
+.product-pagination button:disabled {
+  opacity: .45;
+  cursor: default;
+}
+.product-pagination button:not(:disabled):hover:not(.is-active) {
+  background: var(--border-default);
+}
+.product-pagination button:focus-visible {
+  outline: 2px solid var(--brand-secondary);
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .product-pagination { gap: 6px; margin-top: 36px; }
+  .product-pagination .pagination-numbers { gap: 4px; }
+  .product-pagination button { width: 34px; height: 34px; font-size: 14px; }
+  .product-pagination .pagination-arrow { font-size: 20px; }
+}
