@@ -475,9 +475,13 @@
             </article>
           </div>
 
-          <div class="product-load-more-wrap">
-            <button class="product-load-more" id="product-load-more" type="button" hidden>제품 더보기</button>
-          </div>
+          <nav class="product-pagination" id="product-pagination" aria-label="제품 목록 페이지" hidden>
+            <button class="pagination-arrow" type="button" data-page-action="first" aria-label="첫 페이지로">«</button>
+            <button class="pagination-arrow" type="button" data-page-action="prev" aria-label="이전 페이지">‹</button>
+            <div class="pagination-numbers" id="pagination-numbers"></div>
+            <button class="pagination-arrow" type="button" data-page-action="next" aria-label="다음 페이지">›</button>
+            <button class="pagination-arrow" type="button" data-page-action="last" aria-label="마지막 페이지로">»</button>
+          </nav>
 
           <p class="empty-message" id="empty-message" hidden>검색 결과가 없습니다. 다른 검색어를 입력해 주세요.</p>
         </div>
