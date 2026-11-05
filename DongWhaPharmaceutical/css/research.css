@@ -37,3 +37,60 @@
   .rd-title-banner .rd-title-inner h1{font-size:36px}
   .rd-title-banner .rd-title-mark{top:auto;bottom:25px;right:20px;transform:none;font-size:64px}
 }
+
+/* Single-page R&D editorial design inspired by IDEA Pharma reference */
+.rd-editorial-label{display:flex;align-items:center;gap:14px;color:#ed1c24;font-size:11px;font-weight:800;letter-spacing:.15em}
+.rd-editorial-label span:first-child{font-size:13px}
+.rd-editorial-label span:last-child{color:#9ba1aa}
+.rd-overview{padding-top:105px;padding-bottom:105px}
+.rd-overview-body{margin-top:32px;margin-bottom:82px}
+.rd-achievement-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px}
+.rd-achievement-intro>div>span,.rd-strategy-kicker{font-size:10px;font-weight:800;letter-spacing:.15em;color:#ed1c24}
+.rd-achievement-intro h3{font-size:clamp(27px,3.1vw,40px);letter-spacing:-.055em;margin:12px 0 0}
+.rd-achievement-intro>p{font-size:13px;line-height:1.8;color:#7b818a;text-align:right;margin:0}
+.rd-achievement-list{border-top:1px solid #272c34}
+.rd-achievement-list article{display:grid;grid-template-columns:65px 1fr 28px;gap:18px;align-items:center;padding:25px 12px;border-bottom:1px solid #e2e5e9;transition:background .2s}
+.rd-achievement-list article:hover{background:#f7f8fa}
+.rd-achievement-no{font-size:13px;color:#ed1c24;font-weight:800}
+.rd-achievement-list article small{font-size:9px;letter-spacing:.16em;color:#9ba1aa;font-weight:800}
+.rd-achievement-list h4{font-size:21px;letter-spacing:-.035em;margin:7px 0}
+.rd-achievement-list p{font-size:13px;color:#707782;line-height:1.7;margin:0}
+.rd-achievement-list article>b{font-size:18px;color:#194689;font-weight:400}
+.rd-strategy{background:#194689;color:#fff;padding:100px 24px 108px}
+.rd-strategy-inner{width:min(1240px,100%);margin:0 auto}
+.rd-label-light span:last-child{color:rgba(255,255,255,.55)}
+.rd-strategy-heading{display:grid;grid-template-columns:1.1fr .9fr;gap:8%;align-items:end;margin:38px 0 58px}
+.rd-strategy-kicker{color:#ffb8bc}
+.rd-strategy-heading h2{font-size:clamp(35px,4.5vw,58px);line-height:1.25;letter-spacing:-.06em;margin:16px 0 0}
+.rd-strategy-heading h2 em{font-style:normal;color:#ffb8bc}
+.rd-strategy-heading>p{font-size:15px;line-height:1.9;color:rgba(255,255,255,.78);margin:0 0 5px}
+.rd-strategy-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.35)}
+.rd-strategy-grid article{padding:27px 25px 0 0;border-right:1px solid rgba(255,255,255,.22)}
+.rd-strategy-grid article+article{padding-left:25px}
+.rd-strategy-grid article:last-child{border-right:0}
+.rd-strategy-grid article>span{font-size:9px;letter-spacing:.13em;color:#ffb8bc;font-weight:800}
+.rd-strategy-grid h3{font-size:22px;margin:25px 0 12px}
+.rd-strategy-grid p{font-size:13px;line-height:1.85;color:rgba(255,255,255,.75);margin:0;max-width:310px}
+.rd-closing{text-align:center;padding:105px 24px 115px;background:#f3f4f6}
+.rd-closing>span{font-size:10px;font-weight:800;letter-spacing:.18em;color:#ed1c24}
+.rd-closing h2{font-size:clamp(34px,4.5vw,55px);line-height:1.3;letter-spacing:-.055em;margin:22px 0 15px}
+.rd-closing h2 em{font-style:normal;color:#194689}
+.rd-closing p{font-size:14px;line-height:1.8;color:#707782;margin:0}
+@media(max-width:760px){
+ .rd-overview{padding-top:72px;padding-bottom:75px}
+ .rd-overview-body{margin:26px 0 58px}
+ .rd-achievement-intro{display:block}
+ .rd-achievement-intro>p{text-align:left;margin-top:13px}
+ .rd-achievement-list article{grid-template-columns:34px 1fr 18px;gap:10px;padding:22px 3px}
+ .rd-achievement-list h4{font-size:18px}
+ .rd-achievement-list p{font-size:12px}
+ .rd-strategy{padding:72px 20px}
+ .rd-strategy-heading{grid-template-columns:1fr;gap:22px;margin:28px 0 38px}
+ .rd-strategy-heading h2{font-size:36px}
+ .rd-strategy-grid{grid-template-columns:1fr}
+ .rd-strategy-grid article,.rd-strategy-grid article+article{padding:22px 0;border-right:0;border-bottom:1px solid rgba(255,255,255,.22)}
+ .rd-strategy-grid article:last-child{border-bottom:0}
+ .rd-strategy-grid h3{margin:13px 0 8px;font-size:19px}
+ .rd-closing{padding:75px 20px}
+ .rd-closing h2{font-size:35px}
+}
