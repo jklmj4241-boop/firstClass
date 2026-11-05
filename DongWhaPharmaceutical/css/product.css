@@ -217,8 +217,8 @@
 }
 
 .catalog-card:hover .catalog-card-visual {
-  border-color: #DDE1E7;
-  background: #F7F7F7;
+  border-color: #E1E1E1;
+  background: #fff;
 }
 .image-placeholder-icon {
   position: relative;
