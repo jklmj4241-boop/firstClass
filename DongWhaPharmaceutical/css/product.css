@@ -1248,6 +1248,19 @@
   object-fit: contain;
   padding: 9%;
 }
+
+/* 제품 카드에 마우스를 올리면 테두리 강조 없이 그림자만 표시 */
+.product-page .catalog-card-visual {
+  transition: box-shadow .2s ease;
+}
+
+.product-page .catalog-card:hover .catalog-card-visual,
+.product-page .catalog-card:focus .catalog-card-visual,
+.product-page .catalog-card:focus-visible .catalog-card-visual {
+  border-color: #E1E1E1 !important;
+  outline: none !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .10);
+}
 .product-page .catalog-card-info {
   padding: 18px 2px 0;
 }
