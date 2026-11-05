@@ -11,9 +11,10 @@
   const subcategoryButtons = [...document.querySelectorAll('[data-subcategory]')];
   const sortButtons = [...document.querySelectorAll('[data-sort]')];
   const resetButton = document.querySelector('#filter-reset');
-  const loadMoreButton = document.querySelector('#product-load-more');
+  const pagination = document.querySelector('#product-pagination');
+  const paginationNumbers = document.querySelector('#pagination-numbers');
   const PAGE_SIZE = 10;
-  let visibleLimit = PAGE_SIZE;
+  let currentPage = 1;
   let selectedCategory = 'all';
   let selectedInitial = '';
   let selectedSubcategory = '';
@@ -40,8 +41,8 @@
     updateProducts();
   }
 
-  function updateProducts(resetLimit = false) {
-    if (resetLimit) visibleLimit = PAGE_SIZE;
+  function updateProducts(resetPage = false) {
+    if (resetPage) currentPage = 1;
 
     const matchedCards = cards.filter((card) => {
       const categoryMatches = selectedCategory === 'all'
@@ -58,23 +59,46 @@
       return cards.indexOf(a) - cards.indexOf(b);
     });
 
+    const totalPages = Math.ceil(matchedCards.length / PAGE_SIZE);
+    currentPage = Math.min(Math.max(currentPage, 1), Math.max(totalPages, 1));
+    const startIndex = (currentPage - 1) * PAGE_SIZE;
+    const pageCards = matchedCards.slice(startIndex, startIndex + PAGE_SIZE);
     const grid = document.querySelector('#product-grid');
+
     cards.forEach((card) => { card.hidden = true; });
-    matchedCards.forEach((card, index) => {
-      card.hidden = index >= visibleLimit;
+    pageCards.forEach((card) => {
+      card.hidden = false;
       grid.appendChild(card);
     });
 
-    // 전체 검색 결과 수를 유지하고, 화면에는 한 번에 최대 10개만 표시합니다.
     count.textContent = String(matchedCards.length);
     emptyMessage.hidden = matchedCards.length !== 0;
 
-    if (loadMoreButton) {
-      const hasMore = matchedCards.length > visibleLimit;
-      loadMoreButton.hidden = !hasMore;
-      loadMoreButton.textContent = hasMore
-        ? '제품 더보기 (' + Math.min(visibleLimit, matchedCards.length) + ' / ' + matchedCards.length + ')'
-        : '제품 더보기';
+    if (pagination && paginationNumbers) {
+      pagination.hidden = totalPages <= 1;
+      paginationNumbers.innerHTML = '';
+
+      for (let page = 1; page <= totalPages; page += 1) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'pagination-number';
+        button.textContent = String(page);
+        button.setAttribute('aria-label', page + '페이지');
+        button.setAttribute('aria-current', page === currentPage ? 'page' : 'false');
+        button.classList.toggle('is-active', page === currentPage);
+        button.addEventListener('click', () => {
+          currentPage = page;
+          updateProducts();
+        });
+        paginationNumbers.appendChild(button);
+      }
+
+      pagination.querySelectorAll('[data-page-action]').forEach((button) => {
+        const action = button.dataset.pageAction;
+        button.disabled =
+          (action === 'first' || action === 'prev') ? currentPage === 1 :
+          (action === 'next' || action === 'last') ? currentPage === totalPages : true;
+      });
     }
   }
 
@@ -130,9 +154,28 @@
     });
   });
 
-  if (loadMoreButton) {
-    loadMoreButton.addEventListener('click', () => {
-      visibleLimit += PAGE_SIZE;
+  if (pagination) {
+    pagination.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-page-action]');
+      if (!button || button.disabled) return;
+
+      const totalPages = Math.ceil(
+        cards.filter((card) => {
+          const categoryMatches = selectedCategory === 'all'
+            || (selectedCategory === 'new' && card.dataset.featured === 'true')
+            || card.dataset.category === selectedCategory;
+          const initialMatches = !selectedInitial || getInitial(card.dataset.name) === selectedInitial;
+          const searchableText = (card.dataset.name + ' ' + card.textContent).toLocaleLowerCase();
+          const keywordMatches = !searchKeyword || searchableText.includes(searchKeyword);
+          return categoryMatches && keywordMatches && initialMatches;
+        }).length / PAGE_SIZE
+      );
+
+      const action = button.dataset.pageAction;
+      if (action === 'first') currentPage = 1;
+      if (action === 'prev') currentPage -= 1;
+      if (action === 'next') currentPage += 1;
+      if (action === 'last') currentPage = totalPages;
       updateProducts();
     });
   }
