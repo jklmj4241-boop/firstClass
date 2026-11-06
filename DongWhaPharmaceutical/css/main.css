@@ -1142,3 +1142,54 @@ a {
         font-size: clamp(16px, 2.4vw, 20px);
     }
 }
+
+
+/* 메인 채용 섹션 */
+.recruitment-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: clamp(320px, 36vw, 520px);
+    margin-top: clamp(40px, 4vw, 64px);
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(13, 39, 68, .78), rgba(13, 39, 68, .18)),
+        url("../img/Healthy01.png") center 48% / cover no-repeat;
+}
+.recruitment-overlay {
+    width: min(1200px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 72px 0;
+    color: #fff;
+}
+.recruitment-title {
+    margin: 0;
+    font-size: clamp(30px, 4.2vw, 54px);
+    line-height: 1.35;
+    letter-spacing: -.045em;
+    font-weight: 650;
+}
+.recruitment-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 176px;
+    min-height: 52px;
+    margin-top: 30px;
+    padding: 0 24px;
+    border: 1px solid rgba(255,255,255,.85);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .25s ease, color .25s ease;
+}
+.recruitment-cta:hover {
+    background: #fff;
+    color: #173653;
+}
+@media (max-width: 768px) {
+    .recruitment-section { min-height: 340px; background-position: 58% center; }
+    .recruitment-overlay { width: calc(100% - 40px); padding: 56px 0; }
+    .recruitment-title { font-size: clamp(27px, 7vw, 38px); }
+}
