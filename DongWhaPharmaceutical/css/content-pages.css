@@ -93,3 +93,57 @@
 .news-search.catalog-search{width:270px;height:42px}
 .news-search.catalog-search button{height:40px}
 @media(max-width:580px){.news-search.catalog-search{width:100%;height:42px}.news-search.catalog-search button{height:40px}}
+
+/* News pagination: match the product page numbered pagination */
+.news-pagination{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  margin:52px auto 0;
+  color:var(--text-primary);
+}
+.news-pagination[hidden]{display:none}
+.news-pagination button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  width:40px;
+  height:40px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  color:var(--text-primary);
+  font:inherit;
+  font-size:16px;
+  cursor:pointer;
+  transition:background-color .18s ease,color .18s ease;
+}
+.news-pagination .pagination-numbers{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  white-space:nowrap;
+}
+.news-pagination .pagination-number{color:#626773;font-weight:500}
+.news-pagination .pagination-number.is-active{
+  background:transparent;
+  color:var(--text-primary);
+  font-size:21px;
+  font-weight:800;
+}
+.news-pagination .pagination-arrow{color:#9298A1;font-size:24px;line-height:1}
+.news-pagination button:disabled{opacity:.45;cursor:default}
+.news-pagination .pagination-number:not(.is-active):hover{color:var(--text-primary);font-weight:700}
+.news-pagination button:not(:disabled):hover:not(.is-active):not(.pagination-number){background:var(--border-default)}
+.news-pagination button:focus-visible{outline:2px solid var(--text-primary);outline-offset:3px}
+@media(max-width:600px){
+  .news-pagination{gap:6px;margin-top:36px}
+  .news-pagination .pagination-numbers{gap:4px}
+  .news-pagination button{width:34px;height:34px;font-size:14px}
+  .news-pagination .pagination-number.is-active{font-size:19px}
+  .news-pagination .pagination-arrow{font-size:20px}
+}
