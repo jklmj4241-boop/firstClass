@@ -295,3 +295,18 @@
 .rnd-achievements-section,.rnd-strategy-section,.rnd-network-section,.rnd-global-section{scroll-margin-top:72px}
 @media(max-width:800px){.rnd-intro-layout{grid-template-columns:1fr;gap:28px}.rnd-global-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rnd-section-nav a{padding:17px 15px;font-size:13px}}
 @media(max-width:600px){.rnd-global-grid{grid-template-columns:1fr}.rnd-global-grid article{min-height:0}.rnd-intro-aside{padding:24px}.rnd-section-nav .rnd-content{width:100%;padding:0 12px}.rnd-section-nav a{padding:15px 12px;white-space:nowrap}}
+
+
+/* R&D 페이지: 영문 장식 라벨 제거 및 소개 콘텐츠 정돈 */
+.rnd-overview-heading{margin:38px 0 20px;color:#172b49;font-size:clamp(23px,2.5vw,30px);font-weight:500;letter-spacing:-.035em}
+.rnd-intro-layout{display:block;margin-top:0}
+.rnd-intro-copy-wrap{max-width:1000px}
+.rnd-intro-copy-wrap .rnd-intro-copy{margin:0 0 18px}
+.rnd-intro-section h1{margin-bottom:24px}
+.rnd-intro-lead{max-width:1050px;margin:0 0 12px;font-size:clamp(22px,2.5vw,30px);line-height:1.55}
+.rnd-achievements-section h2,.rnd-strategy-section h2,.rnd-network-section h2,.rnd-global-section h2{margin-bottom:18px}
+.rnd-global-grid article{padding-top:25px}
+@media(max-width:600px){
+ .rnd-overview-heading{margin:30px 0 16px;font-size:23px}
+ .rnd-intro-lead{font-size:20px}
+}
