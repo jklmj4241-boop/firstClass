@@ -82,3 +82,9 @@
 .news-search.catalog-search button svg{width:21px;height:21px;stroke-width:1.8}
 @media(max-width:580px){.news-search.catalog-search{width:100%;height:56px}.news-search.catalog-search button{height:54px}}
 .events-more{display:none!important}
+
+/* Align media page content with the event section's heading and cards */
+.media-hero-inner,.media-container{width:min(1520px,calc(100% - 48px));margin-left:auto;margin-right:auto}
+.news-pagination{margin:52px auto 0}
+.news-pagination .pagination-numbers{gap:14px}
+@media(max-width:600px){.news-pagination{gap:6px;margin-top:36px}.news-pagination .pagination-numbers{gap:4px}}
