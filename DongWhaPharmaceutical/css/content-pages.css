@@ -238,3 +238,38 @@
 .site-header .mega-menu-column a:hover,
 .site-header .mega-menu-column a:focus-visible{font-weight:400!important}
 .site-header .mega-menu-column .mega-menu-heading{font-size:16px!important;font-weight:400!important}
+
+/* R&D introduction page */
+.rnd-page{background:#fff;color:#263447}
+.rnd-content{width:min(1200px,calc(100% - 48px));margin:0 auto}
+.rnd-intro-section{padding:82px 0 76px;border-bottom:1px solid #e5e9ee}
+.rnd-intro-section h1{margin:0;color:#172b49;font-size:clamp(36px,4.4vw,52px);font-weight:500;letter-spacing:-.05em}
+.rnd-intro-lead{margin:26px 0 18px;color:#194689;font-size:24px;font-weight:400;line-height:1.6;word-break:keep-all}
+.rnd-intro-copy{max-width:960px;margin:0;color:#586779;font-size:17px;font-weight:400;line-height:2;word-break:keep-all}
+.rnd-achievements-section,.rnd-strategy-section,.rnd-network-section,.rnd-global-section{padding:84px 0 96px}
+.rnd-achievements-section h2,.rnd-strategy-section h2,.rnd-network-section h2,.rnd-global-section h2{margin:0 0 20px;color:#172b49;font-size:clamp(28px,3.2vw,38px);font-weight:500;letter-spacing:-.04em}
+.rnd-section-intro{margin:0 0 36px;color:#687586;font-size:16px;font-weight:400;line-height:1.8}
+.rnd-achievement-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.rnd-achievement-grid article{min-height:270px;padding:30px;border:1px solid #e2e7ed;background:#fff}
+.rnd-number{display:block;margin-bottom:42px;color:#194689;font-size:24px;font-weight:400}
+.rnd-achievement-grid h3{margin:0 0 15px;color:#25384e;font-size:21px;font-weight:400;letter-spacing:-.03em}
+.rnd-achievement-grid p,.rnd-network-section p,.rnd-global-section p{margin:0;color:#5e6c7b;font-size:15px;font-weight:400;line-height:1.9;word-break:keep-all}
+.rnd-strategy-section{background:#f6f8fa}
+.rnd-strategy-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;margin-top:36px}
+.rnd-strategy-lead{color:#194689;font-size:clamp(30px,3.6vw,44px);font-weight:400;letter-spacing:-.045em;line-height:1.45}
+.rnd-strategy-items{border-top:1px solid #dce2e9}
+.rnd-strategy-items article{padding:24px 0;border-bottom:1px solid #dce2e9}
+.rnd-strategy-items h3{margin:0 0 10px;color:#26384d;font-size:20px;font-weight:400}
+.rnd-strategy-items p{margin:0;color:#657282;font-size:15px;font-weight:400;line-height:1.85;word-break:keep-all}
+.rnd-network-section{background:#fff}
+.rnd-network-section p,.rnd-global-section p{max-width:950px;font-size:17px}
+.rnd-network-points{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.rnd-network-points span{padding:14px 22px;border:1px solid #dce3eb;color:#38516d;font-size:15px;font-weight:400}
+.rnd-global-section{padding-top:72px;background:#f6f8fa}
+.rnd-global-section p{max-width:900px}
+/* ESG card typography: regular weight only */
+.esg-values-title,.esg-value-letter,.esg-value-card h3,.esg-value-card p,.esg-value-card div>span{font-weight:400!important}
+.esg-values-title{letter-spacing:0}
+.esg-value-card h3,.esg-value-card p{letter-spacing:0}
+@media(max-width:800px){.rnd-achievement-grid{grid-template-columns:1fr}.rnd-achievement-grid article{min-height:210px}.rnd-strategy-layout{grid-template-columns:1fr;gap:30px}}
+@media(max-width:600px){.rnd-content{width:calc(100% - 36px)}.rnd-intro-section{padding:58px 0 52px}.rnd-intro-lead{font-size:20px}.rnd-intro-copy{font-size:15px}.rnd-achievements-section,.rnd-strategy-section,.rnd-network-section,.rnd-global-section{padding:62px 0}.rnd-achievement-grid article{padding:24px}.rnd-number{margin-bottom:26px}.rnd-strategy-lead{font-size:30px}.rnd-network-points span{padding:12px 15px;font-size:14px}}
