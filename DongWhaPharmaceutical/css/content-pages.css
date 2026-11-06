@@ -213,8 +213,8 @@
 .esg-values-title{margin:0;color:#172b49;font-size:clamp(38px,5vw,56px);letter-spacing:-.04em}
 .esg-values-intro{max-width:850px;margin:16px 0 42px;color:#596777;font-size:17px;line-height:1.85;word-break:keep-all}
 .esg-value-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.esg-value-card{min-height:270px;padding:30px;background:#fff;border:1px solid #e3e8ee}
-.esg-value-letter{display:block;margin-bottom:40px;color:#194689;font-size:64px;font-weight:800;line-height:1}
+.esg-value-card{display:block;min-height:270px;padding:30px;background:#fff;border:1px solid #e3e8ee}
+.esg-value-letter{display:block;margin:0 0 40px;color:#194689;font-size:64px;font-weight:800;line-height:1}
 .esg-social .esg-value-letter{color:#c52b35}
 .esg-governance .esg-value-letter{color:#536b83}
 .esg-value-card h3{margin:0 0 14px;color:#172b49;font-size:20px;letter-spacing:.01em}
