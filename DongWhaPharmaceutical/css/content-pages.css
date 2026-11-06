@@ -58,3 +58,17 @@
 .ad-gallery-image{height:300px;background:#f2f3f5;display:flex;align-items:center;justify-content:center}
 .ad-gallery-image img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
 @media(max-width:580px){.ad-gallery-image{height:250px}}
+
+/* User requested refinements: product-style search, white campaign canvas, older archives */
+.news-search.catalog-search{width:310px;max-width:100%;height:64px;margin:0;border:1.5px solid #D9DDE3;border-radius:999px;background:#fff;transition:border-color .2s ease}
+.news-search.catalog-search:focus-within{border-color:var(--brand-primary)}
+.news-search.catalog-search input{flex:1;width:100%;min-width:0;height:100%;padding:0 12px 0 28px;border:0;outline:0;background:transparent;color:var(--text-primary);font-size:15px}
+.news-search.catalog-search input::placeholder{color:#929292}
+.news-search.catalog-search input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;display:none}
+.news-search.catalog-search button{display:grid;flex:0 0 58px;width:58px;height:58px;place-items:center;padding:0;border:0;background:transparent!important;color:var(--brand-primary)!important}
+.news-search.catalog-search button svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round}
+.news-item-copy p{display:none!important}
+.ad-section{background:#fff!important}
+.ad-image-placeholder{display:flex;align-items:center;justify-content:center;background:#f3f5f7;color:#8a929d;font-size:14px;font-weight:600;letter-spacing:.03em}
+.ad-image-placeholder span{padding:12px 18px;border:1px solid #dce1e7;border-radius:4px;background:#fff}
+@media(max-width:580px){.news-search.catalog-search{width:100%;height:58px}.news-search.catalog-search button{height:52px}}
