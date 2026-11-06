@@ -195,3 +195,35 @@
 .esg-commitment-inner>p{max-width:480px;margin:0;color:#e2eaf4;font-size:16px;line-height:1.9}
 @media(max-width:800px){.esg-value-grid{grid-template-columns:1fr}.esg-value-card{min-height:220px}.esg-commitment-inner{align-items:flex-start;flex-direction:column;gap:24px}}
 @media(max-width:600px){.esg-hero-inner,.esg-content{width:calc(100% - 36px)}.esg-hero{min-height:300px}.esg-hero-inner{padding:65px 0}.esg-hero-inner>p:last-child{font-size:16px}.esg-philosophy-section,.esg-values-section{padding:68px 0}.esg-section-heading{margin-bottom:32px}.esg-message{grid-template-columns:1fr;gap:8px;padding:28px 24px}.esg-message-mark{font-size:64px}.esg-message p:not(.esg-message-lead){font-size:14px}.esg-value-card{padding:25px}.esg-commitment-section{padding:65px 0}.esg-commitment-inner>p{font-size:14px}}
+
+
+/* Revised ESG page: editorial layout without hero banner or decorative microcopy */
+.esg-main{background:#fff}
+.esg-title-section{padding:72px 0 54px;border-bottom:1px solid #e8ebef}
+.esg-title-section .esg-content,.esg-content{width:min(1200px,calc(100% - 48px));margin:0 auto}
+.esg-title-section h1{margin:0;color:#172b49;font-size:clamp(34px,4vw,48px);font-weight:700;letter-spacing:-.05em}
+.esg-title-intro{max-width:850px;margin:22px 0 0;color:#596777;font-size:19px;line-height:1.8;word-break:keep-all}
+.esg-philosophy-section{padding:86px 0 94px}
+.esg-philosophy-heading{padding-bottom:34px;border-bottom:1px solid #dfe4ea}
+.esg-philosophy-heading h2,.esg-principles-section h2{margin:0;color:#172b49;font-size:clamp(27px,3vw,36px);letter-spacing:-.045em}
+.esg-philosophy-lead{margin:16px 0 0;color:#194689;font-size:22px;font-weight:600;line-height:1.6}
+.esg-philosophy-copy{max-width:1000px;padding-top:28px}
+.esg-philosophy-copy p{margin:0 0 20px;color:#4f5d6c;font-size:17px;line-height:2;word-break:keep-all}
+.esg-values-section{padding:82px 0 100px;background:#f6f8fa}
+.esg-values-title{margin:0;color:#172b49;font-size:clamp(38px,5vw,56px);letter-spacing:-.04em}
+.esg-values-intro{max-width:850px;margin:16px 0 42px;color:#596777;font-size:17px;line-height:1.85;word-break:keep-all}
+.esg-value-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.esg-value-card{min-height:270px;padding:30px;background:#fff;border:1px solid #e3e8ee}
+.esg-value-letter{display:block;margin-bottom:40px;color:#194689;font-size:64px;font-weight:800;line-height:1}
+.esg-social .esg-value-letter{color:#c52b35}
+.esg-governance .esg-value-letter{color:#536b83}
+.esg-value-card h3{margin:0 0 14px;color:#172b49;font-size:20px;letter-spacing:.01em}
+.esg-value-card p{margin:0;color:#5f6c7b;font-size:15px;line-height:1.85;word-break:keep-all}
+.esg-principles-section{padding:90px 0 110px}
+.esg-principles-list{margin-top:36px;border-top:1px solid #dfe4ea}
+.esg-principles-list article{display:grid;grid-template-columns:90px 1fr;gap:24px;padding:27px 8px;border-bottom:1px solid #e5e9ee}
+.esg-principles-list article>span{color:#194689;font-size:22px;font-weight:700}
+.esg-principles-list h3{margin:0 0 9px;color:#26384d;font-size:20px}
+.esg-principles-list p{margin:0;color:#687586;font-size:15px;line-height:1.8;word-break:keep-all}
+@media(max-width:800px){.esg-value-grid{grid-template-columns:1fr}.esg-value-card{min-height:210px}.esg-value-letter{margin-bottom:24px}}
+@media(max-width:600px){.esg-title-section{padding:52px 0 38px}.esg-title-section .esg-content,.esg-content{width:calc(100% - 36px)}.esg-title-intro{font-size:16px}.esg-philosophy-section,.esg-principles-section{padding:62px 0}.esg-philosophy-copy p{font-size:15px}.esg-values-section{padding:62px 0}.esg-values-intro{font-size:15px}.esg-principles-list article{grid-template-columns:48px 1fr;gap:12px;padding:22px 0}.esg-principles-list h3{font-size:18px}.esg-principles-list p{font-size:14px}}
