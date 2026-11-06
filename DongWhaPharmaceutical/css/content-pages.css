@@ -321,3 +321,13 @@
 .rnd-global-section{
   background:#fff!important;
 }
+
+
+/* R&D 페이지: 모든 내부 영역의 배경을 흰색으로 완전 통일 */
+.rnd-page,
+.rnd-page *,
+.rnd-page *::before,
+.rnd-page *::after{
+  background-color:#fff!important;
+  background-image:none!important;
+}
