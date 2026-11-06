@@ -88,3 +88,8 @@
 .news-pagination{margin:52px auto 0}
 .news-pagination .pagination-numbers{gap:14px}
 @media(max-width:600px){.news-pagination{gap:6px;margin-top:36px}.news-pagination .pagination-numbers{gap:4px}}
+
+/* News search: compact height, slightly wider field */
+.news-search.catalog-search{width:270px;height:42px}
+.news-search.catalog-search button{height:40px}
+@media(max-width:580px){.news-search.catalog-search{width:100%;height:42px}.news-search.catalog-search button{height:40px}}
