@@ -227,3 +227,14 @@
 .esg-principles-list p{margin:0;color:#687586;font-size:15px;line-height:1.8;word-break:keep-all}
 @media(max-width:800px){.esg-value-grid{grid-template-columns:1fr}.esg-value-card{min-height:210px}.esg-value-letter{margin-bottom:24px}}
 @media(max-width:600px){.esg-title-section{padding:52px 0 38px}.esg-title-section .esg-content,.esg-content{width:calc(100% - 36px)}.esg-title-intro{font-size:16px}.esg-philosophy-section,.esg-principles-section{padding:62px 0}.esg-philosophy-copy p{font-size:15px}.esg-values-section{padding:62px 0}.esg-values-intro{font-size:15px}.esg-principles-list article{grid-template-columns:48px 1fr;gap:12px;padding:22px 0}.esg-principles-list h3{font-size:18px}.esg-principles-list p{font-size:14px}}
+
+
+/* 모든 서브페이지 헤더 글꼴을 메인페이지 기준으로 통일 */
+.site-header .main-nav a,
+.site-header .main-nav span{font-family:inherit!important;font-size:18px!important;font-weight:500!important;line-height:1.5!important}
+.site-header .mega-menu-column,
+.site-header .mega-menu-column a,
+.site-header .mega-menu-column span{font-family:inherit!important;font-size:16px!important;font-weight:400!important;line-height:1.5!important}
+.site-header .mega-menu-column a:hover,
+.site-header .mega-menu-column a:focus-visible{font-weight:400!important}
+.site-header .mega-menu-column .mega-menu-heading{font-size:16px!important;font-weight:400!important}
