@@ -310,3 +310,14 @@
  .rnd-overview-heading{margin:30px 0 16px;font-size:23px}
  .rnd-intro-lead{font-size:20px}
 }
+
+
+/* R&D 페이지 전체 배경 흰색 통일 */
+.rnd-page,
+.rnd-intro-section,
+.rnd-achievements-section,
+.rnd-strategy-section,
+.rnd-network-section,
+.rnd-global-section{
+  background:#fff!important;
+}
