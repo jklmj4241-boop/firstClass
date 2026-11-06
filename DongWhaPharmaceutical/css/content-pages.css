@@ -147,3 +147,8 @@
   .news-pagination .pagination-number.is-active{font-size:19px}
   .news-pagination .pagination-arrow{font-size:20px}
 }
+
+
+/* Campaign cards: date below title; remove the old red TV label row */
+.ad-gallery-date{display:block;margin-top:7px;color:#8993a0;font-size:12px;line-height:1.5}
+.ad-gallery-copy h3{margin-bottom:0}
