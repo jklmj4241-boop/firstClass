@@ -1014,18 +1014,6 @@ a {
     .footer-policy-links a:first-child {
         padding-left: 0;
     }
-
-    .recruitment-section {
-        min-height: 560px;
-        padding: 64px 20px;
-        background-position: center;
-    }
-    .recruitment-overlay {
-        transform: translateY(40px);
-    }
-    .recruitment-title {
-        font-size: clamp(28px, 5.2vw, 44px);
-    }
     .recruitment-cta {
         margin-top: clamp(80px, 12vw, 120px);
         min-width: 160px;
