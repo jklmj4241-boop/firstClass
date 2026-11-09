@@ -425,3 +425,36 @@
  .site-header .header-utility{height:40px!important}
  .site-header .header-utility .utility-inner{width:calc(100% - 32px)!important;height:40px!important}
 }
+
+
+/* R&D 탑 네비게이션 텍스트 표시 보정 */
+.rnd-page .site-header .header-utility{
+  display:block!important;position:relative!important;width:100%!important;
+  min-height:50px!important;height:50px!important;background:#174b83!important;
+  overflow:visible!important;z-index:100!important;
+}
+.rnd-page .site-header .header-utility .utility-inner{
+  display:flex!important;align-items:center!important;justify-content:flex-end!important;
+  width:min(1200px,calc(100% - 48px))!important;height:100%!important;
+  margin:0 auto!important;background:transparent!important;
+}
+.rnd-page .site-header .header-utility .utility-links{
+  display:flex!important;flex-direction:row!important;align-items:center!important;
+  justify-content:flex-end!important;gap:24px!important;height:100%!important;
+  visibility:visible!important;opacity:1!important;color:#fff!important;
+  font-size:14px!important;line-height:1.4!important;
+}
+.rnd-page .site-header .header-utility .utility-links a,
+.rnd-page .site-header .header-utility .utility-links a:link,
+.rnd-page .site-header .header-utility .utility-links a:visited{
+  display:inline-block!important;position:relative!important;
+  visibility:visible!important;opacity:1!important;color:#fff!important;
+  font-family:inherit!important;font-size:14px!important;font-weight:500!important;
+  line-height:1.4!important;text-indent:0!important;text-decoration:none!important;
+}
+@media(max-width:700px){
+  .rnd-page .site-header .header-utility{height:40px!important;min-height:40px!important}
+  .rnd-page .site-header .header-utility .utility-inner{width:calc(100% - 32px)!important}
+  .rnd-page .site-header .header-utility .utility-links{gap:14px!important}
+  .rnd-page .site-header .header-utility .utility-links a{font-size:12px!important}
+}
