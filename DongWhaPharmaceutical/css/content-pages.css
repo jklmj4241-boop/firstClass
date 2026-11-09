@@ -517,3 +517,39 @@
  .news-list-heading{display:block}
  .news-list-heading p{margin-top:7px;line-height:1.5}
 }
+
+
+/* 동화뉴스 선택 상태를 명확하게 표시 */
+.news-featured-meta .news-current-label{
+ display:inline-flex;align-items:center;padding:6px 11px;border-radius:3px;
+ background:#194689;color:#fff;font-size:12px;font-weight:700;letter-spacing:-.02em;
+}
+.news-featured-meta #news-featured-category{
+ display:inline-flex;align-items:center;padding:5px 10px;
+ border:1px solid #d7e0eb;border-radius:3px;background:#fff;color:#194689;
+}
+.news-featured-meta #news-featured-date{color:#707b89;font-weight:500}
+.news-list-heading{margin-bottom:18px}
+.news-list-item{
+ position:relative;display:flex;align-items:center;gap:20px;
+ padding:20px 48px 20px 20px;border:1px solid #e5e9ef;
+ border-radius:4px;background:#fff;margin-bottom:10px;
+}
+.news-list-item::after{
+ content:"›";position:absolute;right:22px;top:50%;transform:translateY(-50%);
+ color:#194689;font-size:28px;line-height:1;
+}
+.news-list-item:hover,.news-list-item:focus-visible{
+ border-color:#194689;background:#f7f9fc;outline:2px solid #194689;outline-offset:1px;
+}
+.news-list-item .news-item-copy h3{transition:color .2s}
+.news-list-item:hover .news-item-copy h3,
+.news-list-item:focus-visible .news-item-copy h3{color:#194689}
+.news-list-item .news-date{flex:0 0 72px}
+.news-list-item .news-category{display:inline-block;margin-bottom:6px}
+@media(max-width:700px){
+ .news-list-item{gap:12px;padding:16px 38px 16px 14px}
+ .news-list-item::after{right:14px}
+ .news-list-item .news-date{flex-basis:58px}
+ .news-featured-meta{flex-wrap:wrap}
+}
