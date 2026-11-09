@@ -284,7 +284,7 @@
   activeItem=item;
   currentPage=1;
   render();
-  featured.scrollIntoView({behavior:'smooth',block:'start'});
+  // 선택 시 화면을 이동하지 않고 현재 스크롤 위치를 유지한다.
  }
  items.forEach(item=>{
   item.addEventListener('click',()=>selectItem(item));
