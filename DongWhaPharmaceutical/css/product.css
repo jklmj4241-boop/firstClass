@@ -1535,3 +1535,24 @@
 .product-page .catalog-search button[data-clear="true"] {
   color: #888888;
 }
+
+ 
+/* 제품 카테고리 상단 내비게이션 */
+.product-section-nav{
+  position:sticky;
+  top:0;
+  z-index:25;
+  padding:12px 24px;
+  border-bottom:1px solid var(--border-default);
+  background:var(--brand-white);
+}
+.product-section-nav .product-container{width:min(1720px,calc(100% - 48px));margin:0 auto}
+.product-section-nav .category-tabs{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.product-section-nav .category-tab{min-height:42px;padding:0 20px}
+@media(max-width:700px){
+ .product-section-nav{padding:9px 12px}
+ .product-section-nav .product-container{width:100%}
+ .product-section-nav .category-tabs{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+ .product-section-nav .category-tabs::-webkit-scrollbar{display:none}
+ .product-section-nav .category-tab{flex:0 0 auto}
+}
