@@ -389,3 +389,39 @@
  .site-header .header-utility{height:40px!important}
  .site-header .utility-links{gap:14px;font-size:12px}
 }
+
+
+/* R&D/서브페이지 탑 네비게이션 배경 덮임 방지 */
+.site-header .header-utility{
+  display:block!important;
+  width:100%!important;
+  height:50px!important;
+  padding:0!important;
+  margin:0!important;
+  background:var(--color-blue,#174b83)!important;
+}
+.site-header .header-utility .utility-inner{
+  width:min(1800px,calc(100% - 48px))!important;
+  height:50px!important;
+  margin:0 auto!important;
+  padding:0!important;
+  background:transparent!important;
+}
+.site-header .header-utility .utility-links{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  background:transparent!important;
+  color:#fff!important;
+}
+.site-header .header-utility .utility-links a{
+  color:#fff!important;
+  text-decoration:none!important;
+}
+@media(max-width:700px){
+ .site-header .header-utility{height:40px!important}
+ .site-header .header-utility .utility-inner{width:calc(100% - 32px)!important;height:40px!important}
+}
