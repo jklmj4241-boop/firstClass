@@ -19,7 +19,7 @@
             <img src="img/Logo.png" alt="동화약품">
           </a>
           <nav class="main-nav" aria-label="주요 메뉴">
-            <a href="index.html#company">동화약품</a>
+            <a href="news.html">동화약품</a>
             <a class="active" href="product.html" aria-current="page">제품</a>
             <a href="rnd.html">연구개발</a>
             <a href="esg.html">지속가능경영</a>
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <nav class="mobile-menu" id="mobile-menu" aria-label="모바일 주요 메뉴" hidden>
-          <a href="index.html#company">동화약품</a>
+          <a href="news.html">동화약품</a>
           <a href="news.html">동화뉴스</a>
           <a href="campaign.html">광고 &amp; 캠페인</a>
           <a href="newsletter.html">뉴스레터</a>
@@ -89,6 +89,19 @@
         </nav>
       </div>
     </header>
+
+    <nav class="product-section-nav" aria-label="제품 카테고리 바로가기">
+      <div class="product-container">
+  <div class="category-tabs" aria-label="제품 유형 선택">
+    <button class="category-tab is-active" type="button" aria-pressed="true" data-filter="all">전체</button>
+    <button class="category-tab" type="button" aria-pressed="false" data-filter="new">신제품</button>
+    <button class="category-tab" type="button" aria-pressed="false" data-filter="general">일반의약품</button>
+    <button class="category-tab" type="button" aria-pressed="false" data-filter="prescription">전문의약품</button>
+    <button class="category-tab" type="button" aria-pressed="false" data-filter="health">건강 · 생활</button>
+    <button class="category-tab" type="button" aria-pressed="false" data-filter="other">기타</button>
+  </div>
+      </div>
+    </nav>
 
     <main>
       <section class="product-catalog" id="product-list" aria-labelledby="catalog-title">
@@ -118,14 +131,7 @@
             </button>
           </form>
 
-          <div class="category-tabs" aria-label="제품 유형 선택">
-            <button class="category-tab is-active" type="button" aria-pressed="true" data-filter="all">전체</button>
-            <button class="category-tab" type="button" aria-pressed="false" data-filter="new">신제품</button>
-            <button class="category-tab" type="button" aria-pressed="false" data-filter="general">일반의약품</button>
-            <button class="category-tab" type="button" aria-pressed="false" data-filter="prescription">전문의약품</button>
-            <button class="category-tab" type="button" aria-pressed="false" data-filter="health">건강 · 생활</button>
-            <button class="category-tab" type="button" aria-pressed="false" data-filter="other">기타</button>
-          </div>
+
 
           <section class="product-filter-panel" aria-label="제품 상세 필터">
             <div class="filter-row category-filter-row">
