@@ -331,3 +331,33 @@
   background-color:#fff!important;
   background-image:none!important;
 }
+
+ 
+/* R&D 상단 내비게이션 및 메인 페이지와 동일한 제품 찾기 버튼 */
+.rnd-page .rnd-section-nav{
+  position:sticky;
+  top:0;
+  z-index:25;
+  background:#fff;
+  border-bottom:1px solid #e5e9ee;
+}
+.rnd-page .site-header .header-actions .header-action.accent{
+  display:inline-flex!important;
+  align-items:center;
+  justify-content:center;
+  min-width:125px;
+  min-height:49px;
+  padding:0 18px;
+  border:1px solid var(--brand-primary)!important;
+  border-radius:60px;
+  background:var(--brand-primary)!important;
+  color:var(--text-white)!important;
+  font-size:15px;
+  font-weight:600;
+  line-height:1;
+  text-decoration:none;
+}
+.rnd-page .site-header .header-actions .header-action.accent:hover{
+  background:var(--brand-primary)!important;
+  color:var(--text-white)!important;
+}
