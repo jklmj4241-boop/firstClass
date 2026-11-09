@@ -361,3 +361,31 @@
   background:var(--brand-primary)!important;
   color:var(--text-white)!important;
 }
+
+ 
+/* 메인페이지와 동일한 상단 유틸리티 네비게이션 */
+.site-header .header-utility{
+  display:block!important;
+  height:50px!important;
+  background-color:var(--color-blue)!important;
+}
+.site-header .utility-inner{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  height:100%;
+}
+.site-header .utility-links{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  color:var(--color-white);
+  font-size:14px;
+  font-weight:500;
+}
+.site-header .utility-links a{color:inherit;text-decoration:none}
+.site-header .utility-links a:hover{color:inherit}
+@media(max-width:700px){
+ .site-header .header-utility{height:40px!important}
+ .site-header .utility-links{gap:14px;font-size:12px}
+}
