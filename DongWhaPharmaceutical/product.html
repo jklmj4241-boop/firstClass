@@ -13,6 +13,15 @@
 <body>
   <div id="wrap" class="product-page">
     <header class="site-header">
+            <div class="header-utility">
+        <div class="header-inner utility-inner">
+          <div class="utility-links">
+            <a href="index.html#recruitment">채용</a>
+            <a href="index.html#investment">투자정보</a>
+            <a href="index.html#support">고객지원</a>
+          </div>
+        </div>
+      </div>
       <div class="header-main">
         <div class="header-inner main-inner">
           <a class="brand-logo" href="index.html" aria-label="동화약품 홈">
@@ -90,20 +99,7 @@
       </div>
     </header>
 
-    <nav class="product-section-nav" aria-label="제품 카테고리 바로가기">
-      <div class="product-container">
-  <div class="category-tabs" aria-label="제품 유형 선택">
-    <button class="category-tab is-active" type="button" aria-pressed="true" data-filter="all">전체</button>
-    <button class="category-tab" type="button" aria-pressed="false" data-filter="new">신제품</button>
-    <button class="category-tab" type="button" aria-pressed="false" data-filter="general">일반의약품</button>
-    <button class="category-tab" type="button" aria-pressed="false" data-filter="prescription">전문의약품</button>
-    <button class="category-tab" type="button" aria-pressed="false" data-filter="health">건강 · 생활</button>
-    <button class="category-tab" type="button" aria-pressed="false" data-filter="other">기타</button>
-  </div>
-      </div>
-    </nav>
-
-    <main>
+<main>
       <section class="product-catalog" id="product-list" aria-labelledby="catalog-title">
         <div class="product-container">
           <div class="category-anchor-targets" aria-hidden="true">
@@ -119,6 +115,15 @@
               <p class="catalog-description">제품명, 성분, 제품 유형으로 원하는 제품을 찾아보세요.</p>
             </div>
           </div>
+
+          <div class="category-tabs" aria-label="제품 유형 선택">
+    <button class="category-tab is-active" type="button" aria-pressed="true" data-filter="all">전체</button>
+    <button class="category-tab" type="button" aria-pressed="false" data-filter="new">신제품</button>
+    <button class="category-tab" type="button" aria-pressed="false" data-filter="general">일반의약품</button>
+    <button class="category-tab" type="button" aria-pressed="false" data-filter="prescription">전문의약품</button>
+    <button class="category-tab" type="button" aria-pressed="false" data-filter="health">건강 · 생활</button>
+    <button class="category-tab" type="button" aria-pressed="false" data-filter="other">기타</button>
+  </div>
 
           <form class="catalog-search" role="search" id="product-search-form">
             <label class="sr-only" for="product-search-input">제품명, 성분, 효능 검색</label>
