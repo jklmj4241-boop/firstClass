@@ -492,3 +492,28 @@
   content:none!important;
   display:none!important;
 }
+
+
+/* 동화뉴스: 주요 뉴스 상세 + 선택형 목록 */
+.news-featured{
+  margin:34px 0 54px;
+  padding:clamp(28px,5vw,56px);
+  background:#f5f7f9;
+  border-top:4px solid #194689;
+}
+.news-featured-meta{display:flex;align-items:center;gap:16px;margin-bottom:18px;color:#194689;font-size:14px;font-weight:600}
+.news-featured h2{max-width:900px;margin:0 0 24px;color:#172b49;font-size:clamp(26px,3.5vw,42px);line-height:1.35;letter-spacing:-.045em}
+.news-featured-content{min-height:90px;padding-top:22px;border-top:1px solid #dfe4ea;color:#596779;font-size:16px;line-height:1.85;white-space:pre-line}
+.news-list-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:0 0 16px}
+.news-list-heading h2{margin:0;color:#172b49;font-size:24px}
+.news-list-heading p{margin:0;color:#7b8491;font-size:13px}
+.news-list-item{cursor:pointer;transition:background .2s,border-color .2s}
+.news-list-item:hover,.news-list-item:focus-visible{background:#f5f7fa;outline:2px solid #194689;outline-offset:-2px}
+.news-list-item[hidden]{display:none!important}
+.news-featured[hidden]{display:none!important}
+@media(max-width:700px){
+ .news-featured{margin:24px 0 40px;padding:24px 20px}
+ .news-featured-content{font-size:14px}
+ .news-list-heading{display:block}
+ .news-list-heading p{margin-top:7px;line-height:1.5}
+}
