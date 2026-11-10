@@ -646,3 +646,27 @@
 @media(max-width:700px){
  .news-featured-image{max-height:380px!important;margin:22px auto 28px!important}
 }
+
+
+/* 동화뉴스: 제목의 어색한 한 단어 줄바꿈 방지 + 상세 이미지 확대 */
+.news-featured h2{
+  max-width:none!important;
+  width:100%!important;
+  font-size:clamp(26px,3.2vw,40px)!important;
+  line-height:1.4!important;
+  word-break:keep-all!important;
+  overflow-wrap:normal!important;
+}
+.news-featured-image{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  margin:30px auto 36px!important;
+}
+@media(max-width:700px){
+  .news-featured h2{font-size:clamp(23px,6vw,30px)!important}
+  .news-featured-image{margin:22px auto 28px!important}
+}
