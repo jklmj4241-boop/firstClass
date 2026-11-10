@@ -600,3 +600,35 @@
  object-fit:contain;margin:0 0 26px;border-radius:8px;background:#eef1f4;
 }
 .news-featured-image[hidden]{display:none!important}
+
+
+/* 뉴스 상세 이미지와 본문 비율 개선 */
+.news-featured-image{
+ display:block;
+ width:min(100%,760px)!important;
+ max-width:760px!important;
+ max-height:360px!important;
+ height:auto!important;
+ object-fit:contain!important;
+ margin:30px auto 34px!important;
+ border-radius:8px;
+ background:#f2f4f6;
+}
+.news-featured-content{
+ max-width:1080px;
+ margin:0 auto;
+ font-size:16px;
+ line-height:2;
+ color:#455365;
+ white-space:pre-line;
+ word-break:keep-all;
+}
+@media(max-width:700px){
+ .news-featured-image{
+  width:100%!important;
+  max-width:100%!important;
+  max-height:260px!important;
+  margin:22px auto 26px!important;
+ }
+ .news-featured-content{font-size:14px;line-height:1.85}
+}
