@@ -632,3 +632,17 @@
  }
  .news-featured-content{font-size:14px;line-height:1.85}
 }
+
+
+/* 뉴스 상세 이미지 크기: 너무 작지 않도록 콘텐츠 폭에 맞춤 */
+.news-featured-image{
+ width:100%!important;
+ max-width:100%!important;
+ max-height:560px!important;
+ height:auto!important;
+ object-fit:contain!important;
+ margin:28px auto 36px!important;
+}
+@media(max-width:700px){
+ .news-featured-image{max-height:380px!important;margin:22px auto 28px!important}
+}
