@@ -592,3 +592,11 @@
  .news-list-item .news-date strong{font-size:19px!important}
 }
 .news-featured{scroll-margin-top:24px}
+
+
+/* 동화뉴스 상세 이미지 */
+.news-featured-image{
+ display:block;width:100%;max-width:100%;height:auto;max-height:620px;
+ object-fit:contain;margin:0 0 26px;border-radius:8px;background:#eef1f4;
+}
+.news-featured-image[hidden]{display:none!important}
