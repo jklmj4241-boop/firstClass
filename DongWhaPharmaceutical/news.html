@@ -285,7 +285,8 @@
   activeItem=item;
   currentPage=1;
   render();
-  // 선택 시 화면을 이동하지 않고 현재 스크롤 위치를 유지한다.
+  // 선택한 뉴스 상세가 바로 보이도록 상세 영역으로 이동한다.
+  featured.scrollIntoView({behavior:'smooth',block:'start'});
  }
  items.forEach(item=>{
   item.addEventListener('click',()=>selectItem(item));
