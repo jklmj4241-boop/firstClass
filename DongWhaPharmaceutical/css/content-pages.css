@@ -562,3 +562,33 @@
  background:transparent!important;color:#c62828!important;font-size:14px!important;font-weight:600!important;
 }
 .news-featured-meta{gap:12px!important}
+
+
+/* 뉴스 목록 날짜가 줄바꿈되지 않도록 너비 보정 */
+.news-list-item .news-date{
+ flex:0 0 92px!important;
+ width:92px!important;
+ min-width:92px!important;
+ padding-right:14px!important;
+ box-sizing:border-box!important;
+}
+.news-list-item .news-date strong{
+ display:block!important;
+ white-space:nowrap!important;
+ word-break:keep-all!important;
+ overflow-wrap:normal!important;
+ font-size:22px!important;
+ letter-spacing:-.035em!important;
+ line-height:1.25!important;
+}
+.news-list-item .news-date span{
+ white-space:nowrap!important;
+}
+@media(max-width:700px){
+ .news-list-item .news-date{
+  flex:0 0 76px!important;width:76px!important;min-width:76px!important;
+  padding-right:10px!important;
+ }
+ .news-list-item .news-date strong{font-size:19px!important}
+}
+.news-featured{scroll-margin-top:24px}
