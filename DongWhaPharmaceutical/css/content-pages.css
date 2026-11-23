@@ -695,3 +695,31 @@
 .news-date-label{border-right:0!important;padding-right:0!important}
 .news-item-arrow{display:none!important}
 .news-list-item:hover{background:transparent}
+
+/* 뉴스 요약 표시: 기존 공통 p 숨김 규칙보다 우선 적용 */
+.news-list-item .news-item-copy p.news-summary{
+ display:-webkit-box!important;
+ -webkit-box-orient:vertical;
+ -webkit-line-clamp:4;
+ overflow:hidden;
+ margin:14px 0 0!important;
+ color:#555!important;
+ font-size:14px!important;
+ line-height:1.8!important;
+ font-weight:400;
+}
+.news-list-item .news-item-copy .news-date-label{
+ display:block!important;
+ margin-top:26px!important;
+ color:#777!important;
+ font-size:14px!important;
+ line-height:1.5!important;
+}
+@media(max-width:760px){
+ .news-list-item .news-item-copy p.news-summary{
+  font-size:13px!important;
+  line-height:1.7!important;
+  margin-top:10px!important;
+ }
+ .news-list-item .news-item-copy .news-date-label{margin-top:18px!important}
+}
