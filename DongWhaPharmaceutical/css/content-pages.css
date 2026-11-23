@@ -690,3 +690,8 @@
  .news-item-copy .news-summary{font-size:13px;line-height:1.7}
  .news-date-label{margin-top:22px;font-size:13px}
 }
+
+/* News list refinements */
+.news-date-label{border-right:0!important;padding-right:0!important}
+.news-item-arrow{display:none!important}
+.news-list-item:hover{background:transparent}
