@@ -208,19 +208,22 @@
  const PAGE_SIZE=10;
  let year='all',currentPage=1;
 
+ items.forEach(item=>{
+  const date=item.querySelector('.news-date');
+  const day=date.querySelector('strong').textContent.trim();
+  const fullYear=date.querySelector('span').textContent.trim();
+  item.dataset.sortDate=fullYear+day.slice(0,2)+day.slice(3,5);
+  date.textContent=fullYear+'.'+day.replace('-','.');
+  date.classList.add('news-date-label');
+ });
+
  function getMatched(){
   const q=input.value.trim().toLowerCase();
   return items.filter(item=>{
    const y=Number(item.dataset.year);
    const yearMatch=year==='all'?true:year==='older'?y<=2022:item.dataset.year===year;
    return yearMatch&&(!q||item.dataset.search.toLowerCase().includes(q));
-  }).sort((a,b)=>{
-   const da=a.querySelector('.news-date strong').textContent.trim();
-   const db=b.querySelector('.news-date strong').textContent.trim();
-   const ka=Number(a.dataset.year)*10000+Number(da.slice(0,2))*100+Number(da.slice(3,5));
-   const kb=Number(b.dataset.year)*10000+Number(db.slice(0,2))*100+Number(db.slice(3,5));
-   return kb-ka;
-  });
+  }).sort((a,b)=>Number(b.dataset.sortDate)-Number(a.dataset.sortDate));
  }
  function render(reset=false){
   if(reset)currentPage=1;
@@ -230,18 +233,32 @@
   const visible=matched.slice((currentPage-1)*PAGE_SIZE,currentPage*PAGE_SIZE);
   items.forEach(item=>{
    item.hidden=true;
-   item.removeAttribute('tabindex');
-   item.removeAttribute('role');
    item.querySelector('.news-summary')?.remove();
+   item.querySelector('.news-thumb')?.remove();
+   item.querySelector('.news-item-copy').appendChild(item.querySelector('.news-date'));
   });
   visible.forEach(item=>{
    item.hidden=false;
+   const thumb=document.createElement('div');
+   thumb.className='news-thumb';
+   if(item.dataset.image){
+    const img=document.createElement('img');
+    img.src=item.dataset.image;
+    img.alt='';
+    img.loading='lazy';
+    thumb.appendChild(img);
+   }else{
+    thumb.classList.add('is-placeholder');
+    thumb.setAttribute('aria-label','뉴스 이미지 준비 중');
+   }
+   const copy=item.querySelector('.news-item-copy');
+   item.insertBefore(thumb,copy);
    const summary=item.dataset.summary;
    if(summary){
     const paragraph=document.createElement('p');
     paragraph.className='news-summary';
     paragraph.textContent=summary;
-    item.querySelector('.news-item-copy').appendChild(paragraph);
+    copy.insertBefore(paragraph,copy.querySelector('.news-date'));
    }
    list.appendChild(item);
   });
