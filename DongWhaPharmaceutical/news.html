@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../css/default.css">
 <link rel="stylesheet" href="../font/css/pretendardvariable.css">
 <link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/content-pages.css?v=8">
+<link rel="stylesheet" href="css/content-pages.css?v=9">
 </head>
 <body>
 <div id="wrap" class="content-page">
@@ -287,6 +287,55 @@
   if(action==='last')currentPage=total;
   render();
  }));
+
+ // Article detail layer
+ const detail=document.createElement('div');
+ detail.className='news-detail-overlay';
+ detail.hidden=true;
+ detail.innerHTML='<section class="news-detail-panel" role="dialog" aria-modal="true" aria-labelledby="news-detail-title"><button type="button" class="news-detail-close" aria-label="닫기">×</button><div class="news-detail-content"></div><button type="button" class="news-detail-back">목록으로 돌아가기</button></section>';
+ document.body.appendChild(detail);
+ const detailContent=detail.querySelector('.news-detail-content');
+ function closeDetail(){detail.hidden=true;document.body.classList.remove('news-detail-open');}
+ detail.querySelector('.news-detail-close').addEventListener('click',closeDetail);
+ detail.querySelector('.news-detail-back').addEventListener('click',closeDetail);
+ detail.addEventListener('click',event=>{if(event.target===detail)closeDetail();});
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!detail.hidden)closeDetail();});
+ function openDetail(item){
+  const title=item.querySelector('h3')?.textContent.trim()||'뉴스';
+  const category=item.querySelector('.news-category')?.textContent.trim()||'';
+  const date=item.querySelector('.news-date')?.textContent.trim()||'';
+  const body=item.dataset.content?.trim()||item.dataset.summary?.trim()||'등록된 기사 내용이 없습니다.';
+  detailContent.innerHTML='';
+  if(item.dataset.image){
+   const image=document.createElement('img');
+   image.className='news-detail-image';
+   image.src=item.dataset.image;
+   image.alt=title;
+   detailContent.appendChild(image);
+  }
+  const meta=document.createElement('p');meta.className='news-detail-meta';meta.textContent=[category,date].filter(Boolean).join(' · ');
+  const heading=document.createElement('h2');heading.id='news-detail-title';heading.textContent=title;
+  detailContent.append(meta,heading);
+  body.split(/\\n\\s*\\n/).forEach(paragraph=>{
+   const p=document.createElement('p');p.className='news-detail-paragraph';p.textContent=paragraph;detailContent.appendChild(p);
+  });
+  if(!item.dataset.content?.trim()){
+   const note=document.createElement('p');note.className='news-detail-note';note.textContent='현재 등록된 내용은 뉴스 목록에 제공된 요약입니다. 전체 기사 본문은 아직 등록되지 않았습니다.';detailContent.appendChild(note);
+  }
+  detail.hidden=false;document.body.classList.add('news-detail-open');
+  detail.querySelector('.news-detail-close').focus();
+ }
+ list.addEventListener('click',event=>{
+  const item=event.target.closest('.news-list-item');
+  if(item)openDetail(item);
+ });
+ items.forEach(item=>{
+  item.tabIndex=0;item.setAttribute('role','button');item.setAttribute('aria-label',(item.querySelector('h3')?.textContent||'뉴스')+' 상세 보기');
+  item.addEventListener('keydown',event=>{
+   if(event.key==='Enter'||event.key===' '){event.preventDefault();openDetail(item);}
+  });
+ });
+
  render(true);
 })();
 </script></main></main>
