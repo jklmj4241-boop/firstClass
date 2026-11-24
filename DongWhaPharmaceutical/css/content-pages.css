@@ -794,3 +794,13 @@
 .news-search.catalog-search input:focus{
   outline:0!important;
 }
+
+
+/* Show news summaries under article titles */
+.news-item-copy .news-summary{
+  display:block!important;
+  margin:8px 0 0!important;
+  color:#8993a0!important;
+  font-size:13px!important;
+  line-height:1.7!important;
+}
