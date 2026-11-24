@@ -775,3 +775,22 @@
 }
 .news-list-item .news-item-arrow{display:none!important}
 @media(max-width:760px){.news-list-item{padding:26px 0!important}}
+
+
+/* News toolbar refinements */
+.news-tools{
+  border-bottom:0!important;
+  margin-bottom:0!important;
+}
+.news-search.catalog-search:focus-within{
+  border-color:#d5222b!important;
+}
+.news-search.catalog-search:focus-within button{
+  color:#d5222b!important;
+}
+.news-search.catalog-search:focus-within button svg{
+  stroke:#d5222b!important;
+}
+.news-search.catalog-search input:focus{
+  outline:0!important;
+}
