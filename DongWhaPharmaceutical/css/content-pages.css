@@ -852,3 +852,62 @@
   }
   .news-list-item .news-item-copy{width:100%!important}
 }
+
+
+/* Align the entire news text group vertically with the 340x200 thumbnail */
+.news-list-item{
+  display:flex!important;
+  align-items:center!important;
+}
+.news-list-item .news-thumb{
+  flex:0 0 340px!important;
+  width:340px!important;
+  height:200px!important;
+  max-width:340px!important;
+}
+.news-list-item .news-item-copy{
+  flex:1 1 auto!important;
+  min-width:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-self:center!important;
+}
+.news-list-item .news-item-copy .news-date-label{
+  margin-top:18px!important;
+}
+@media(max-width:760px){
+  .news-list-item{flex-direction:column!important;align-items:flex-start!important}
+  .news-list-item .news-thumb{width:min(340px,100%)!important;height:200px!important;flex-basis:200px!important}
+  .news-list-item .news-item-copy{width:100%!important}
+}
+
+/* News article detail view */
+body.news-detail-open{overflow:hidden}
+.news-detail-overlay{
+ position:fixed;inset:0;z-index:2000;display:flex;align-items:flex-start;justify-content:center;
+ overflow-y:auto;padding:40px 20px;background:rgba(15,25,40,.58)
+}
+.news-detail-overlay[hidden]{display:none!important}
+.news-detail-panel{
+ position:relative;width:min(900px,100%);margin:auto;padding:44px 52px 40px;background:#fff;
+ box-shadow:0 18px 60px rgba(0,0,0,.18)
+}
+.news-detail-close{
+ position:absolute;right:20px;top:14px;width:40px;height:40px;border:0;background:transparent;
+ color:#344054;font-size:32px;line-height:1;cursor:pointer
+}
+.news-detail-image{display:block;width:100%;max-height:420px;object-fit:contain;margin:0 auto 30px;background:#f5f6f7}
+.news-detail-meta{margin:0 0 12px;color:#d5222b;font-size:13px}
+.news-detail-content h2{margin:0 0 28px;color:#172b49;font-size:clamp(23px,3vw,32px);line-height:1.45}
+.news-detail-paragraph{margin:0 0 18px;color:#465264;font-size:15px;line-height:2;white-space:pre-line}
+.news-detail-note{margin-top:28px;padding-top:18px;border-top:1px solid #e4e7eb;color:#8a929d;font-size:13px;line-height:1.7}
+.news-detail-back{display:block;margin:34px auto 0;padding:12px 28px;border:1px solid #194689;background:#fff;color:#194689;font:inherit;cursor:pointer}
+.news-list-item{cursor:pointer}
+.news-list-item:focus-visible{outline:2px solid #194689!important;outline-offset:4px}
+@media(max-width:600px){
+ .news-detail-overlay{padding:14px}
+ .news-detail-panel{padding:42px 20px 28px}
+ .news-detail-image{margin-bottom:22px}
+ .news-detail-paragraph{font-size:14px}
+}
