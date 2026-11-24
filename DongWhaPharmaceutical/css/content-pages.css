@@ -804,3 +804,14 @@
   font-size:13px!important;
   line-height:1.7!important;
 }
+
+
+/* Center every news row's image and text block vertically */
+.news-list-item{
+  display:flex!important;
+  align-items:center!important;
+}
+.news-list-item .news-thumb,
+.news-list-item .news-item-copy{
+  align-self:center!important;
+}
