@@ -1017,3 +1017,14 @@ body.news-detail-open{
   top:26px!important;
   transform:none!important;
 }
+
+
+/* 첫 번째 기사만: 기업소식 라벨의 시작선을 썸네일 상단에 맞춤 */
+.news-list-item[data-image*="image02.png"] > .news-item-copy > .news-category{
+  display:block!important;
+  position:static!important;
+  margin:25px 0 7px!important;
+  padding:0!important;
+  transform:none!important;
+  line-height:1.3!important;
+}
