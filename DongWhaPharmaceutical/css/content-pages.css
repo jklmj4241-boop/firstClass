@@ -1003,3 +1003,9 @@ body.news-detail-open{
     transform:none!important;
   }
 }
+
+
+/* 첫 번째 기사: 기업소식 라벨만 썸네일 상단에 맞춤 */
+.news-list-item:first-child .news-category{
+  transform:translateY(25px)!important;
+}
