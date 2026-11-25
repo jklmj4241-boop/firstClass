@@ -1098,3 +1098,50 @@ body.news-detail-open{
     text-align:center!important;
   }
 }
+
+
+/* 모든 뉴스 항목: 이미지와 텍스트 묶음을 세로 중앙에 맞춤 */
+@media(min-width:761px){
+  .news-list-item{
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    gap:20px!important;
+  }
+  .news-list-item .news-thumb{
+    flex:0 0 340px!important;
+    width:340px!important;
+    height:200px!important;
+    align-self:center!important;
+  }
+  .news-list-item .news-item-copy{
+    flex:1 1 auto!important;
+    min-width:0!important;
+    width:auto!important;
+    align-self:center!important;
+    justify-content:center!important;
+    margin:0!important;
+    transform:none!important;
+  }
+}
+@media(max-width:760px){
+  .news-list-item{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+  }
+  .news-list-item .news-thumb{
+    flex:0 0 auto!important;
+    width:min(340px,100%)!important;
+    height:200px!important;
+    align-self:center!important;
+  }
+  .news-list-item .news-item-copy{
+    width:100%!important;
+    align-self:stretch!important;
+    justify-content:center!important;
+    align-items:flex-start!important;
+    text-align:left!important;
+    transform:none!important;
+  }
+}
