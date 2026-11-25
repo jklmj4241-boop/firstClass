@@ -911,3 +911,19 @@ body.news-detail-open{overflow:hidden}
  .news-detail-image{margin-bottom:22px}
  .news-detail-paragraph{font-size:14px}
 }
+
+
+/* News article inline image: keep the original image clean, without a frame or placeholder */
+.news-detail-inline-image{
+ display:block;
+ width:min(751px,100%);
+ height:auto;
+ max-height:none;
+ object-fit:contain;
+ margin:24px 0 32px;
+ padding:0;
+ border:0;
+ outline:0;
+ background:transparent;
+ box-shadow:none;
+}
