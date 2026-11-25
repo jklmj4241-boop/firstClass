@@ -227,7 +227,7 @@
    // 이미지 번호가 있는 2026년 뉴스는 image01 → image10 순서로 표시한다.
    // 제목·요약·본문·이미지는 하나의 article 요소에 묶여 있어 함께 이동한다.
    const imageNumber=item=>{
-    const match=item.dataset.image?.match(/image(\\d+)\\.png$/i);
+    const match=item.dataset.image?.match(/image(\d+)\.png$/i);
     return match?Number(match[1]):null;
    };
    const aImage=imageNumber(a),bImage=imageNumber(b);
