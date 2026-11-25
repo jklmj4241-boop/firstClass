@@ -304,7 +304,9 @@
   const title=item.querySelector('h3')?.textContent.trim()||'뉴스';
   const category=item.querySelector('.news-category')?.textContent.trim()||'';
   const date=item.querySelector('.news-date')?.textContent.trim()||'';
-  const body=item.dataset.content?.trim()||item.dataset.summary?.trim()||'등록된 기사 내용이 없습니다.';
+  // 상세 화면에는 요약문이 아니라 등록된 전체 기사 본문을 우선 표시한다.
+  const rawBody=item.dataset.content?.trim()||item.dataset.summary?.trim()||'등록된 기사 내용이 없습니다.';
+  const body=rawBody.replace(/\\\\n/g,'\n');
   detailContent.innerHTML='';
   if(item.dataset.image){
    const image=document.createElement('img');
@@ -316,8 +318,8 @@
   const meta=document.createElement('p');meta.className='news-detail-meta';meta.textContent=[category,date].filter(Boolean).join(' · ');
   const heading=document.createElement('h2');heading.id='news-detail-title';heading.textContent=title;
   detailContent.append(meta,heading);
-  body.split(/\\n\\s*\\n/).forEach(paragraph=>{
-   const p=document.createElement('p');p.className='news-detail-paragraph';p.textContent=paragraph;detailContent.appendChild(p);
+  body.split(/\n\s*\n/).filter(paragraph=>paragraph.trim()).forEach(paragraph=>{
+   const p=document.createElement('p');p.className='news-detail-paragraph';p.textContent=paragraph.trim();detailContent.appendChild(p);
   });
   if(!item.dataset.content?.trim()){
    const note=document.createElement('p');note.className='news-detail-note';note.textContent='현재 등록된 내용은 뉴스 목록에 제공된 요약입니다. 전체 기사 본문은 아직 등록되지 않았습니다.';detailContent.appendChild(note);
