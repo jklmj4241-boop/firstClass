@@ -927,3 +927,34 @@ body.news-detail-open{overflow:hidden}
  background:transparent;
  box-shadow:none;
 }
+
+
+/* 뉴스 상세 모달: 배경 스크롤 차단, 상세 패널 내부만 스크롤 */
+html.news-detail-open,
+body.news-detail-open{
+  overflow:hidden!important;
+  overscroll-behavior:none!important;
+}
+.news-detail-overlay{
+  position:fixed!important;
+  inset:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+  overscroll-behavior:none!important;
+  padding:24px!important;
+  box-sizing:border-box!important;
+}
+.news-detail-panel{
+  width:min(900px,100%)!important;
+  max-height:calc(100dvh - 48px)!important;
+  margin:0 auto!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain!important;
+  -webkit-overflow-scrolling:touch;
+}
+@media(max-width:600px){
+  .news-detail-overlay{padding:12px!important}
+  .news-detail-panel{max-height:calc(100dvh - 24px)!important}
+}
