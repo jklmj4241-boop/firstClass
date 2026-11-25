@@ -308,6 +308,14 @@
   const rawBody=item.dataset.content?.trim()||item.dataset.summary?.trim()||'등록된 기사 내용이 없습니다.';
   const body=rawBody.replace(/\\n/g,'\n');
   detailContent.innerHTML='';
+  // Keep the original event/news photo above the article body.
+  if(item.dataset.image){
+   const leadImage=document.createElement('img');
+   leadImage.className='news-detail-image';
+   leadImage.src=item.dataset.image;
+   leadImage.alt=title;
+   detailContent.appendChild(leadImage);
+  }
   const meta=document.createElement('p');meta.className='news-detail-meta';meta.textContent=[category,date].filter(Boolean).join(' · ');
   const heading=document.createElement('h2');heading.id='news-detail-title';heading.textContent=title;
   detailContent.append(meta,heading);
