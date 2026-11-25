@@ -306,7 +306,7 @@
   const date=item.querySelector('.news-date')?.textContent.trim()||'';
   // 상세 화면에는 요약문이 아니라 등록된 전체 기사 본문을 우선 표시한다.
   const rawBody=item.dataset.content?.trim()||item.dataset.summary?.trim()||'등록된 기사 내용이 없습니다.';
-  const body=rawBody.replace(/\\\\n/g,'\n');
+  const body=rawBody.replace(/\\n/g,'\n');
   detailContent.innerHTML='';
   const meta=document.createElement('p');meta.className='news-detail-meta';meta.textContent=[category,date].filter(Boolean).join(' · ');
   const heading=document.createElement('h2');heading.id='news-detail-title';heading.textContent=title;
