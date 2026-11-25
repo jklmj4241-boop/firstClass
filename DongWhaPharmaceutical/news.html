@@ -223,7 +223,21 @@
    const y=Number(item.dataset.year);
    const yearMatch=year==='all'?true:year==='older'?y<=2022:item.dataset.year===year;
    return yearMatch&&(!q||item.dataset.search.toLowerCase().includes(q));
-  }).sort((a,b)=>Number(b.dataset.sortDate)-Number(a.dataset.sortDate));
+  }).sort((a,b)=>{
+   // 이미지 번호가 있는 2026년 뉴스는 image01 → image10 순서로 표시한다.
+   // 제목·요약·본문·이미지는 하나의 article 요소에 묶여 있어 함께 이동한다.
+   const imageNumber=item=>{
+    const match=item.dataset.image?.match(/image(\\d+)\\.png$/i);
+    return match?Number(match[1]):null;
+   };
+   const aImage=imageNumber(a),bImage=imageNumber(b);
+   if(a.dataset.year==="2026"&&b.dataset.year==="2026"){
+    if(aImage!==null&&bImage!==null)return aImage-bImage;
+    if(aImage!==null)return -1;
+    if(bImage!==null)return 1;
+   }
+   return Number(b.dataset.sortDate)-Number(a.dataset.sortDate);
+  });
  }
  function render(reset=false){
   if(reset)currentPage=1;
