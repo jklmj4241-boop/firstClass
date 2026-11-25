@@ -1028,3 +1028,19 @@ body.news-detail-open{
   transform:none!important;
   line-height:1.3!important;
 }
+
+
+/* 뉴스 목록 레이아웃: 참고 이미지처럼 썸네일 왼쪽, 텍스트 오른쪽 상단 정렬 */
+.news-list-item{display:grid!important;grid-template-columns:282px minmax(0,1fr)!important;column-gap:20px!important;align-items:start!important;padding:20px 0!important}
+.news-list-item .news-thumb{grid-column:1!important;grid-row:1!important;width:282px!important;height:166px!important;max-width:100%!important;aspect-ratio:auto!important;align-self:start!important}
+.news-list-item .news-thumb img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important}
+.news-list-item .news-item-copy{grid-column:2!important;grid-row:1!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important;align-items:flex-start!important;align-self:start!important;min-width:0!important;width:100%!important;transform:none!important;margin:0!important}
+.news-list-item .news-item-copy .news-category{display:block!important;position:static!important;margin:0 0 5px!important;padding:0!important;transform:none!important;line-height:1.3!important}
+.news-list-item .news-item-copy h3{margin:0 0 20px!important;line-height:1.4!important}
+.news-list-item .news-item-copy p.news-summary{margin:0!important;line-height:1.7!important}
+.news-list-item .news-item-copy .news-date-label{margin-top:16px!important}
+@media(max-width:760px){
+ .news-list-item{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:14px!important;padding:24px 0!important}
+ .news-list-item .news-thumb{width:min(282px,100%)!important;height:auto!important;aspect-ratio:17/10!important}
+ .news-list-item .news-item-copy{width:100%!important}
+}
