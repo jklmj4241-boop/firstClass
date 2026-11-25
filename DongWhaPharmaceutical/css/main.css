@@ -1206,3 +1206,18 @@ a {
         font-size: clamp(16px, 2.4vw, 20px);
     }
 }
+
+
+/* Header hover emphasis shared across main and sub pages */
+.utility-links a,
+.main-nav a{
+  transition:font-weight .18s ease,color .18s ease;
+}
+.utility-links a:hover,
+.utility-links a:focus-visible{
+  font-weight:700;
+}
+.main-nav a:hover,
+.main-nav a:focus-visible{
+  font-weight:700;
+}
