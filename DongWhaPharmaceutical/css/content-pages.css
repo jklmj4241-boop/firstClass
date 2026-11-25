@@ -1044,3 +1044,57 @@ body.news-detail-open{
  .news-list-item .news-thumb{width:min(282px,100%)!important;height:auto!important;aspect-ratio:17/10!important}
  .news-list-item .news-item-copy{width:100%!important}
 }
+
+
+/* 뉴스 목록: 기존 썸네일 크기 복원 및 이미지·텍스트 세로 중앙 정렬 */
+.news-list-item{
+  display:grid!important;
+  grid-template-columns:340px minmax(0,1fr)!important;
+  column-gap:20px!important;
+  align-items:center!important;
+}
+.news-list-item .news-thumb{
+  grid-column:1!important;
+  grid-row:1!important;
+  width:340px!important;
+  height:200px!important;
+  max-width:100%!important;
+  align-self:center!important;
+}
+.news-list-item .news-thumb img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+.news-list-item .news-item-copy{
+  grid-column:2!important;
+  grid-row:1!important;
+  align-self:center!important;
+  justify-content:center!important;
+  transform:none!important;
+  margin:0!important;
+}
+.news-list-item .news-item-copy .news-category{
+  position:static!important;
+  margin:0 0 5px!important;
+  padding:0!important;
+  transform:none!important;
+}
+@media(max-width:760px){
+  .news-list-item{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    gap:16px!important;
+  }
+  .news-list-item .news-thumb{
+    width:min(340px,100%)!important;
+    height:200px!important;
+    align-self:center!important;
+  }
+  .news-list-item .news-item-copy{
+    width:100%!important;
+    align-items:center!important;
+    text-align:center!important;
+  }
+}
