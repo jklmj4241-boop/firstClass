@@ -1009,3 +1009,11 @@ body.news-detail-open{
 .news-list-item:first-child .news-category{
   transform:translateY(25px)!important;
 }
+
+
+/* 첫 번째 프라바펜 기사: 기업소식 라벨을 이미지 상단선까지 직접 이동 */
+.news-list-item[data-image*="image02.png"] .news-category{
+  position:relative!important;
+  top:26px!important;
+  transform:none!important;
+}
