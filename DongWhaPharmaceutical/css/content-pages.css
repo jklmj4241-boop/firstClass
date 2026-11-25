@@ -958,3 +958,11 @@ body.news-detail-open{
   .news-detail-overlay{padding:12px!important}
   .news-detail-panel{max-height:calc(100dvh - 24px)!important}
 }
+
+
+/* 첫 번째 뉴스의 기업소식 라벨과 썸네일 상단 기준선 맞춤 */
+.news-list-item:first-child .news-item-copy{
+  transform:translateY(26px)!important;
+}
+/* 상세 팝업의 목록 복귀 버튼 제거 */
+.news-detail-back{display:none!important}
