@@ -1419,3 +1419,43 @@ body.news-detail-open{
 }
 
 
+
+
+/* NEWS ROW SPACING: keep the first and following article dividers evenly spaced */
+.media-list-section .news-list{
+  margin-top:0!important;
+  padding-top:0!important;
+}
+.media-list-section .news-list > .news-list-item{
+  min-height:241px!important;
+  padding:20px 0!important;
+  margin:0!important;
+  border-bottom:1px solid #d7d7d7!important;
+  box-sizing:border-box!important;
+}
+.media-list-section .news-list > .news-list-item:first-child{
+  margin-top:0!important;
+  padding-top:20px!important;
+  border-top:0!important;
+}
+.media-list-section .news-list > .news-list-item > .news-thumb{
+  align-self:center!important;
+}
+.media-list-section .news-list > .news-list-item > .news-item-copy{
+  align-self:center!important;
+  margin:0!important;
+  transform:none!important;
+}
+
+/* Match the main page header hover treatment and add the requested weight */
+.content-page .site-header .main-nav a{
+  transition:font-weight .18s ease,color .18s ease!important;
+}
+.content-page .site-header .main-nav a:hover,
+.content-page .site-header .main-nav a:focus-visible{
+  font-weight:700!important;
+}
+.content-page .site-header .main-nav a:hover::after,
+.content-page .site-header .main-nav a:focus-visible::after{
+  transform:scaleX(1)!important;
+}
