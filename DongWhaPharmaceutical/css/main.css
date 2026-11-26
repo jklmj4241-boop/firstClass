@@ -122,8 +122,7 @@ a {
     color: inherit;
 }
 .main-nav a:hover::after,
-.main-nav a:focus-visible::after,
-.main-nav a.active::after {
+.main-nav a:focus-visible::after {
     transform: scaleX(1);
 }
 .mega-menu {
@@ -1352,7 +1351,7 @@ a {
   border:1px solid var(--brand-primary)!important;background:var(--brand-white)!important;color:var(--brand-primary)!important;
 }
 #wrap .site-header .mobile-menu-toggle{
-  appearance:none!important;display:none!important;flex:0 0 42px!important;
+  appearance:none!important;display:flex!important;flex:0 0 42px!important;
   flex-direction:column!important;align-items:center!important;justify-content:center!important;
   gap:4px!important;width:42px!important;height:42px!important;margin:0!important;padding:9px!important;
   border:0!important;border-radius:3px!important;background:transparent!important;
