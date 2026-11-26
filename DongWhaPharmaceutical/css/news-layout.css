@@ -208,3 +208,29 @@
   transform:scaleX(1);
 }
 
+/* [hidden] must override author display rules for filtered and paginated news. */
+.media-list-section .news-list > .news-list-item[hidden],
+.media-list-section .news-pagination[hidden],
+.media-list-section .news-empty[hidden]{
+  display:none !important;
+}
+
+/* Every article, including archive entries without a photo, uses the same 340x200 thumbnail column. */
+.media-list-section .news-list > .news-list-item{
+  grid-template-columns:340px minmax(0,1fr);
+}
+.media-list-section .news-list > .news-list-item > .news-thumb-placeholder{
+  width:340px;
+  height:200px;
+  max-width:100%;
+  background:#f2f3f5;
+  border:1px solid #e3e5e8;
+  box-sizing:border-box;
+}
+@media(max-width:760px){
+  .media-list-section .news-list > .news-list-item > .news-thumb-placeholder{
+    width:min(340px,100%);
+    height:200px;
+    align-self:flex-start;
+  }
+}
