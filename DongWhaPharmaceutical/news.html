@@ -236,7 +236,10 @@
    item.querySelector('.news-thumb')?.remove();
    const copy=item.querySelector('.news-item-copy');
    const date=item.querySelector('.news-date');
-   if(copy&&date&&date.parentElement!==copy) copy.appendChild(date);
+   const hasImage=Boolean(item.dataset.image);
+   item.classList.toggle('has-thumb',hasImage);
+   if(hasImage&&copy&&date&&date.parentElement!==copy) copy.appendChild(date);
+   if(!hasImage&&date&&date.parentElement!==item) item.appendChild(date);
   });
   visible.forEach(item=>{
    item.hidden=false;
