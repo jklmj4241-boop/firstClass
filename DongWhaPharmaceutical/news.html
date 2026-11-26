@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="../font/css/pretendardvariable.css">
 <link rel="stylesheet" href="css/main.css?v=20261126-2">
 <link rel="stylesheet" href="css/content-pages.css?v=32">
-<link rel="stylesheet" href="css/news-layout.css?v=20261126-2">
+<link rel="stylesheet" href="css/news-layout.css?v=20261126-1">
 </head>
 <body>
 <div id="wrap" class="content-page">
@@ -239,9 +239,8 @@
    const date=item.querySelector('.news-date');
    const hasImage=Boolean(item.dataset.image);
    item.classList.toggle('has-thumb',hasImage);
-   // 이미지 유무와 관계없이 날짜를 제목이 있는 텍스트 영역 안에 배치한다.
-   // 날짜가 article의 별도 grid 셀로 빠져 제목과 겹치는 현상을 방지한다.
-   if(copy&&date&&date.parentElement!==copy) copy.appendChild(date);
+   if(hasImage&&copy&&date&&date.parentElement!==copy) copy.appendChild(date);
+   if(!hasImage&&date&&date.parentElement!==item) item.appendChild(date);
   });
   visible.forEach(item=>{
    item.hidden=false;
