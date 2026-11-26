@@ -1535,3 +1535,23 @@ body.news-detail-open{
   grid-column:1!important;
   width:100%!important;
 }
+
+/* Compact text-only news entries that have no source image data */
+.media-list-section .news-list-item:has(> .news-thumb.is-placeholder){
+  display:block!important;
+  height:auto!important;
+  min-height:120px!important;
+  padding:28px 0!important;
+  text-align:left!important;
+}
+.media-list-section .news-list-item:has(> .news-thumb.is-placeholder) > .news-item-copy{
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  width:100%!important;
+  text-align:left!important;
+}
+.media-list-section .news-list-item:has(> .news-thumb.is-placeholder) .news-item-copy h3,
+.media-list-section .news-list-item:has(> .news-thumb.is-placeholder) .news-item-copy .news-date{
+  text-align:left!important;
+}
