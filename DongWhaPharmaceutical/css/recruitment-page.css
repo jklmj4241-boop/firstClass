@@ -46,3 +46,32 @@
 .recruit-section-heading h2{color:#172b49}
 .recruit-steps li>span,.recruit-job-grid article>span{color:#26364b}
 @media(max-width:700px){.recruit-search.news-search.catalog-search{width:100%}}
+
+
+/* 2026-11-26 사용자 수정 요청 */
+.recruitment-page main{color:var(--text-primary)}
+.recruitment-page .recruit-hero{color:var(--text-white)}
+.recruit-board-heading h2,.recruit-contact h2,.recruit-section-heading h2,
+.recruit-steps li strong,.recruit-job-grid h3,.recruit-hiring-grid h3,
+.recruit-faq summary{color:var(--text-primary)}
+.recruit-board-note,.recruit-section-heading>p:last-child,
+.recruit-steps li p,.recruit-job-grid p,.recruit-hiring-grid p,
+.recruit-faq details p,.recruit-contact p:last-child{color:var(--text-primary)}
+.recruit-section-heading .recruit-section-label,
+.recruit-steps li>span,.recruit-job-grid article>span,
+.recruit-search.news-search.catalog-search button{color:var(--brand-secondary)!important}
+.recruit-tabs button.is-active{border-color:var(--brand-secondary);background:var(--brand-secondary);color:var(--text-white)}
+.recruit-tabs button{border-color:var(--border-default);color:var(--text-primary)}
+.recruit-search.news-search.catalog-search{height:42px;width:310px;border:1px solid var(--border-default);border-radius:30px}
+.recruit-search.news-search.catalog-search input{height:40px;color:var(--text-primary)}
+.recruit-search.news-search.catalog-search button{height:40px;flex-basis:44px;width:44px}
+.recruit-search.news-search.catalog-search button svg{width:20px;height:20px;stroke:var(--brand-primary)}
+.recruit-table-wrap{border-top:1px solid var(--border-default)}
+.recruit-table th{background:#F6F8FA;color:var(--text-primary)}
+.recruit-table td{height:126px;border-bottom:1px solid var(--border-default);color:var(--text-primary)}
+.recruit-status{color:var(--brand-secondary);font-weight:600}
+.recruit-steps li,.recruit-job-grid article,.recruit-hiring-grid article{border-color:var(--border-default);border-radius:8px}
+.recruit-process,.recruit-types,.recruit-faq{border-bottom:0}
+.recruitment-page .site-footer,.recruitment-page .footer-main{border-top:0!important}
+.recruitment-page .site-footer::before,.recruitment-page .footer-main::before{display:none!important}
+@media(max-width:700px){.recruit-search.news-search.catalog-search{height:42px;width:100%}}
