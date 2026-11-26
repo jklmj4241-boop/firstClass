@@ -71,7 +71,7 @@
   width:100%;
   margin:0 0 14px;
   padding:0;
-  color:#111;
+  color:var(--text-primary);
   font-size:19px;
   font-weight:700;
   line-height:1.5;
