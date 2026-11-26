@@ -1221,3 +1221,16 @@ a {
 .main-nav a:focus-visible{
   font-weight:700;
 }
+
+
+/* Shared header hover emphasis: same weight behavior on every section */
+#wrap .site-header .main-nav a,
+#wrap .site-header .utility-links a{
+  transition:font-weight .18s ease,color .18s ease;
+}
+#wrap .site-header .main-nav a:hover,
+#wrap .site-header .main-nav a:focus-visible,
+#wrap .site-header .utility-links a:hover,
+#wrap .site-header .utility-links a:focus-visible{
+  font-weight:700!important;
+}
