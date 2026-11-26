@@ -1234,3 +1234,19 @@ a {
 #wrap .site-header .utility-links a:focus-visible{
   font-weight:700!important;
 }
+
+/* Header hover weight: consistent across the main page and every subpage */
+#wrap .site-header .main-nav a,
+#wrap .site-header .utility-links a,
+#wrap .site-header .mega-menu-column a {
+    transition: font-weight 0.16s ease;
+}
+
+#wrap .site-header .main-nav a:hover,
+#wrap .site-header .main-nav a:focus-visible,
+#wrap .site-header .utility-links a:hover,
+#wrap .site-header .utility-links a:focus-visible,
+#wrap .site-header .mega-menu-column a:hover,
+#wrap .site-header .mega-menu-column a:focus-visible {
+    font-weight: 700 !important;
+}
