@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../css/default.css">
 <link rel="stylesheet" href="../font/css/pretendardvariable.css">
 <link rel="stylesheet" href="css/main.css?v=20261126-2">
-<link rel="stylesheet" href="css/content-pages.css?v=30">
+<link rel="stylesheet" href="css/content-pages.css?v=31">
 </head>
 <body>
 <div id="wrap" class="content-page">
@@ -234,24 +234,10 @@
   items.forEach(item=>{
    item.hidden=true;
    item.querySelector('.news-thumb')?.remove();
-   item.querySelector('.news-item-copy').appendChild(item.querySelector('.news-date'));
+   item.appendChild(item.querySelector('.news-date'));
   });
   visible.forEach(item=>{
    item.hidden=false;
-   const thumb=document.createElement('div');
-   thumb.className='news-thumb';
-   if(item.dataset.image){
-    const img=document.createElement('img');
-    img.src=item.dataset.image;
-    img.alt='';
-    img.loading='lazy';
-    thumb.appendChild(img);
-   }else{
-    thumb.classList.add('is-placeholder');
-    thumb.setAttribute('aria-label','뉴스 이미지 준비 중');
-   }
-   const copy=item.querySelector('.news-item-copy');
-   item.insertBefore(thumb,copy);
    list.appendChild(item);
   });
   empty.hidden=matched.length!==0;
