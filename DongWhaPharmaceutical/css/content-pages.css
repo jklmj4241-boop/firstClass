@@ -1461,3 +1461,37 @@ body.news-detail-open{
 .content-page .site-header .main-nav a:focus-visible::after{
   transform:scaleX(1)!important;
 }
+
+
+/* First news row: remove the extra top offset so its image clears the divider evenly */
+.media-list-section .news-list > .news-list-item:first-child{
+  height:241px!important;
+  min-height:241px!important;
+  padding:20px 0!important;
+  margin-top:0!important;
+  border-top:0!important;
+  align-items:center!important;
+}
+.media-list-section .news-list > .news-list-item:first-child > .news-thumb{
+  align-self:center!important;
+  margin:0!important;
+  transform:translateY(-22px)!important;
+}
+.media-list-section .news-list > .news-list-item:first-child > .news-item-copy{
+  align-self:center!important;
+  justify-content:center!important;
+  margin:0!important;
+  padding:0!important;
+  transform:translateY(-22px)!important;
+}
+@media(max-width:760px){
+  .media-list-section .news-list > .news-list-item:first-child{
+    height:auto!important;
+    min-height:0!important;
+    padding:22px 0!important;
+  }
+  .media-list-section .news-list > .news-list-item:first-child > .news-thumb,
+  .media-list-section .news-list > .news-list-item:first-child > .news-item-copy{
+    transform:none!important;
+  }
+}
