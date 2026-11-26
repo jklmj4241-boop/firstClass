@@ -1703,20 +1703,20 @@ body.news-detail-open{
 #wrap .site-header .mobile-menu-toggle span:nth-child(3){
   display:block!important;
   box-sizing:border-box!important;
-  flex:0 0 3px!important;
+  flex:0 0 1px!important;
   width:22px!important;
   min-width:22px!important;
   max-width:22px!important;
-  height:3px!important;
-  min-height:3px!important;
-  max-height:3px!important;
+  height:1px!important;
+  min-height:1px!important;
+  max-height:1px!important;
   margin:0!important;
   padding:0!important;
   border:0!important;
   border-radius:0!important;
   background-color:var(--text-primary)!important;
   opacity:1!important;
-  box-shadow:0 0 0 .25px var(--text-primary)!important;
+  box-shadow:none!important;
   transform-origin:center!important;
 }
 #wrap .site-header .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2){
