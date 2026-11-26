@@ -568,7 +568,7 @@
   z-index: 2000;
   overflow-y: auto;
   background: #fff;
-  color: #191919;
+  color: var(--text-primary);
 }
 .product-search-modal-inner {
   position: relative;
@@ -584,13 +584,13 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  color: #333;
+  color: var(--text-primary);
   font-size: 32px;
   line-height: 1;
 }
 .product-search-modal h2 {
   margin: 0;
-  color: #191919;
+  color: var(--text-primary);
   font-size: clamp(34px, 4vw, 52px);
   font-weight: 750;
   text-align: center;
@@ -614,7 +614,7 @@
   border: 0;
   outline: 0;
   background: transparent;
-  color: #222;
+  color: var(--text-primary);
   font-size: 16px;
   font-weight: 600;
 }
@@ -624,7 +624,7 @@
   flex: 0 0 64px;
   height: 64px;
   place-items: center;
-  color: #191919;
+  color: var(--text-primary);
 }
 .product-search-modal-form svg {
   width: 30px;
@@ -644,14 +644,14 @@
 .search-type-tabs button {
   min-width: 0;
   padding: 12px 8px;
-  color: #111;
+  color: var(--text-primary);
   font-size: 15px;
   font-weight: 650;
 }
 .search-type-tabs button.is-active {
   border-radius: 4px;
   background: #191919;
-  color: #fff;
+  color: var(--text-white);
 }
 .search-filter-panel {
   margin-top: 20px;
@@ -669,7 +669,7 @@
 }
 .search-filter-row > strong {
   padding-top: 12px;
-  color: #222;
+  color: var(--text-primary);
   font-size: 15px;
   font-weight: 700;
 }
@@ -695,7 +695,7 @@
 .search-filter-chips button.is-active,
 .search-initials button.is-active {
   background: #191919;
-  color: #fff;
+  color: var(--text-white);
 }
 .search-initial-row {
   border-top: 1px solid #eee;
@@ -718,7 +718,7 @@
 .search-filter-footer button {
   min-height: 48px;
   padding: 0 24px;
-  color: #222;
+  color: var(--text-primary);
   font-size: 14px;
   font-weight: 600;
 }
@@ -733,7 +733,7 @@
   padding: 0 22px;
   border-radius: 999px;
   background: #191919;
-  color: #fff;
+  color: var(--text-white);
   font-size: 15px;
   font-weight: 650;
 }
@@ -796,7 +796,7 @@
 /* 검색 UI 최종 정리: 검색 입력창은 하나만 사용하고 블루/그림자 제거 */
 .product-search-modal {
   box-shadow: none !important;
-  color: #333;
+  color: var(--text-primary);
 }
 .product-search-modal-inner,
 .product-search-modal h2,
@@ -805,14 +805,14 @@
 .product-search-close,
 .search-filter-footer button,
 .search-data-note {
-  color: #333 !important;
+  color: var(--text-primary) !important;
 }
-.product-search-modal h2 { color: #333 !important; }
+.product-search-modal h2 { color: var(--text-primary) !important; }
 .product-search-modal .product-search-close { color: #555 !important; }
 .product-search-modal .search-type-tabs button { color: #444 !important; }
 .product-search-modal .search-type-tabs button.is-active {
-  background: #ED1C24 !important;
-  color: #fff !important;
+  background: var(--brand-primary) !important;
+  color: var(--text-white) !important;
 }
 .product-search-modal .search-initials button {
   color: #555 !important;
@@ -820,12 +820,12 @@
 }
 .product-search-modal .search-initials button.is-active,
 .product-search-modal .search-initials button:hover {
-  color: #fff !important;
-  background: #ED1C24 !important;
+  color: var(--text-white) !important;
+  background: var(--brand-primary) !important;
 }
 .product-search-modal .search-modal-actions button {
-  color: #fff !important;
-  background: #ED1C24 !important;
+  color: var(--text-white) !important;
+  background: var(--brand-primary) !important;
   box-shadow: none !important;
 }
 .product-search-modal .search-modal-actions button:hover,
@@ -844,7 +844,7 @@
 }
 .product-search-wrap .product-search button { color: #444 !important; }
 .product-search-wrap .product-search input:focus {
-  outline-color: #ED1C24;
+  outline-color: var(--brand-primary);
 }
 
 
@@ -873,7 +873,7 @@
   border: 0;
   outline: 0;
   background: transparent;
-  color: #333;
+  color: var(--text-primary);
   box-shadow: none !important;
 }
 .product-search-wrap .product-search input::placeholder { color: #888; }
@@ -882,7 +882,7 @@
   flex: 0 0 48px;
   height: 46px;
   place-items: center;
-  color: #333;
+  color: var(--text-primary);
   box-shadow: none !important;
 }
 .product-search-wrap .product-search button svg {
@@ -893,7 +893,7 @@
   stroke-width: 1.8;
 }
 .product-search-wrap .product-search:focus-within {
-  border-color: #ED1C24;
+  border-color: var(--brand-primary);
   box-shadow: none !important;
 }
 
@@ -949,8 +949,8 @@
 /* 활성 상태는 빨간색 채움 버튼만 표시 */
 .product-tools .category-tab.is-active {
   border: 1px solid #ED1C24 !important;
-  background: #ED1C24 !important;
-  color: #FFFFFF !important;
+  background: var(--brand-primary) !important;
+  color: var(--text-white) !important;
 }
 
 
@@ -1105,7 +1105,7 @@
   border: 0;
   border-radius: 4px;
   background: transparent;
-  color: #242424;
+  color: var(--text-primary);
   font-size: 15px;
   font-weight: 600;
 }
@@ -1116,7 +1116,7 @@
   border: 0 !important;
   border-radius: 4px;
   background: var(--brand-primary) !important;
-  color: #fff !important;
+  color: var(--text-white) !important;
 }
 .product-filter-panel {
   overflow: hidden;
@@ -1132,7 +1132,7 @@
   padding: 28px 34px;
 }
 .filter-row > strong {
-  color: #282828;
+  color: var(--text-primary);
   font-size: 15px;
   font-weight: 650;
 }
@@ -1165,7 +1165,7 @@
 .initial-filter-list button.is-active {
   border-color: var(--brand-primary);
   background: var(--brand-primary);
-  color: #fff;
+  color: var(--text-white);
 }
 .initial-filter-list button:focus-visible,
 .catalog-sort button:focus-visible,
@@ -1187,8 +1187,8 @@
   min-height: 54px;
   padding: 0 22px;
   border-radius: 999px;
-  background: #ED1C24;
-  color: #fff;
+  background: var(--brand-primary);
+  color: var(--text-white);
   font-size: 15px;
   font-weight: 600;
   transition: background .2s ease;
@@ -1204,7 +1204,7 @@
 }
 .catalog-results-heading .result-count {
   margin: 0;
-  color: #222;
+  color: var(--text-primary);
   font-size: 20px;
   font-weight: 600;
 }
@@ -1399,11 +1399,11 @@
 }
 .category-filter-list .subcategory-filter:hover {
   background: #E9EAEC;
-  color: #333;
+  color: var(--text-primary);
 }
 .category-filter-list .subcategory-filter.is-active {
-  background: #ED1C24;
-  color: #fff;
+  background: var(--brand-primary);
+  color: var(--text-white);
 }
 .category-filter-list .subcategory-filter:focus-visible {
   outline: 2px solid #ED1C24;
@@ -1434,7 +1434,7 @@
   border: 1px solid #ED1C24;
   border-radius: 999px;
   background: #fff;
-  color: #ED1C24;
+  color: var(--brand-primary);
   font: inherit;
   font-size: 15px;
   font-weight: 600;
@@ -1442,8 +1442,8 @@
   transition: background .2s ease, color .2s ease;
 }
 .product-load-more:hover {
-  background: #ED1C24;
-  color: #fff;
+  background: var(--brand-primary);
+  color: var(--text-white);
 }
 .product-load-more[hidden] { display: none; }
 @media (max-width: 600px) {
@@ -1559,7 +1559,7 @@
 }
 .product-page .category-tab.is-active{
   background:var(--brand-primary);
-  color:#fff;
+  color:var(--text-white);
 }
 @media(max-width:700px){
  .product-page .category-tabs{grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:24px}
