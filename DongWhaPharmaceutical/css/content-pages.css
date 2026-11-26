@@ -1169,8 +1169,8 @@ body.news-detail-open{
 
 /* NEWS LIST — consistent image/text alignment for every article */
 .news-list{
-  width:min(1314px,calc(100% - 48px))!important;
-  max-width:1314px!important;
+  width:100%!important;
+  max-width:100%!important;
   margin-inline:auto!important;
   box-sizing:border-box!important;
 }
