@@ -1594,3 +1594,25 @@ body.news-detail-open{
   .news-list-item .news-item-copy h3{font-size:16px}
   .news-list-item .news-item-copy p{font-size:12px;line-height:1.7}
 }
+
+
+/* 연구개발 페이지 상단 메뉴 폭을 메인 버튼 영역과 동일하게 맞춤 */
+.rnd-page .site-header .header-utility .utility-inner{
+  width:min(1800px,calc(100% - 48px))!important;
+  max-width:1800px!important;
+}
+
+/* 연구개발 현재 메뉴의 파란색 활성 밑줄 표시 */
+.rnd-page .site-header .main-nav a.active::after,
+.rnd-page .site-header .main-nav a[aria-current="page"]::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  right:0!important;
+  bottom:2px!important;
+  left:0!important;
+  height:2px!important;
+  background-color:var(--color-blue)!important;
+  transform:scaleX(1)!important;
+  transform-origin:left!important;
+}
