@@ -235,6 +235,7 @@
   items.forEach(item=>{
    item.hidden=true;
    item.querySelector('.news-thumb')?.remove();
+   item.querySelector('.news-thumb-placeholder')?.remove();
    const copy=item.querySelector('.news-item-copy');
    const date=item.querySelector('.news-date');
    // 모든 뉴스는 동일한 카드 구조를 사용한다.
@@ -248,9 +249,15 @@
    if(imagePath){
     const thumb=document.createElement('img');
     thumb.className='news-thumb';
-    thumb.src=imagePath;
     thumb.alt='';
     thumb.loading='lazy';
+    thumb.addEventListener('error',()=>{
+     const placeholder=document.createElement('div');
+     placeholder.className='news-thumb-placeholder';
+     placeholder.setAttribute('aria-hidden','true');
+     thumb.replaceWith(placeholder);
+    },{once:true});
+    thumb.src=imagePath;
     item.insertBefore(thumb,item.firstChild);
    }else{
     const placeholder=document.createElement('div');
