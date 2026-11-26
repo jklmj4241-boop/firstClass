@@ -190,3 +190,45 @@
 .content-page .site-header .main-nav a:focus-visible::after{
   transform:scaleX(1);
 }
+
+
+/* ARCHIVE ROW FIX
+   이미지가 등록되지 않은 예전 뉴스도 제목과 날짜가 겹치지 않도록
+   텍스트 영역을 한 열로 사용하고 위에서부터 정렬한다. */
+.media-list-section .news-list > .news-list-item:not(.has-thumb){
+  display:block!important;
+  height:auto!important;
+  min-height:120px!important;
+  padding:30px 0!important;
+  box-sizing:border-box!important;
+}
+.media-list-section .news-list > .news-list-item:not(.has-thumb) > .news-item-copy{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  width:100%!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+  transform:none!important;
+}
+.media-list-section .news-list > .news-list-item:not(.has-thumb) > .news-item-copy h3{
+  display:block!important;
+  width:100%!important;
+  margin:0!important;
+  line-height:1.5!important;
+}
+.media-list-section .news-list > .news-list-item:not(.has-thumb) > .news-item-copy .news-date{
+  display:block!important;
+  position:static!important;
+  margin:12px 0 0!important;
+  padding:0!important;
+  line-height:1.5!important;
+}
+@media(max-width:760px){
+  .media-list-section .news-list > .news-list-item:not(.has-thumb){
+    min-height:100px!important;
+    padding:24px 0!important;
+  }
+}
