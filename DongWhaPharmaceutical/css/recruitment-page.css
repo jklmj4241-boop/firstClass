@@ -160,3 +160,8 @@
 .recruitment-page .recruit-process,.recruitment-page .recruit-types{width:calc(100% - 40px)}
 .recruit-board{padding-top:72px;padding-bottom:72px}
 }
+
+
+/* Ensure newly added page labels and blank-image frame remain visible */
+.recruitment-page .recruit-eyebrow{display:block!important}
+.recruitment-page .recruit-hero::after{display:none!important}
