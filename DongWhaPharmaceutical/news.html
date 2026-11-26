@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="../font/css/pretendardvariable.css">
 <link rel="stylesheet" href="css/main.css?v=20261126-2">
 <link rel="stylesheet" href="css/content-pages.css?v=32">
-<link rel="stylesheet" href="css/news-layout.css?v=20261126-2">
+<link rel="stylesheet" href="css/news-layout.css?v=20261126-3">
 </head>
 <body>
 <div id="wrap" class="content-page">
@@ -237,10 +237,10 @@
    item.querySelector('.news-thumb')?.remove();
    const copy=item.querySelector('.news-item-copy');
    const date=item.querySelector('.news-date');
-   const hasImage=Boolean(item.dataset.image);
-   item.classList.toggle('has-thumb',hasImage);
-   if(hasImage&&copy&&date&&date.parentElement!==copy) copy.appendChild(date);
-   if(!hasImage&&date&&date.parentElement!==item) item.appendChild(date);
+   // 모든 뉴스는 동일한 카드 구조를 사용한다.
+   // 이미지가 없는 기사도 340x200 영역을 유지한다.
+   item.classList.add('has-thumb');
+   if(copy&&date&&date.parentElement!==copy) copy.appendChild(date);
   });
   visible.forEach(item=>{
    item.hidden=false;
@@ -252,6 +252,11 @@
     thumb.alt='';
     thumb.loading='lazy';
     item.insertBefore(thumb,item.firstChild);
+   }else{
+    const placeholder=document.createElement('div');
+    placeholder.className='news-thumb-placeholder';
+    placeholder.setAttribute('aria-hidden','true');
+    item.insertBefore(placeholder,item.firstChild);
    }
    list.appendChild(item);
   });
