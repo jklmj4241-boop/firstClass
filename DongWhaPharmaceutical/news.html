@@ -234,10 +234,21 @@
   items.forEach(item=>{
    item.hidden=true;
    item.querySelector('.news-thumb')?.remove();
-   item.appendChild(item.querySelector('.news-date'));
+   const copy=item.querySelector('.news-item-copy');
+   const date=item.querySelector('.news-date');
+   if(copy&&date&&date.parentElement!==copy) copy.appendChild(date);
   });
   visible.forEach(item=>{
    item.hidden=false;
+   const imagePath=item.dataset.image;
+   if(imagePath){
+    const thumb=document.createElement('img');
+    thumb.className='news-thumb';
+    thumb.src=imagePath;
+    thumb.alt='';
+    thumb.loading='lazy';
+    item.insertBefore(thumb,item.firstChild);
+   }
    list.appendChild(item);
   });
   empty.hidden=matched.length!==0;
