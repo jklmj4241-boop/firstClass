@@ -1602,20 +1602,7 @@ body.news-detail-open{
   max-width:1800px!important;
 }
 
-/* 연구개발 현재 메뉴의 파란색 활성 밑줄 표시 */
-.rnd-page .site-header .main-nav a.active::after,
-.rnd-page .site-header .main-nav a[aria-current="page"]::after{
-  content:""!important;
-  display:block!important;
-  position:absolute!important;
-  right:0!important;
-  bottom:2px!important;
-  left:0!important;
-  height:2px!important;
-  background-color:var(--color-blue)!important;
-  transform:scaleX(1)!important;
-  transform-origin:left!important;
-}
+/* 연구개발 메뉴의 밑줄은 공통 hover/focus 상태에서만 표시 */
 
 
 /* === Shared header normalization: use the main page as the single reference === */
@@ -1679,7 +1666,7 @@ body.news-detail-open{
   border:1px solid var(--brand-primary)!important;background:var(--brand-white)!important;color:var(--brand-primary)!important;
 }
 #wrap .site-header .mobile-menu-toggle{
-  appearance:none!important;display:none!important;flex:0 0 42px!important;
+  appearance:none!important;display:flex!important;flex:0 0 42px!important;
   flex-direction:column!important;align-items:center!important;justify-content:center!important;
   gap:4px!important;width:42px!important;height:42px!important;margin:0!important;padding:9px!important;
   border:0!important;border-radius:3px!important;background:transparent!important;
