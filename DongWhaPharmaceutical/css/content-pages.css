@@ -1522,3 +1522,16 @@ body.news-detail-open{
     align-self:stretch!important;
   }
 }
+
+
+/* NEWS ITEMS WITHOUT SOURCE IMAGES: remove the empty image column */
+.media-list-section .news-list-item:has(> .news-thumb.is-placeholder){
+  grid-template-columns:minmax(0,1fr)!important;
+}
+.media-list-section .news-list-item > .news-thumb.is-placeholder{
+  display:none!important;
+}
+.media-list-section .news-list-item:has(> .news-thumb.is-placeholder) > .news-item-copy{
+  grid-column:1!important;
+  width:100%!important;
+}
