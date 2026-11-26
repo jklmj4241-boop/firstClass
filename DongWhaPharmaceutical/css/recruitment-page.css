@@ -31,3 +31,18 @@
 .recruit-data-note{display:none}
 @media(max-width:900px){.recruit-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.recruit-job-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.recruit-process,.recruit-types,.recruit-faq{width:calc(100% - 40px);padding:65px 0}.recruit-section-heading h2{font-size:28px}.recruit-steps{grid-template-columns:1fr}.recruit-steps li{min-height:0}.recruit-steps li>span{margin-bottom:14px}.recruit-job-grid,.recruit-hiring-grid{grid-template-columns:1fr}.recruitment-page .recruit-hero{min-height:360px}.recruitment-page .recruit-hero-image{object-position:60% center}}
+
+/* 요청 반영: 영문 장식 문구 제거 및 동화뉴스 검색창 스타일 적용 */
+.recruit-eyebrow,.recruit-section-label{display:none!important}
+.recruit-hero-link,.recruit-intro{display:none!important}
+.recruit-search.news-search.catalog-search{width:310px;max-width:100%;height:64px;margin:0;border:1.5px solid #D9DDE3;border-radius:999px;background:#fff;transition:border-color .2s ease}
+.recruit-search.news-search.catalog-search:focus-within{border-color:var(--brand-primary)}
+.recruit-search.news-search.catalog-search input{flex:1;width:100%;min-width:0;height:100%;padding:0 12px 0 28px;border:0;outline:0;background:transparent;color:var(--text-primary);font-size:15px}
+.recruit-search.news-search.catalog-search input::placeholder{color:#929292}
+.recruit-search.news-search.catalog-search input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;display:none}
+.recruit-search.news-search.catalog-search button{display:grid;flex:0 0 58px;width:58px;height:58px;place-items:center;padding:0;border:0;background:transparent!important;color:var(--brand-primary)!important}
+.recruit-search.news-search.catalog-search button svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round}
+.recruit-section-heading{margin-bottom:30px}
+.recruit-section-heading h2{color:#172b49}
+.recruit-steps li>span,.recruit-job-grid article>span{color:#26364b}
+@media(max-width:700px){.recruit-search.news-search.catalog-search{width:100%}}
