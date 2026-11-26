@@ -1381,30 +1381,11 @@ a {
 }
 
 
-/* Hamburger line thickness hard lock: equal visible strokes */
+/* Hamburger line thickness: all three strokes are 2px */
 #wrap .site-header .mobile-menu-toggle span,
 #wrap .site-header .mobile-menu-toggle span:nth-child(1),
 #wrap .site-header .mobile-menu-toggle span:nth-child(2),
 #wrap .site-header .mobile-menu-toggle span:nth-child(3){
-  display:block!important;
-  box-sizing:border-box!important;
-  flex:0 0 1px!important;
-  width:22px!important;
-  min-width:22px!important;
-  max-width:22px!important;
-  height:1px!important;
-  min-height:1px!important;
-  max-height:1px!important;
-  margin:0!important;
-  padding:0!important;
-  border:0!important;
-  border-radius:0!important;
-  background-color:var(--text-primary)!important;
-  opacity:1!important;
-  box-shadow:none!important;
-  transform-origin:center!important;
+display:block!important;box-sizing:border-box!important;flex:0 0 2px!important;width:22px!important;min-width:22px!important;max-width:22px!important;height:2px!important;min-height:2px!important;max-height:2px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background-color:var(--text-primary)!important;opacity:1!important;box-shadow:none!important;transform-origin:center!important;
 }
-#wrap .site-header .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2){
-  opacity:0!important;
-  box-shadow:none!important;
-}
+#wrap .site-header .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0!important;box-shadow:none!important}
