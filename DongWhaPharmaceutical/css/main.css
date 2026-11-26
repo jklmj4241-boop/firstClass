@@ -1250,3 +1250,42 @@ a {
 #wrap .site-header .mega-menu-column a:focus-visible {
     font-weight: 700 !important;
 }
+
+
+/* 햄버거 메뉴 3개 선의 두께와 길이를 모든 페이지에서 동일하게 유지 */
+.site-header .mobile-menu-toggle{
+  display:flex;
+  flex:0 0 42px;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.site-header .mobile-menu-toggle span{
+  display:block!important;
+  flex:0 0 2px!important;
+  width:22px!important;
+  min-width:22px!important;
+  height:2px!important;
+  min-height:2px!important;
+  max-height:2px!important;
+  margin:3px auto!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  opacity:1;
+  background-color:var(--color-text)!important;
+  transform-origin:center;
+}
+.site-header .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2){
+  opacity:0!important;
+}
+@media(max-width:1024px){
+  .site-header .mobile-menu-toggle{display:flex!important}
+}
+
+/* 상단 유틸리티 링크는 기본 두께 유지: 채용·투자정보·고객지원 */
+#wrap .site-header .utility-links a:hover,
+#wrap .site-header .utility-links a:focus-visible{
+  font-weight:500!important;
+  font-variation-settings:"wght" 500!important;
+}
