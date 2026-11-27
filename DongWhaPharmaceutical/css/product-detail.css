@@ -13,3 +13,38 @@
 .detail-ingredients .ingredient-line span:last-child{min-width:130px;text-align:left}
 .detail-source-note{color:#626a73}
 @media(max-width:760px){.detail-information{padding:30px 0 70px}.detail-row{grid-template-columns:1fr;gap:12px;padding:20px 6px}.detail-ingredients .ingredient-line{font-size:14px}.detail-ingredients .ingredient-line span:last-child{min-width:112px}}
+
+
+/* 뉴스 상세보기와 같은 화면 내 제품 상세 레이어 */
+.product-detail-open{overflow:hidden}
+.product-detail-overlay[hidden]{display:none}
+.product-detail-overlay{position:fixed;inset:0;z-index:1200;display:flex;align-items:center;justify-content:center;padding:30px;background:rgba(20,24,30,.58);overflow-y:auto}
+.product-detail-panel{position:relative;width:min(1120px,100%);max-height:calc(100vh - 60px);overflow:auto;border-radius:16px;background:#fff;box-shadow:0 24px 80px rgba(0,0,0,.22)}
+.product-detail-close{position:sticky;top:14px;float:right;z-index:2;display:grid;place-items:center;width:42px;height:42px;margin:14px 14px -56px 0;border:0;border-radius:50%;background:#f1f2f3;color:#222;font-size:28px;line-height:1;cursor:pointer}
+.product-detail-modal-body{display:grid;grid-template-columns:minmax(280px,.85fr) minmax(0,1.15fr);gap:42px;padding:56px 48px 48px}
+.product-detail-modal-visual{position:sticky;top:24px;align-self:start;display:grid;place-items:center;min-height:360px;background:#f5f6f7;border-radius:10px}
+.product-detail-modal-visual img{display:block;width:100%;max-height:480px;object-fit:contain}
+.product-detail-modal-category{margin:0 0 8px;color:#d71920;font-size:16px;font-weight:700}
+.product-detail-modal-info h2{margin:0 0 26px;color:#202733;font-size:38px;letter-spacing:-.04em}
+.product-detail-modal-table{border-top:1px solid #d9dce1}
+.product-detail-modal-row{display:grid;grid-template-columns:100px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid #e2e4e8}
+.product-detail-modal-row h3{margin:0;color:#1eae70;font-size:16px;font-weight:700}
+.product-detail-modal-row p{margin:0;color:#303744;font-size:14px;line-height:1.75;overflow-wrap:anywhere}
+.product-detail-modal-row p+p{margin-top:3px}
+.product-detail-modal-ingredients .ingredient-heading{margin:0 0 7px}
+.product-detail-modal-ingredients .ingredient-heading.second{margin-top:20px}
+.product-detail-modal-ingredients .ingredient-line{display:flex;justify-content:space-between;gap:12px;margin:0!important}
+.product-detail-modal-ingredients .ingredient-line span:last-child{min-width:112px;text-align:left}
+.catalog-card.is-clickable{cursor:pointer}
+.catalog-card.is-clickable:focus-visible{outline:2px solid #d71920;outline-offset:4px}
+@media(max-width:760px){
+.product-detail-overlay{align-items:flex-start;padding:12px}
+.product-detail-panel{max-height:calc(100vh - 24px);border-radius:12px}
+.product-detail-modal-body{grid-template-columns:1fr;gap:22px;padding:58px 20px 26px}
+.product-detail-modal-visual{position:static;min-height:230px}
+.product-detail-modal-visual img{max-height:270px}
+.product-detail-modal-info h2{font-size:30px;margin-bottom:18px}
+.product-detail-modal-row{grid-template-columns:1fr;gap:8px;padding:14px 0}
+.product-detail-modal-row p{font-size:14px}
+.product-detail-close{top:8px;margin:8px 8px -50px 0}
+}
