@@ -550,3 +550,51 @@
  .recruitment-page .careers-process h4{font-size:19px}
  .recruitment-page .careers-faq-list summary{font-size:17px}
 }
+
+/* 2026-11-27 typography and responsive cleanup */
+.recruitment-page .careers-hero{min-height:620px}
+.recruitment-page .careers-hero h1{font-size:clamp(42px,3.8vw,56px);line-height:1.22}
+.recruitment-page .careers-hero-link{font-size:16px;padding:15px 20px}
+.recruitment-page .careers-section{padding:82px 0}
+.recruitment-page .careers-heading-row{margin-bottom:38px}
+.recruitment-page .careers-heading-row h2{font-size:clamp(34px,3.2vw,44px)}
+.recruitment-page .careers-team-title{font-size:27px}
+.recruitment-page .careers-team-detail h3{font-size:19px}
+.recruitment-page .careers-team-detail p{font-size:16px;line-height:1.7}
+.recruitment-page .careers-benefit-categories h3{font-size:21px}
+.recruitment-page .careers-benefit-categories p,.recruitment-page .careers-culture-strip p{font-size:16px;line-height:1.7}
+.recruitment-page .careers-culture-strip h3{font-size:21px}
+.recruitment-page .careers-join{min-height:460px}
+.recruitment-page .careers-join h2{font-size:clamp(36px,3.6vw,48px);line-height:1.25}
+.recruitment-page .careers-join-content>a{font-size:16px;padding:14px 19px}
+.recruitment-page .careers-recruit-types h3{font-size:22px}
+.recruitment-page .careers-recruit-types p{font-size:16px;line-height:1.7}
+.recruitment-page .careers-process-head h3{font-size:23px}
+.recruitment-page .careers-process h4{font-size:18px}
+.recruitment-page .careers-process p{font-size:15px;line-height:1.6}
+.recruitment-page .careers-recruit-table th{font-size:16px}
+.recruitment-page .careers-recruit-table td{font-size:16px}
+.recruitment-page .careers-status{font-size:15px}
+.recruitment-page .careers-job-board-heading h3{font-size:27px}
+.recruitment-page .careers-faq-list summary{font-size:18px}
+.recruitment-page .careers-faq-list details p{font-size:16px;line-height:1.7}
+@media(max-width:900px){
+ .recruitment-page .careers-hero{min-height:540px}
+ .recruitment-page .careers-hero h1{font-size:clamp(38px,5.4vw,48px)}
+ .recruitment-page .careers-section{padding:68px 0}
+ .recruitment-page .careers-heading-row h2{font-size:38px}
+ .recruitment-page .careers-process{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:650px){
+ .recruitment-page .careers-hero{min-height:500px}
+ .recruitment-page .careers-hero h1{font-size:36px}
+ .recruitment-page .careers-hero-link{font-size:15px}
+ .recruitment-page .careers-section{padding:58px 0}
+ .recruitment-page .careers-heading-row h2{font-size:32px}
+ .recruitment-page .careers-team-title{font-size:21px}
+ .recruitment-page .careers-team-detail p,.recruitment-page .careers-benefit-categories p,.recruitment-page .careers-recruit-types p,.recruitment-page .careers-faq-list details p{font-size:15px}
+ .recruitment-page .careers-join h2{font-size:34px}
+ .recruitment-page .careers-process{grid-template-columns:1fr}
+ .recruitment-page .careers-process p{font-size:15px}
+ .recruitment-page .careers-faq-list summary{font-size:16px}
+}
