@@ -722,3 +722,23 @@
   .recruitment-page .careers-benefits{padding-bottom:20px!important}
   .recruitment-page .careers-recruitment{padding-top:20px!important}
 }
+
+
+/* 2026-11-27: tighten benefits-to-recruitment spacing */
+.recruitment-page .careers-benefits{
+  padding-bottom:14px!important;
+}
+.recruitment-page .careers-recruitment{
+  padding-top:14px!important;
+}
+.recruitment-page .careers-recruitment .careers-job-board-list{
+  margin-top:0!important;
+}
+.recruitment-page .careers-team-detail{
+  box-sizing:border-box;
+  will-change:height;
+}
+@media(max-width:650px){
+  .recruitment-page .careers-benefits{padding-bottom:10px!important}
+  .recruitment-page .careers-recruitment{padding-top:10px!important}
+}
