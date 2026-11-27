@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>약국 찾기 | 동화약품</title>
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../font/css/pretendardvariable.css">
+<link rel="stylesheet" href="css/main.css?v=20261127-pharmacy1">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+.pharmacy-page{color:var(--text-primary);font-family:"Pretendard Variable",sans-serif}
+.pharmacy-hero{padding:72px 24px 48px;background:#f7f8fa}
+.pharmacy-inner{width:min(1440px,calc(100% - 48px));margin:0 auto}
+.pharmacy-hero h1{margin:0;font-size:clamp(34px,4vw,52px);font-weight:700;letter-spacing:-.04em}
+.pharmacy-hero p{margin:18px 0 0;font-size:18px;line-height:1.6}
+.pharmacy-search{display:flex;gap:10px;margin-top:32px;max-width:760px}
+.pharmacy-search input{flex:1;min-width:0;height:56px;padding:0 18px;border:1px solid #d7dce2;border-radius:4px;background:#fff;font:inherit;font-size:16px}
+.pharmacy-btn{height:56px;padding:0 24px;border:1px solid var(--brand-primary);border-radius:4px;background:var(--brand-primary);color:#fff;font:inherit;font-weight:600;cursor:pointer}
+.pharmacy-btn.secondary{background:#fff;color:var(--brand-primary)}
+.pharmacy-layout{display:grid;grid-template-columns:minmax(320px,420px) minmax(0,1fr);gap:24px;padding:48px 0 80px}
+.pharmacy-results{min-height:560px;border:1px solid #e1e4e8;background:#fff}
+.pharmacy-results-head{display:flex;align-items:center;justify-content:space-between;padding:22px;border-bottom:1px solid #e8eaed}
+.pharmacy-results-head h2{margin:0;font-size:22px}
+.pharmacy-count{color:var(--brand-primary);font-weight:700}
+.pharmacy-list{max-height:650px;overflow:auto}
+.pharmacy-item{display:block;width:100%;padding:20px 22px;border:0;border-bottom:1px solid #eceef0;background:#fff;text-align:left;font:inherit;cursor:pointer}
+.pharmacy-item:hover,.pharmacy-item:focus-visible{background:#fafafa}
+.pharmacy-item strong{display:block;margin-bottom:8px;font-size:18px}
+.pharmacy-item span{display:block;color:#555;font-size:15px;line-height:1.55}
+.pharmacy-item .phone{margin-top:5px;color:var(--brand-primary)}
+.pharmacy-map-wrap{position:relative;min-height:560px;border:1px solid #e1e4e8}
+#pharmacy-map{width:100%;height:100%;min-height:560px;z-index:1}
+.pharmacy-map-note{position:absolute;right:14px;bottom:14px;z-index:500;padding:8px 12px;background:#fff;border:1px solid #e1e4e8;font-size:12px}
+.pharmacy-status{padding:22px;color:#666;line-height:1.6}
+.pharmacy-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+@media(max-width:800px){.pharmacy-hero{padding:48px 0 36px}.pharmacy-layout{grid-template-columns:1fr;padding:28px 0 48px}.pharmacy-results{min-height:280px;order:2}.pharmacy-list{max-height:360px}.pharmacy-map-wrap,#pharmacy-map{min-height:380px}.pharmacy-search{flex-wrap:wrap}.pharmacy-search input{flex-basis:100%}.pharmacy-inner{width:calc(100% - 32px)}}
+</style>
+</head>
+<body>
+<div id="wrap">
+<header class="site-header">
+            <div class="header-utility">
+                <div class="header-inner utility-inner">
+                    <div class="utility-links">
+                        <a href="recruitment.html">채용</a>
+                        <a href="investment.html">투자정보</a>
+                        <a href="customer-support.html">고객지원</a>
+                    </div>
+                </div>
+            </div>
+            <div class="header-main">
+                <div class="header-inner main-inner">
+                    <a class="brand-logo" href="index.html" aria-label="동화약품 홈"><img src="img/Logo.png" alt="동화약품"></a>
+                    <nav class="main-nav" aria-label="주요 메뉴">
+                        <a href="news.html">동화약품</a>
+                        <a href="product.html">제품</a>
+                        <a href="rnd.html">연구개발</a>
+                        <a href="esg.html">지속가능경영</a>
+                    </nav>
+                    <div class="header-right">
+                        <div class="header-actions">
+                            <a class="header-action accent" href="product.html">제품 찾기</a>
+                            <a class="header-action" href="pharmacy.html">약국 찾기</a>
+                        </div>
+                        <button class="mobile-menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mega-menu" aria-label="메뉴 서브메뉴">
+                    <div class="mega-menu-inner">
+                        <div class="mega-menu-column">
+  <a class="mega-menu-heading" href="news.html">동화뉴스</a>
+  <a href="campaign.html">광고 &amp; 캠페인</a>
+  <a href="newsletter.html">뉴스레터</a>
+</div>
+                        <div class="mega-menu-column">
+                            <a href="product.html#new-products">신제품</a>
+<a href="product.html#general-medicine">일반의약품</a>
+<a href="product.html#prescription-medicine">전문의약품</a>
+<a href="product.html#health-lifestyle">건강 · 생활</a>
+<a href="product.html#other-products">기타</a>
+                        </div>
+                        <div class="mega-menu-column">
+  <a class="mega-menu-heading" href="rnd.html">R&amp;D 소개</a>
+  <a href="rnd.html#research-achievements">연구성과</a>
+  <a href="rnd.html#research-strategy">연구개발 전략</a>
+  <a href="rnd.html#research-network">기술혁신 네트워크</a>
+  <a href="rnd.html#global-research">글로벌 동화</a>
+</div>
+                        <div class="mega-menu-column">
+                            <a class="mega-menu-heading" href="esg.html">ESG 철학 및 체계</a>
+                            <a href="#environment-safety">환경 • 안전보건</a>
+                            <a href="#human-rights-ethics">인권 • 윤리경영</a>
+                            <a href="#social-contribution">사회공헌</a>
+                            <a href="#governance-privacy">지배구조 • 정보보호</a>
+                        </div>
+                    </div>
+                </div>
+                <nav class="mobile-menu" id="mobile-menu" aria-label="모바일 주요 메뉴" hidden>
+                    <a href="#company">동화약품</a>
+          <a href="news.html">동화뉴스</a>
+          <a href="campaign.html">광고 &amp; 캠페인</a>
+          <a href="newsletter.html">뉴스레터</a>
+                    <a href="product.html">제품</a>
+                    <a href="rnd.html">연구개발</a>
+                    <a href="rnd.html">R&amp;D 소개</a>
+                    <a href="rnd.html#research-achievements">연구성과</a>
+                    <a href="rnd.html#research-strategy">연구개발 전략</a>
+                    <a href="rnd.html#research-network">기술혁신 네트워크</a>
+                    <a href="rnd.html#global-research">글로벌 동화</a>
+                    <a href="esg.html">ESG 철학 및 체계</a>
+                    <a href="esg.html">지속가능경영</a>
+                    <a href="recruitment.html">채용</a>
+                    <a href="investment.html">투자정보</a>
+                    <a href="customer-support.html">고객지원</a>
+                    <a href="product.html">제품 찾기</a>
+                    <a href="pharmacy.html">약국 찾기</a>
+                </nav>
+            </div>
+        </header>
+<main class="pharmacy-page">
+<section class="pharmacy-hero">
+<div class="pharmacy-inner">
+<h1>내 주변 약국 찾기</h1>
+<p>지역을 검색하거나 현재 위치를 이용해 주변 약국을 지도에서 확인할 수 있습니다.</p>
+<form class="pharmacy-search" id="pharmacy-search">
+<input id="pharmacy-query" type="search" placeholder="시·군·구 또는 동 이름을 입력하세요" aria-label="지역 검색" value="서울 중구">
+<button class="pharmacy-btn" type="submit">지역 검색</button>
+<button class="pharmacy-btn secondary" id="use-location" type="button">내 위치 찾기</button>
+</form>
+</div>
+</section>
+<section class="pharmacy-inner pharmacy-layout">
+<div class="pharmacy-results">
+<div class="pharmacy-results-head"><h2>주변 약국</h2><span class="pharmacy-count" id="pharmacy-count">검색 전</span></div>
+<div class="pharmacy-list" id="pharmacy-list"><div class="pharmacy-status">지역을 검색하면 주변 약국 목록이 표시됩니다.</div></div>
+</div>
+<div class="pharmacy-map-wrap"><div id="pharmacy-map" role="application" aria-label="주변 약국 지도"></div><div class="pharmacy-map-note">지도 데이터 © OpenStreetMap</div></div>
+</section>
+</main>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(() => {
+ const map=L.map('pharmacy-map').setView([37.5665,126.9780],14);
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(map);
+ const markers=L.layerGroup().addTo(map);
+ const list=document.getElementById('pharmacy-list');
+ const count=document.getElementById('pharmacy-count');
+ const query=document.getElementById('pharmacy-query');
+ const status=(message)=>{list.innerHTML='<div class="pharmacy-status">'+message+'</div>';};
+ async function searchAround(lat,lon,label){
+  status('주변 약국을 검색하고 있습니다.');
+  count.textContent='검색 중';
+  map.setView([lat,lon],15);
+  markers.clearLayers();
+  try{
+   const q='[out:json][timeout:25];(node["amenity"="pharmacy"](around:2500,'+lat+','+lon+');way["amenity"="pharmacy"](around:2500,'+lat+','+lon+');relation["amenity"="pharmacy"](around:2500,'+lat+','+lon+'););out center tags;';
+   const response=await fetch('https://overpass-api.de/api/interpreter?data='+encodeURIComponent(q));
+   if(!response.ok) throw new Error('검색 서버 응답 오류');
+   const data=await response.json();
+   const places=(data.elements||[]).map(item=>({id:item.id,name:item.tags?.name||'이름 미등록 약국',address:[item.tags?.['addr:city'],item.tags?.['addr:district'],item.tags?.['addr:street'],item.tags?.['addr:housenumber']].filter(Boolean).join(' ')||'주소 정보 없음',phone:item.tags?.phone||item.tags?.['contact:phone']||'',lat:item.lat??item.center?.lat,lon:item.lon??item.center?.lon})).filter(item=>Number.isFinite(item.lat)&&Number.isFinite(item.lon));
+   count.textContent=places.length+'곳';
+   if(!places.length){status('검색 반경 2.5km 안에서 등록된 약국 정보를 찾지 못했습니다. 다른 지역을 검색해 주세요.');return;}
+   list.innerHTML='';
+   places.forEach((place,index)=>{
+    const marker=L.marker([place.lat,place.lon]).bindPopup('<strong>'+escapeHtml(place.name)+'</strong><br>'+escapeHtml(place.address));
+    marker.addTo(markers);
+    const button=document.createElement('button');button.type='button';button.className='pharmacy-item';
+    button.innerHTML='<strong>'+escapeHtml(place.name)+'</strong><span>'+escapeHtml(place.address)+'</span>'+(place.phone?'<span class="phone">'+escapeHtml(place.phone)+'</span>':'');
+    button.addEventListener('click',()=>{map.setView([place.lat,place.lon],17);marker.openPopup();});
+    list.appendChild(button);
+   });
+   const group=markers.getLayers();if(group.length)map.fitBounds(L.featureGroup(group).getBounds().pad(.15));
+  }catch(error){count.textContent='조회 실패';status('약국 위치 정보를 불러오지 못했습니다. 잠시 후 다시 시도하거나 다른 지역을 검색해 주세요.');}
+ }
+ function escapeHtml(value){return String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));}
+ async function geocode(place){
+  status('지역을 찾고 있습니다.');
+  const response=await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q='+encodeURIComponent(place+', 대한민국'));
+  const results=await response.json();
+  if(!results.length) throw new Error('지역을 찾을 수 없습니다.');
+  return {lat:Number(results[0].lat),lon:Number(results[0].lon)};
+ }
+ document.getElementById('pharmacy-search').addEventListener('submit',async event=>{
+  event.preventDefault();const place=query.value.trim();if(!place)return;
+  try{const point=await geocode(place);await searchAround(point.lat,point.lon,place);}
+  catch(error){count.textContent='검색 실패';status('입력한 지역을 찾지 못했습니다. 시·군·구 또는 동 이름으로 다시 검색해 주세요.');}
+ });
+ document.getElementById('use-location').addEventListener('click',()=>{
+  if(!navigator.geolocation){status('이 브라우저에서는 위치 기능을 사용할 수 없습니다.');return;}
+  status('현재 위치를 확인하고 있습니다.');
+  navigator.geolocation.getCurrentPosition(position=>searchAround(position.coords.latitude,position.coords.longitude,'현재 위치'),()=>{status('위치 접근이 허용되지 않았습니다. 지역을 직접 검색해 주세요.');},{enableHighAccuracy:true,timeout:10000});
+ });
+ // 첫 화면은 예시 지역인 서울 중구를 기준으로 약국 정보를 조회합니다.
+ geocode('서울 중구').then(point=>searchAround(point.lat,point.lon,'서울 중구')).catch(()=>{});
+})();
+</script>
+</body>
+</html>
