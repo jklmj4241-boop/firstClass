@@ -1723,3 +1723,25 @@ body.news-detail-open{
   opacity:0!important;
   box-shadow:none!important;
 }
+
+/* Site-wide hamburger: all three strokes stay consistently 2px on main and sub pages */
+#wrap .site-header .mobile-menu-toggle span,
+#wrap .site-header .mobile-menu-toggle span:nth-child(1),
+#wrap .site-header .mobile-menu-toggle span:nth-child(2),
+#wrap .site-header .mobile-menu-toggle span:nth-child(3){
+  box-sizing:border-box!important;
+  flex:0 0 2px!important;
+  width:22px!important;
+  min-width:22px!important;
+  max-width:22px!important;
+  height:2px!important;
+  min-height:2px!important;
+  max-height:2px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background-color:var(--text-primary)!important;
+  opacity:1!important;
+  box-shadow:none!important;
+}
