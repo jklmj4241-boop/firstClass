@@ -706,3 +706,19 @@
     padding:22px 0;
   }
 }
+
+
+/* 2026-11-27: careers page spacing, number style, and accordion motion */
+.recruitment-page .careers-benefits{padding-bottom:28px!important}
+.recruitment-page .careers-recruitment{padding-top:28px!important}
+.recruitment-page .careers-recruitment .careers-job-board-list{margin-top:0!important}
+.recruitment-page .careers-team-number,
+.recruitment-page .careers-benefit-categories article>span{
+  color:var(--text-primary)!important;
+  font-weight:400!important;
+}
+.recruitment-page .careers-team-detail{overflow:hidden}
+@media(max-width:650px){
+  .recruitment-page .careers-benefits{padding-bottom:20px!important}
+  .recruitment-page .careers-recruitment{padding-top:20px!important}
+}
