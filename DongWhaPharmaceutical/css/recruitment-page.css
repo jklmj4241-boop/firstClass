@@ -598,3 +598,18 @@
  .recruitment-page .careers-process p{font-size:15px}
  .recruitment-page .careers-faq-list summary{font-size:16px}
 }
+
+
+/* 2026-11-27 requested color cleanup: use only registered brand tokens */
+.recruitment-page .careers-team-detail{
+  background:var(--brand-white)!important;
+}
+.recruitment-page .careers-job-board-list{
+  border-top:0!important;
+}
+.recruitment-page .careers-status{
+  border:0!important;
+  padding:8px 0!important;
+  color:var(--brand-primary)!important;
+  background:transparent!important;
+}
