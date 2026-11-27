@@ -777,3 +777,13 @@
  .recruitment-page .careers-detail-columns,.recruitment-page .careers-detail-info-grid{grid-template-columns:1fr;gap:15px}
  .recruitment-page .careers-detail-columns li,.recruitment-page .careers-detail-info-grid li{font-size:15px}
 }
+
+
+/* 복리후생 대표 이미지 */
+.recruitment-page .careers-benefit-main-image{
+  background-image:url("../DWP-img/img.01.png");
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-color:#fff;
+}
