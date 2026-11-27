@@ -150,43 +150,69 @@ if(toggle&&mobileMenu){
 }
 </script>
 <script>
-/* 직무 아코디언: 열고 닫힐 때 높이를 부드럽게 애니메이션 */
+/* 직무 아코디언: 높이 전환을 한 번만 실행하고 종료 시점에 details 상태 변경 */
 document.querySelectorAll('.careers-team-item').forEach((item) => {
   const summary = item.querySelector('summary');
   const panel = item.querySelector('.careers-team-detail');
   if (!summary || !panel) return;
+
   summary.addEventListener('click', (event) => {
     event.preventDefault();
     if (item.dataset.animating === 'true') return;
+
+    const opening = !item.open;
+    const duration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 380;
+    const easing = 'cubic-bezier(0.22, 1, 0.36, 1)';
     item.dataset.animating = 'true';
-    if (!item.open) {
-      item.open = true;
-      panel.style.height = '0px';
-      panel.style.overflow = 'hidden';
-      const targetHeight = panel.scrollHeight;
-      const animation = panel.animate(
-        [{ height: '0px' }, { height: targetHeight + 'px' }],
-        { duration: 420, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
-      );
-      animation.onfinish = () => {
+
+    let fallbackTimer;
+    const finish = () => {
+      if (fallbackTimer) window.clearTimeout(fallbackTimer);
+      panel.removeEventListener('transitionend', onTransitionEnd);
+
+      if (opening) {
         panel.style.height = 'auto';
         panel.style.overflow = '';
-        item.dataset.animating = 'false';
-      };
-    } else {
-      const startHeight = panel.getBoundingClientRect().height;
-      panel.style.overflow = 'hidden';
-      const animation = panel.animate(
-        [{ height: startHeight + 'px' }, { height: '0px' }],
-        { duration: 320, easing: 'cubic-bezier(0.4, 0, 1, 1)' }
-      );
-      animation.onfinish = () => {
+        panel.style.transition = '';
+      } else {
         item.open = false;
         panel.style.height = '';
         panel.style.overflow = '';
-        item.dataset.animating = 'false';
-      };
+        panel.style.transition = '';
+      }
+      item.dataset.animating = 'false';
+    };
+
+    const onTransitionEnd = (transitionEvent) => {
+      if (transitionEvent.target === panel && transitionEvent.propertyName === 'height') finish();
+    };
+
+    panel.addEventListener('transitionend', onTransitionEnd);
+
+    if (opening) {
+      item.open = true;
+      panel.style.transition = 'none';
+      panel.style.height = '0px';
+      panel.style.overflow = 'hidden';
+      void panel.offsetHeight;
+      const targetHeight = panel.scrollHeight;
+      panel.style.transition = `height ${duration}ms ${easing}`;
+      requestAnimationFrame(() => {
+        panel.style.height = targetHeight + 'px';
+      });
+    } else {
+      const currentHeight = panel.getBoundingClientRect().height;
+      panel.style.transition = 'none';
+      panel.style.height = currentHeight + 'px';
+      panel.style.overflow = 'hidden';
+      void panel.offsetHeight;
+      panel.style.transition = `height ${duration}ms ${easing}`;
+      requestAnimationFrame(() => {
+        panel.style.height = '0px';
+      });
     }
+
+    fallbackTimer = window.setTimeout(finish, duration + 80);
   });
 });
 </script></body></html>
