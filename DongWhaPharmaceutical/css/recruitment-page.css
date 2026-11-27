@@ -285,3 +285,99 @@
  .recruitment-page .recruit-faq summary{font-size:17px}
  .recruitment-page .recruit-faq details p{font-size:16px}
 }
+/* 2026-11-27 reference-based recruitment visual refinement */
+.recruitment-page{--career-red:#a51f32;--career-ink:#17283c;--career-muted:#596779;--career-line:#dce2e8}
+.recruitment-page main{background:#fff}
+.recruitment-page .recruit-hero{min-height:680px;background:#152d49}
+.recruitment-page .recruit-hero-image-placeholder{background:linear-gradient(112deg,#142e4b 0%,#294b6b 56%,#8a9dac 100%)}
+.recruitment-page .recruit-hero-image-placeholder span{width:44%;height:72%;border:1px solid rgba(255,255,255,.55);font-size:18px;letter-spacing:0}
+.recruitment-page .recruit-hero-inner{padding-top:110px;padding-bottom:110px}
+.recruitment-page .recruit-hero h1{max-width:850px;font-size:clamp(48px,6vw,82px);font-weight:600;line-height:1.18;letter-spacing:-.065em}
+.recruitment-page .recruit-hero-copy{font-size:21px;line-height:1.8}
+.recruit-hero-actions{display:flex;align-items:center;gap:16px;margin-top:38px}
+.recruitment-page .recruit-primary-link{margin-top:0;padding:17px 25px;background:var(--career-red);border-color:var(--career-red);font-size:18px}
+.recruitment-page .recruit-primary-link:hover{background:#fff;color:var(--career-red)}
+.recruit-secondary-link{display:inline-flex;align-items:center;min-height:58px;padding:0 22px;border:1px solid rgba(255,255,255,.65);color:#fff;text-decoration:none;font-size:18px}
+.recruit-secondary-link:hover{background:rgba(255,255,255,.12)}
+.recruit-quick-nav{position:sticky;top:0;z-index:20;display:flex;justify-content:center;gap:clamp(18px,4vw,58px);padding:22px 24px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--career-line);backdrop-filter:blur(12px)}
+.recruit-quick-nav a{color:var(--career-ink);font-size:17px;font-weight:600;text-decoration:none;white-space:nowrap}
+.recruit-quick-nav a:hover{color:var(--career-red)}
+.recruitment-page .recruit-section{padding-top:112px;padding-bottom:112px}
+.recruitment-page .careers-section-head h2,.recruitment-page .recruit-section-heading h2,.recruitment-page .recruit-board-heading h2{font-size:clamp(38px,4.2vw,58px);font-weight:600;letter-spacing:-.06em}
+.recruitment-page .careers-section-sub strong,.recruitment-page .recruit-section-heading>p,.recruitment-page .recruit-board-note{font-size:20px;color:var(--career-muted)}
+.recruitment-page .careers-section-head{margin-bottom:52px}
+.recruit-value-grid,.recruit-talent-grid,.recruit-culture-grid,.recruit-benefit-grid{gap:20px}
+.recruit-value-grid article,.recruit-talent-grid article,.recruit-culture-grid article,.recruit-benefit-grid article{min-height:220px;padding:34px 32px;border:1px solid var(--career-line);border-top:3px solid var(--career-red);transition:transform .2s ease,box-shadow .2s ease}
+.recruit-value-grid article:hover,.recruit-talent-grid article:hover,.recruit-culture-grid article:hover,.recruit-benefit-grid article:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(23,40,60,.08)}
+.recruit-value-grid h3,.recruit-talent-grid h3,.recruit-culture-grid h3,.recruit-benefit-grid h3{font-size:26px}
+.recruit-value-grid p,.recruit-talent-grid p,.recruit-culture-grid p,.recruit-benefit-grid li{font-size:19px;line-height:1.85;color:var(--career-muted)}
+.recruitment-page .recruit-talent{background:#f5f7f9}
+.recruitment-page .recruit-talent-grid article{background:#fff}
+.recruit-job-accordion{border-top:2px solid var(--career-ink)}
+.recruit-job-accordion summary{grid-template-columns:70px minmax(210px,.72fr) 1.28fr;padding:34px 18px}
+.recruit-job-accordion summary>span{font-size:20px}
+.recruit-job-accordion summary strong{font-size:29px;letter-spacing:-.04em}
+.recruit-job-accordion summary em{font-size:19px}
+.recruit-job-accordion details[open] summary{color:var(--career-red)}
+.recruit-job-detail{padding:14px 34px 34px 106px;background:#f5f7f9}
+.recruit-job-detail h3{font-size:22px}
+.recruit-job-detail p{font-size:19px;line-height:1.9}
+.recruitment-page .recruit-culture{background:#f5f7f9}
+.recruitment-page .recruit-culture-grid article{background:#fff}
+.recruitment-page .recruit-benefit-grid article{border-top-color:var(--career-ink)}
+.recruit-benefit-grid ul{padding-left:23px}
+.recruitment-page .recruit-ethics{padding:100px 0;background:var(--career-ink)}
+.recruitment-page .recruit-ethics h2{font-size:42px}
+.recruitment-page .recruit-ethics p{font-size:clamp(25px,3.3vw,38px)}
+.recruitment-page .recruit-hiring-grid article{padding:38px;border:1px solid var(--career-line);border-top:3px solid var(--career-red);border-radius:0}
+.recruitment-page .recruit-hiring-grid h3{font-size:28px}
+.recruitment-page .recruit-hiring-grid p{font-size:19px;line-height:1.9}
+.recruitment-page .recruit-process-section{background:#f2f4f6}
+.recruitment-page .recruit-steps{gap:14px}
+.recruitment-page .recruit-steps li{min-height:320px;padding:28px 22px;border:1px solid var(--career-line);border-top:3px solid var(--career-red);border-radius:0}
+.recruitment-page .recruit-steps li>span{font-size:21px}
+.recruitment-page .recruit-steps li strong{font-size:23px}
+.recruitment-page .recruit-steps li p{font-size:18px;line-height:1.85}
+.recruitment-page .recruit-board{padding-top:112px;padding-bottom:112px}
+.recruitment-page .recruit-table th{font-size:19px}
+.recruitment-page .recruit-empty-cell{font-size:20px}
+.recruitment-page .recruit-faq{padding-top:100px;padding-bottom:120px}
+.recruitment-page .recruit-faq summary{font-size:21px}
+.recruitment-page .recruit-faq details p{font-size:19px;line-height:1.9}
+.recruitment-page .recruit-eyebrow,.recruitment-page .recruit-kicker{display:none!important}
+@media(max-width:900px){
+ .recruit-quick-nav{justify-content:flex-start;overflow-x:auto}
+ .recruitment-page .recruit-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .recruitment-page .recruit-steps li{min-height:260px}
+}
+@media(max-width:700px){
+ .recruitment-page .recruit-hero{min-height:610px}
+ .recruitment-page .recruit-hero-inner{padding:72px 0}
+ .recruitment-page .recruit-hero h1{font-size:clamp(38px,10vw,54px)}
+ .recruitment-page .recruit-hero-copy{font-size:18px}
+ .recruitment-page .recruit-hero-image-placeholder span{width:54%;height:34%;font-size:15px}
+ .recruit-hero-actions{align-items:stretch;flex-direction:column;width:max-content;max-width:100%}
+ .recruitment-page .recruit-primary-link,.recruit-secondary-link{justify-content:space-between;min-height:54px;font-size:17px}
+ .recruit-quick-nav{gap:24px;padding:17px 20px}
+ .recruit-quick-nav a{font-size:16px}
+ .recruitment-page .recruit-section{padding-top:76px;padding-bottom:76px}
+ .recruitment-page .careers-section-head h2,.recruitment-page .recruit-section-heading h2,.recruitment-page .recruit-board-heading h2{font-size:36px}
+ .recruitment-page .careers-section-sub strong,.recruitment-page .recruit-section-heading>p,.recruitment-page .recruit-board-note{font-size:17px}
+ .recruit-value-grid,.recruit-talent-grid,.recruit-culture-grid,.recruit-benefit-grid,.recruitment-page .recruit-hiring-grid{grid-template-columns:1fr}
+ .recruit-value-grid article,.recruit-talent-grid article,.recruit-culture-grid article,.recruit-benefit-grid article{min-height:0;padding:27px 24px}
+ .recruit-value-grid h3,.recruit-talent-grid h3,.recruit-culture-grid h3,.recruit-benefit-grid h3{font-size:23px}
+ .recruit-value-grid p,.recruit-talent-grid p,.recruit-culture-grid p,.recruit-benefit-grid li{font-size:17px}
+ .recruit-job-accordion summary{grid-template-columns:36px 1fr;gap:8px;padding:24px 4px}
+ .recruit-job-accordion summary strong{font-size:22px}
+ .recruit-job-accordion summary em{font-size:16px}
+ .recruit-job-detail{padding:10px 20px 26px}
+ .recruit-job-detail p{font-size:17px}
+ .recruitment-page .recruit-steps{grid-template-columns:1fr}
+ .recruitment-page .recruit-steps li{min-height:0;padding:25px}
+ .recruitment-page .recruit-steps li strong{font-size:21px}
+ .recruitment-page .recruit-steps li p{font-size:17px}
+ .recruitment-page .recruit-hiring-grid article{padding:27px 24px}
+ .recruitment-page .recruit-hiring-grid h3{font-size:24px}
+ .recruitment-page .recruit-hiring-grid p,.recruitment-page .recruit-faq details p{font-size:17px}
+ .recruitment-page .recruit-faq summary{font-size:18px}
+}
