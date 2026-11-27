@@ -105,8 +105,8 @@
 <table class="careers-recruit-table">
 <thead><tr><th scope="col">번호</th><th scope="col">채용공고</th><th scope="col">등록일</th><th scope="col">진행상태</th></tr></thead>
 <tbody>
-<tr><td>2</td><td class="careers-recruit-title">[DWP홀딩스] 신입 및 경력사원 모집</td><td>2026-11-24</td><td><span class="careers-status">서류전형중</span></td></tr>
 <tr><td>1</td><td class="careers-recruit-title">[동화약품] 신입 및 경력사원 모집</td><td>2026-11-24</td><td><span class="careers-status">서류전형중</span></td></tr>
+<tr><td>2</td><td class="careers-recruit-title">[DWP홀딩스] 신입 및 경력사원 모집</td><td>2026-11-24</td><td><span class="careers-status">서류전형중</span></td></tr>
 </tbody></table>
 </div></div></section>
 
@@ -148,4 +148,45 @@ if(toggle&&mobileMenu){
     toggle.setAttribute('aria-label','메뉴 열기');
   }));
 }
+</script>
+<script>
+/* 직무 아코디언: 열고 닫힐 때 높이를 부드럽게 애니메이션 */
+document.querySelectorAll('.careers-team-item').forEach((item) => {
+  const summary = item.querySelector('summary');
+  const panel = item.querySelector('.careers-team-detail');
+  if (!summary || !panel) return;
+  summary.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (item.dataset.animating === 'true') return;
+    item.dataset.animating = 'true';
+    if (!item.open) {
+      item.open = true;
+      panel.style.height = '0px';
+      panel.style.overflow = 'hidden';
+      const targetHeight = panel.scrollHeight;
+      const animation = panel.animate(
+        [{ height: '0px' }, { height: targetHeight + 'px' }],
+        { duration: 420, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+      );
+      animation.onfinish = () => {
+        panel.style.height = 'auto';
+        panel.style.overflow = '';
+        item.dataset.animating = 'false';
+      };
+    } else {
+      const startHeight = panel.getBoundingClientRect().height;
+      panel.style.overflow = 'hidden';
+      const animation = panel.animate(
+        [{ height: startHeight + 'px' }, { height: '0px' }],
+        { duration: 320, easing: 'cubic-bezier(0.4, 0, 1, 1)' }
+      );
+      animation.onfinish = () => {
+        item.open = false;
+        panel.style.height = '';
+        panel.style.overflow = '';
+        item.dataset.animating = 'false';
+      };
+    }
+  });
+});
 </script></body></html>
