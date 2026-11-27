@@ -150,69 +150,74 @@ if(toggle&&mobileMenu){
 }
 </script>
 <script>
-/* 직무 아코디언: 높이 전환을 한 번만 실행하고 종료 시점에 details 상태 변경 */
+/* 직무 아코디언: Web Animations API로 패널 높이를 한 번에 애니메이션 */
 document.querySelectorAll('.careers-team-item').forEach((item) => {
   const summary = item.querySelector('summary');
   const panel = item.querySelector('.careers-team-detail');
   if (!summary || !panel) return;
 
+  let currentAnimation = null;
   summary.addEventListener('click', (event) => {
     event.preventDefault();
     if (item.dataset.animating === 'true') return;
 
     const opening = !item.open;
-    const duration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 380;
-    const easing = 'cubic-bezier(0.22, 1, 0.36, 1)';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     item.dataset.animating = 'true';
 
-    let fallbackTimer;
-    const finish = () => {
-      if (fallbackTimer) window.clearTimeout(fallbackTimer);
-      panel.removeEventListener('transitionend', onTransitionEnd);
-
-      if (opening) {
-        panel.style.height = 'auto';
-        panel.style.overflow = '';
-        panel.style.transition = '';
-      } else {
-        item.open = false;
-        panel.style.height = '';
-        panel.style.overflow = '';
-        panel.style.transition = '';
-      }
-      item.dataset.animating = 'false';
-    };
-
-    const onTransitionEnd = (transitionEvent) => {
-      if (transitionEvent.target === panel && transitionEvent.propertyName === 'height') finish();
-    };
-
-    panel.addEventListener('transitionend', onTransitionEnd);
+    if (currentAnimation) currentAnimation.cancel();
 
     if (opening) {
       item.open = true;
-      panel.style.transition = 'none';
-      panel.style.height = '0px';
+      panel.style.height = 'auto';
       panel.style.overflow = 'hidden';
+      const targetHeight = panel.getBoundingClientRect().height;
+      panel.style.height = '0px';
       void panel.offsetHeight;
-      const targetHeight = panel.scrollHeight;
-      panel.style.transition = `height ${duration}ms ${easing}`;
-      requestAnimationFrame(() => {
-        panel.style.height = targetHeight + 'px';
-      });
+
+      if (reduceMotion) {
+        panel.style.height = 'auto';
+        panel.style.overflow = '';
+        item.dataset.animating = 'false';
+        return;
+      }
+
+      currentAnimation = panel.animate(
+        [{ height: '0px' }, { height: targetHeight + 'px' }],
+        { duration: 420, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+      );
+      currentAnimation.onfinish = () => {
+        panel.style.height = 'auto';
+        panel.style.overflow = '';
+        item.dataset.animating = 'false';
+        currentAnimation = null;
+      };
     } else {
       const currentHeight = panel.getBoundingClientRect().height;
-      panel.style.transition = 'none';
       panel.style.height = currentHeight + 'px';
       panel.style.overflow = 'hidden';
       void panel.offsetHeight;
-      panel.style.transition = `height ${duration}ms ${easing}`;
-      requestAnimationFrame(() => {
-        panel.style.height = '0px';
-      });
-    }
 
-    fallbackTimer = window.setTimeout(finish, duration + 80);
+      if (reduceMotion) {
+        item.open = false;
+        panel.style.height = '';
+        panel.style.overflow = '';
+        item.dataset.animating = 'false';
+        return;
+      }
+
+      currentAnimation = panel.animate(
+        [{ height: currentHeight + 'px' }, { height: '0px' }],
+        { duration: 420, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+      );
+      currentAnimation.onfinish = () => {
+        item.open = false;
+        panel.style.height = '';
+        panel.style.overflow = '';
+        item.dataset.animating = 'false';
+        currentAnimation = null;
+      };
+    }
   });
 });
 </script></body></html>
