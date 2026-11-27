@@ -613,3 +613,96 @@
   color:var(--brand-primary)!important;
   background:transparent!important;
 }
+
+
+/* 2026-11-27 requested layout fixes — recruitment page only */
+/* Accordion: align title and detail columns; use a minus sign when expanded */
+.recruitment-page .careers-team-item summary{
+  grid-template-columns:75px minmax(0,1fr) 40px;
+}
+.recruitment-page .careers-team-plus{
+  position:relative;
+  display:block;
+  width:32px;
+  height:32px;
+  font-size:0;
+  line-height:32px;
+  text-align:center;
+  transform:none!important;
+}
+.recruitment-page .careers-team-plus::before{
+  content:"+";
+  display:block;
+  color:var(--text-primary);
+  font-size:28px;
+  line-height:32px;
+}
+.recruitment-page .careers-team-item[open] .careers-team-plus::before{
+  content:"−";
+  color:var(--brand-primary);
+  font-size:28px;
+}
+.recruitment-page .careers-team-detail{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:start;
+  gap:38px;
+  padding:24px 40px 38px 95px;
+  background:var(--brand-white)!important;
+}
+.recruitment-page .careers-team-detail > div{
+  min-width:0;
+}
+.recruitment-page .careers-team-detail h3{
+  margin:0 0 10px;
+}
+.recruitment-page .careers-team-detail p{
+  margin:0;
+}
+
+/* Remove grey section background from recruitment list */
+.recruitment-page .careers-recruitment{
+  background:var(--brand-white)!important;
+}
+
+/* Benefits: image and four text rows share the same height and alignment */
+.recruitment-page .careers-benefit-feature{
+  align-items:stretch;
+  gap:65px;
+}
+.recruitment-page .careers-benefit-main-image{
+  min-height:520px;
+  height:100%;
+  align-self:stretch;
+}
+.recruitment-page .careers-benefit-categories{
+  min-height:520px;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+.recruitment-page .careers-benefit-categories article{
+  flex:1 1 0;
+  min-height:0;
+  align-items:center;
+  padding:18px 0;
+}
+@media(max-width:650px){
+  .recruitment-page .careers-team-item summary{
+    grid-template-columns:35px minmax(0,1fr) 30px;
+  }
+  .recruitment-page .careers-team-detail{
+    grid-template-columns:1fr;
+    gap:18px;
+    padding:18px 20px 28px;
+  }
+  .recruitment-page .careers-benefit-main-image{
+    min-height:300px;
+  }
+  .recruitment-page .careers-benefit-categories{
+    min-height:0;
+  }
+  .recruitment-page .careers-benefit-categories article{
+    flex:none;
+    padding:22px 0;
+  }
+}
