@@ -49,18 +49,74 @@
   let selectedSort = 'default';
   let searchKeyword = '';
 
-  // 소다활 카드만 상세 페이지로 이동합니다. 다른 제품 카드는 기존 상태를 유지합니다.
-  cards.filter((card) => card.dataset.name === '소다활').forEach((card) => {
-    card.classList.add('is-clickable');
-    card.setAttribute('role', 'link');
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('aria-label', '소다활 상세정보 보기');
-    const goDetail = () => { window.location.href = 'product-sodawhal.html'; };
-    card.addEventListener('click', goDetail);
-    card.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); goDetail(); }
+  // 소다활 상세정보를 뉴스 페이지처럼 현재 화면 위에 레이어로 표시합니다.
+  const sodaCard = cards.find((card) => card.dataset.name === '소다활');
+  if (sodaCard) {
+    const detailLayer = document.createElement('div');
+    detailLayer.className = 'product-detail-overlay';
+    detailLayer.hidden = true;
+    detailLayer.innerHTML = `
+      <section class="product-detail-panel" role="dialog" aria-modal="true" aria-labelledby="product-detail-title">
+        <button type="button" class="product-detail-close" aria-label="상세정보 닫기">×</button>
+        <div class="product-detail-modal-body">
+          <div class="product-detail-modal-visual"><img src="DWP-img/DWP01.png" alt="소다활 제품 이미지"></div>
+          <div class="product-detail-modal-info">
+            <p class="product-detail-modal-category">음료</p>
+            <h2 id="product-detail-title">소다활</h2>
+            <div class="product-detail-modal-table">
+              <div class="product-detail-modal-row"><h3>제품분류</h3><p>식품 · 음료 &gt; 음료</p></div>
+              <div class="product-detail-modal-row"><h3>제품소개</h3><div><p>명치까지 뻥! 먹취해소 소다활</p><p>ZERO 슈가 · 칼로리 · 카페인</p><p>입안은 깔끔하게 채우는 상큼한 매실/레몬라임맛 제로 탄산음료 소다활!</p><p>부채표 노하우 까스활 코어 농축액과 쿨링향으로 속까지 시원한 스파클링</p></div></div>
+              <div class="product-detail-modal-row"><h3>섭취방법</h3><p>500 mL(pet), 355mL(can) / 기호에 맞게 섭취</p></div>
+              <div class="product-detail-modal-row"><h3>포장단위</h3><div><p>패트 : 500mL/패트병, 6병(중박스), 24병(대박스)</p><p>캔 : 355mL/캔, 6캔(중박스), 24캔(대박스)</p></div></div>
+              <div class="product-detail-modal-row"><h3>성분</h3><div class="product-detail-modal-ingredients">
+                <p class="ingredient-heading">[PET] 1병(500mL) 당</p>
+                <p class="ingredient-line"><span>까스활 코어 농축액</span><span>10mg</span></p>
+                <p class="ingredient-line"><span>ㄴ 계피 엑스</span><span>6.3mg(63.1%)</span></p>
+                <p class="ingredient-line"><span>ㄴ 건생강 엑스</span><span>3.2mg(31.6%)</span></p>
+                <p class="ingredient-line"><span>ㄴ 소두구추출물</span><span>0.5mg(5.3%)</span></p>
+                <p class="ingredient-heading second">[Can] 1캔(355mL) 당</p>
+                <p class="ingredient-line"><span>까스활 코어 농축액</span><span>7mg</span></p>
+                <p class="ingredient-line"><span>ㄴ 계피 엑스</span><span>4.4mg(63.1%)</span></p>
+                <p class="ingredient-line"><span>ㄴ 건생강 엑스</span><span>2.2mg(31.6%)</span></p>
+                <p class="ingredient-line"><span>ㄴ 소두구추출물</span><span>0.4mg(5.3%)</span></p>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </section>`;
+    document.body.appendChild(detailLayer);
+    const closeDetail = () => {
+      detailLayer.hidden = true;
+      document.body.classList.remove('product-detail-open');
+      document.documentElement.classList.remove('product-detail-open');
+      sodaCard.focus();
+    };
+    const openDetail = () => {
+      detailLayer.hidden = false;
+      document.body.classList.add('product-detail-open');
+      document.documentElement.classList.add('product-detail-open');
+      detailLayer.querySelector('.product-detail-close').focus();
+    };
+    detailLayer.querySelector('.product-detail-close').addEventListener('click', closeDetail);
+    detailLayer.addEventListener('click', (event) => {
+      if (event.target === detailLayer) closeDetail();
     });
-  });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !detailLayer.hidden) closeDetail();
+    });
+    sodaCard.classList.add('is-clickable');
+    sodaCard.setAttribute('role', 'button');
+    sodaCard.setAttribute('tabindex', '0');
+    sodaCard.setAttribute('aria-haspopup', 'dialog');
+    sodaCard.setAttribute('aria-label', '소다활 상세정보 보기');
+    sodaCard.addEventListener('click', openDetail);
+    sodaCard.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openDetail();
+      }
+    });
+  }
 
   const initialConsonants = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
   function getInitial(text) {
