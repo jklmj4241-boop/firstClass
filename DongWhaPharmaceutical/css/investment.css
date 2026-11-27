@@ -21,7 +21,7 @@
 .investment-page .ir-tabs a span{color:#d51d2a;font-size:14px;font-weight:700}
 .investment-page .ir-tabs a b{margin-left:auto;color:#194689;font-size:21px}
 .investment-page .ir-content-section{padding:88px 0 100px;background:#fff}
-.investment-page .ir-report-section{background:#f6f7f9}
+.investment-page .ir-report-section{background:#fff}
 .investment-page .ir-content-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:34px}
 .investment-page .ir-content-heading h2{margin:12px 0 0;color:#202733;font-size:clamp(32px,3.4vw,44px);letter-spacing:-.045em}
 .investment-page .ir-content-heading>p i{display:inline-block;width:5px;height:5px;margin:0 9px 3px;border-radius:50%;background:#aab2bc}
@@ -70,3 +70,12 @@
  .investment-page .ir-notice-row strong{grid-column:1;font-size:15px}
  .investment-page .ir-notice-row>span{grid-column:2;grid-row:1/3;font-size:12px}
 }
+
+/* 투자정보 페이지 숫자 네비게이션은 뉴스 목록과 동일한 디자인 사용 */
+.investment-page .ir-pagination{margin:38px auto 0}
+.investment-page .ir-pagination .pagination-numbers{display:flex;align-items:center;gap:14px}
+.investment-page .ir-pagination .pagination-number{border:0;border-radius:50%;background:transparent;color:#626773;font:inherit;font-size:16px;cursor:pointer}
+.investment-page .ir-pagination .pagination-number.is-active{color:#231f20;font-size:21px;font-weight:800}
+.investment-page .ir-pagination .pagination-arrow{border:0;background:transparent;color:#9298a1;font-size:24px}
+.investment-page .ir-pagination button:disabled{opacity:.45;cursor:default}
+@media(max-width:600px){.investment-page .ir-pagination{gap:6px}.investment-page .ir-pagination .pagination-numbers{gap:4px}.investment-page .ir-pagination button{width:34px;height:34px;font-size:14px}.investment-page .ir-pagination .pagination-number.is-active{font-size:19px}}
