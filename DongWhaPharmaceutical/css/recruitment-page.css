@@ -165,3 +165,53 @@
 /* Ensure newly added page labels and blank-image frame remain visible */
 .recruitment-page .recruit-eyebrow{display:block!important}
 .recruitment-page .recruit-hero::after{display:none!important}
+
+/* Careers editorial layout */
+.recruitment-page .careers-section-head{margin:0 0 48px}
+.recruitment-page .careers-section-head h2{margin:0;color:#080808;font-size:clamp(48px,5.2vw,72px);font-weight:500;line-height:1.05;letter-spacing:-.065em}
+.recruitment-page .careers-section-sub{display:flex;align-items:center;gap:30px;margin-top:22px}
+.recruitment-page .careers-section-sub strong{color:#111;font-size:clamp(16px,1.35vw,21px);font-weight:500;letter-spacing:-.04em}
+.recruitment-page .careers-section-sub a,.careers-people-caption>a{color:#111;font-size:12px;text-decoration:underline;text-underline-offset:3px}
+.recruitment-page .recruit-philosophy{padding:90px 0;background:#f7f8f9}
+.recruitment-page .recruit-philosophy .careers-section-head{margin-bottom:40px}
+.recruit-spirit-list{border-top:1px solid #d8dce0}
+.recruit-spirit-list article{display:grid;grid-template-columns:70px 1fr;gap:18px;align-items:start;padding:23px 0;border-bottom:1px solid #d8dce0}
+.recruit-spirit-list article span{color:#9b1c2d;font-size:13px;font-weight:700}
+.recruit-spirit-list article p{margin:0;color:#202833;font-size:16px;line-height:1.8;word-break:keep-all}
+.recruitment-page .recruit-teams{padding:110px 0;background:#fff}
+.recruitment-page .recruit-teams .careers-section-head{margin-bottom:62px}
+.careers-team-list{border-top:1px solid #dedede}
+.careers-team-row{display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:100px;border-bottom:1px solid #dedede;color:#080808;text-decoration:none;transition:padding .2s ease,background .2s ease}
+.careers-team-row:hover{padding-inline:14px;background:#fafafa}
+.careers-team-name{font-size:clamp(25px,2.5vw,36px);font-weight:500;letter-spacing:-.055em}
+.careers-team-name sup{margin-left:8px;font-size:11px;vertical-align:top}
+.careers-team-desc{font-size:clamp(15px,1.35vw,20px);letter-spacing:-.04em}
+.recruitment-page .recruit-people{padding:100px 0 38px;background:#fff}
+.recruitment-page .recruit-people .careers-section-head{margin-bottom:58px}
+.careers-people-viewport{width:100%;overflow:hidden}
+.careers-people-track{display:flex;gap:30px;transition:transform .45s ease;will-change:transform}
+.careers-people-card{flex:0 0 72%;min-width:0}
+.careers-people-image,.careers-benefit-image{display:grid;place-items:center;aspect-ratio:1.95/1;background:#eceeef;border:1px dashed #b8bec5;color:#8c949d;font-size:11px;letter-spacing:.12em}
+.careers-people-caption{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;padding-top:26px}
+.careers-people-caption h3{margin:0;color:#111;font-size:clamp(19px,1.8vw,26px);font-weight:500;letter-spacing:-.05em}
+.careers-people-caption p{margin:16px 0 0;color:#333;font-size:13px}
+.careers-people-caption>a{margin-top:5px;white-space:nowrap}
+.careers-slider-controls{display:flex;justify-content:flex-end;gap:8px;margin-top:34px}
+.careers-slider-controls button{width:38px;height:38px;border:1px solid #111;border-radius:50%;background:#fff;color:#111;font-size:18px;cursor:pointer}
+.careers-slider-controls button:disabled{border-color:#bbb;color:#aaa;cursor:default}
+.recruitment-page .recruit-benefits{padding:92px 0 110px;background:#fff}
+.recruitment-page .recruit-benefits .careers-section-head{margin-bottom:54px}
+.careers-benefit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px}
+.careers-benefit-image{aspect-ratio:1.08/1}
+.careers-benefit-grid h3{margin:26px 0 0;color:#111;font-size:23px;font-weight:500;letter-spacing:-.045em}
+.careers-benefit-grid p{margin:14px 0 0;color:#333;font-size:15px;line-height:1.8;word-break:keep-all}
+.recruitment-page .recruit-eyebrow{display:block!important}
+@media(max-width:700px){
+.recruitment-page .careers-section-head{margin-bottom:32px}.recruitment-page .careers-section-head h2{font-size:48px}
+.recruitment-page .careers-section-sub{align-items:flex-start;flex-direction:column;gap:10px;margin-top:15px}
+.recruitment-page .recruit-philosophy,.recruitment-page .recruit-teams,.recruitment-page .recruit-people,.recruitment-page .recruit-benefits{padding-top:68px;padding-bottom:68px}
+.recruit-spirit-list article{grid-template-columns:34px 1fr;gap:10px;padding:18px 0}.recruit-spirit-list article p{font-size:14px}
+.careers-team-row{grid-template-columns:1fr;gap:8px;min-height:88px;padding:16px 0}.careers-team-name{font-size:26px}.careers-team-desc{font-size:14px}
+.careers-people-track{gap:18px}.careers-people-card{flex-basis:88%}.careers-people-image{aspect-ratio:1.25/1}
+.careers-benefit-grid{grid-template-columns:1fr;gap:34px}.careers-benefit-image{aspect-ratio:1.4/1}
+}
