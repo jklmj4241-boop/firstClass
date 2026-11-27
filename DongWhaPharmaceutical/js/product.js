@@ -49,6 +49,19 @@
   let selectedSort = 'default';
   let searchKeyword = '';
 
+  // 소다활 카드만 상세 페이지로 이동합니다. 다른 제품 카드는 기존 상태를 유지합니다.
+  cards.filter((card) => card.dataset.name === '소다활').forEach((card) => {
+    card.classList.add('is-clickable');
+    card.setAttribute('role', 'link');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', '소다활 상세정보 보기');
+    const goDetail = () => { window.location.href = 'product-sodawhal.html'; };
+    card.addEventListener('click', goDetail);
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); goDetail(); }
+    });
+  });
+
   const initialConsonants = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
   function getInitial(text) {
     const first = (text || '').trim().charAt(0);
