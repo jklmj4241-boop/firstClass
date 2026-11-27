@@ -481,3 +481,72 @@
  .recruitment-page .careers-recruit-table th,.recruitment-page .careers-recruit-table td{padding:18px 10px;font-size:17px}
  .recruitment-page .careers-status{font-size:16px}
 }
+
+/* Typography refinement: reduce oversized headings and remove decorative micro-copy */
+.recruitment-page .careers-hero{min-height:680px}
+.recruitment-page .careers-hero-visual span{display:none}
+.recruitment-page .careers-hero-content{padding:100px 0}
+.recruitment-page .careers-hero h1{font-size:clamp(44px,4.2vw,60px);line-height:1.2;letter-spacing:-.055em}
+.recruitment-page .careers-hero-content>p:not(.careers-hero-label){font-size:18px;line-height:1.65}
+.recruitment-page .careers-hero-link{font-size:17px}
+.recruitment-page .careers-scroll{font-size:14px}
+.recruitment-page .careers-section{padding:100px 0}
+.recruitment-page .careers-heading-row{margin-bottom:48px}
+.recruitment-page .careers-heading-row h2{font-size:clamp(36px,3.7vw,50px);line-height:1.22}
+.recruitment-page .careers-team-item summary{min-height:105px}
+.recruitment-page .careers-team-title{font-size:30px}
+.recruitment-page .careers-team-number{font-size:17px}
+.recruitment-page .careers-team-plus{font-size:28px}
+.recruitment-page .careers-team-detail h3{font-size:20px}
+.recruitment-page .careers-team-detail p{font-size:17px;line-height:1.75}
+.recruitment-page .careers-benefit-main-image span,.recruitment-page .careers-join-image span{display:none}
+.recruitment-page .careers-benefit-main-image{min-height:500px}
+.recruitment-page .careers-benefit-categories article{padding:22px 0}
+.recruitment-page .careers-benefit-categories article>span{font-size:16px}
+.recruitment-page .careers-benefit-categories h3{font-size:23px}
+.recruitment-page .careers-benefit-categories p{font-size:17px;line-height:1.7}
+.recruitment-page .careers-culture-strip{margin-top:48px;padding:30px 34px}
+.recruitment-page .careers-culture-strip h3{font-size:23px}
+.recruitment-page .careers-join{min-height:520px}
+.recruitment-page .careers-join h2{font-size:clamp(38px,4.2vw,54px)}
+.recruitment-page .careers-join-content>a{font-size:17px}
+.recruitment-page .careers-recruit-types h3{font-size:24px}
+.recruitment-page .careers-recruit-types p{font-size:17px;line-height:1.7}
+.recruitment-page .careers-process-head{margin:70px 0 24px}
+.recruitment-page .careers-process-head h3{font-size:25px}
+.recruitment-page .careers-process li{min-height:190px;padding:22px 18px}
+.recruitment-page .careers-process li>span{font-size:16px}
+.recruitment-page .careers-process h4{font-size:19px;margin:22px 0 10px}
+.recruitment-page .careers-process p{font-size:16px;line-height:1.65}
+.recruitment-page .careers-job-board-heading h3{font-size:28px}
+.recruitment-page .careers-recruit-table th{font-size:17px}
+.recruitment-page .careers-recruit-table td{font-size:17px}
+.recruitment-page .careers-status{font-size:16px}
+.recruitment-page .careers-faq{padding-top:85px;padding-bottom:95px}
+.recruitment-page .careers-faq-list summary{font-size:19px;padding:24px 45px 24px 4px}
+.recruitment-page .careers-faq-list details p{font-size:17px;line-height:1.75}
+@media(max-width:900px){
+ .recruitment-page .careers-hero{min-height:590px}
+ .recruitment-page .careers-hero-content{padding:85px 0}
+ .recruitment-page .careers-hero h1{font-size:clamp(40px,6vw,54px)}
+ .recruitment-page .careers-section{padding:78px 0}
+ .recruitment-page .careers-heading-row h2{font-size:42px}
+ .recruitment-page .careers-process{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:650px){
+ .recruitment-page .careers-hero{min-height:540px}
+ .recruitment-page .careers-hero h1{font-size:40px}
+ .recruitment-page .careers-hero-content>p:not(.careers-hero-label){font-size:16px}
+ .recruitment-page .careers-hero-link{font-size:16px;padding:15px 18px}
+ .recruitment-page .careers-heading-row h2{font-size:35px}
+ .recruitment-page .careers-team-title{font-size:23px}
+ .recruitment-page .careers-team-number{font-size:15px}
+ .recruitment-page .careers-team-detail h3{font-size:19px}
+ .recruitment-page .careers-team-detail p,.recruitment-page .careers-benefit-categories p,.recruitment-page .careers-recruit-types p,.recruitment-page .careers-faq-list details p{font-size:16px}
+ .recruitment-page .careers-benefit-categories h3{font-size:21px}
+ .recruitment-page .careers-join h2{font-size:37px}
+ .recruitment-page .careers-process-head h3{font-size:22px}
+ .recruitment-page .careers-process{grid-template-columns:1fr}
+ .recruitment-page .careers-process h4{font-size:19px}
+ .recruitment-page .careers-faq-list summary{font-size:17px}
+}
