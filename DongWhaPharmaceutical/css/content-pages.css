@@ -1855,48 +1855,14 @@ body.news-detail-open{
 .investment-table td:nth-child(2){text-align:left;font-weight:600}
 .investment-pagination{display:flex;justify-content:center;margin-top:32px}
 .investment-pagination span{display:inline-flex;align-items:center;justify-content:center;min-width:56px;height:48px;border:1px solid #d6dce3;font-size:17px}
-/* Pharmacy finder */
-.pharmacy-hero{background:#f4f6f8}
-.pharmacy-hero .pharmacy-container>p{margin:0 0 22px;color:var(--brand-primary);font-size:19px;font-weight:700}
-.pharmacy-search-section{padding:82px 0 110px}
-.pharmacy-search-heading{margin-bottom:28px}
-.pharmacy-search-heading h2{margin:0 0 12px;font-size:38px;letter-spacing:-.04em}
-.pharmacy-search-heading p{margin:0;color:#596779;font-size:18px;line-height:1.6}
-.pharmacy-search-tools{display:flex;gap:10px;margin-bottom:30px}
-.pharmacy-search-input{flex:1;min-width:0}
-.pharmacy-search-input input{width:100%;height:58px;padding:0 18px;border:1px solid #cbd3dc;border-radius:0;font:inherit;font-size:17px;outline-offset:2px}
-.pharmacy-search-tools button{min-width:116px;padding:0 22px;border:1px solid var(--brand-secondary);background:var(--brand-secondary);color:#fff;font:inherit;font-size:17px;font-weight:600;cursor:pointer}
-.pharmacy-search-tools .location-button{background:#fff;color:var(--brand-secondary)}
-.pharmacy-results-layout{display:grid;grid-template-columns:minmax(300px,.82fr) minmax(0,1.45fr);min-height:550px;border:1px solid #d6dce3}
-.pharmacy-list-panel{min-width:0;border-right:1px solid #d6dce3}
-.pharmacy-result-top{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;border-bottom:1px solid #d6dce3}
-.pharmacy-result-top h3{margin:0;font-size:23px}
-.pharmacy-result-top span{font-size:17px;color:var(--brand-primary);font-weight:700}
-.pharmacy-status{margin:0;padding:22px 24px;color:#596779;font-size:17px;line-height:1.6}
-.pharmacy-list{max-height:480px;overflow-y:auto;margin:0;padding:0;list-style:none}
-.pharmacy-list-item{border-top:1px solid #e0e4e9}
-.pharmacy-list-item button{display:flex;width:100%;flex-direction:column;gap:9px;padding:20px 24px;border:0;background:#fff;text-align:left;cursor:pointer;font:inherit}
-.pharmacy-list-item button:hover{background:#f5f7f9}
-.pharmacy-list-item strong{font-size:18px;color:var(--text-primary)}
-.pharmacy-list-item span{font-size:16px;line-height:1.5;color:#596779}
-.pharmacy-map{min-height:550px;background:#edf1f4;z-index:0}
-.pharmacy-data-note{margin:20px 0 0;color:#596779;font-size:16px;line-height:1.6}
-.pharmacy-finder-page .site-footer{margin-top:0}
+
 @media(max-width:760px){
- .investment-container,.pharmacy-container{width:calc(100% - 36px)}
- .investment-hero,.pharmacy-hero{min-height:300px}
- .investment-hero .investment-container,.pharmacy-hero .pharmacy-container{padding:62px 0}
- .investment-main,.pharmacy-search-section{padding:64px 0 76px}
+ .investment-container{width:calc(100% - 36px)}
+ .investment-hero{min-height:300px}
+ .investment-hero .investment-container{padding:62px 0}
+ .investment-main{padding:64px 0 76px}
  .investment-heading{display:block}
- .investment-heading h2,.pharmacy-search-heading h2{font-size:30px}
+ .investment-heading h2{font-size:30px}
  .investment-heading p{margin-top:18px}
  .investment-table th,.investment-table td{padding:17px 8px;font-size:15px}
- .investment-table th:first-child,.investment-table td:first-child{width:56px}
- .pharmacy-search-tools{display:grid;grid-template-columns:1fr 1fr}
- .pharmacy-search-input{grid-column:1/-1}
- .pharmacy-search-tools button{height:54px;padding:0 12px;font-size:15px}
- .pharmacy-results-layout{grid-template-columns:1fr}
- .pharmacy-list-panel{border-right:0;border-bottom:1px solid #d6dce3}
- .pharmacy-list{max-height:300px}
- .pharmacy-map{min-height:380px}
 }
